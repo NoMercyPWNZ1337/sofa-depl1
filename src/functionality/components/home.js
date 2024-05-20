@@ -1,5 +1,6 @@
 ;(async () => {
   const store = await import('../store/index.js')
+  const auth = await import('../methods/auth.js')
 
-  console.log(store.state)
+  auth.autoLogin()
 })()

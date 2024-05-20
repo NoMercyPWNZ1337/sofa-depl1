@@ -4,6 +4,7 @@ import mongoose from 'mongoose'
 import path from 'path'
 
 import { pages } from './src/index.js'
+import api from './src/api/routes/index.js'
 
 dotenv.config()
 
@@ -13,6 +14,7 @@ const port = process.env.PORT || 9999
 app.use(express.static(`${path.resolve()}/src/`))
 app.use(express.json())
 app.use(pages)
+app.use('/api', ...api)
 
 const start = async () => {
   try {

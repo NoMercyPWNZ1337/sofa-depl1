@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <link rel="stylesheet" href="/assets/styles/index.css" />
+  </head>
+  <body>
+    <h1>Реєстрація</h1>
+
+    <form id="registration-form" class="registration-form">
+      <input type="text" name="name" placeholder="Ім’я" />
+      <input type="text" name="lastName" placeholder="Прізвище" />
+      <input type="text" name="phone" placeholder="Мобільний телефон" />
+      <input type="text" name="password" placeholder="Придумайте собі пароль" />
+      <label for="agree">
+        <input id="agree" name="agree" type="checkbox" />
+        Реєструючись, ви приймаєте умови користування сайтом і висловлюєте згоду
+        на обробку ваших персональних даних, згідно з чинним положенням про
+        обробку і захист персональних даних.
+      </label>
+      <button type="submit">Зареєструватися</button>
+    </form>
+
+    <a href="/login">Вхід</a>
+
+    <script
+      type="text/javascript"
+      src="/functionality/components/registration.js"
+    ></script>
+  </body>
+</html>
