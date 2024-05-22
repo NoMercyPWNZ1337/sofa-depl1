@@ -11,7 +11,7 @@ dotenv.config()
 const app = express()
 const port = process.env.PORT || 9999
 
-app.use(express.static(`${path.resolve()}/src/`))
+app.use(express.static(path.resolve() + '/src/'))
 app.use(express.json())
 app.use(pages)
 app.use('/api', ...api)

@@ -9,11 +9,16 @@
   <body>
     <h1>Реєстрація</h1>
 
-    <form id="registration-form" class="registration-form">
+    <form id="registration-form" class="auth-form">
       <input type="text" name="name" placeholder="Ім’я" />
       <input type="text" name="lastName" placeholder="Прізвище" />
+      <input type="email" name="email" placeholder="E-mail" />
       <input type="text" name="phone" placeholder="Мобільний телефон" />
-      <input type="text" name="password" placeholder="Придумайте собі пароль" />
+      <input
+        type="password"
+        name="password"
+        placeholder="Придумайте собі пароль"
+      />
       <label for="agree">
         <input id="agree" name="agree" type="checkbox" />
         Реєструючись, ви приймаєте умови користування сайтом і висловлюєте згоду
@@ -27,7 +32,7 @@
 
     <script
       type="text/javascript"
-      src="/functionality/components/registration.js"
+      src="/functionality/modules/registration.js"
     ></script>
   </body>
 </html>

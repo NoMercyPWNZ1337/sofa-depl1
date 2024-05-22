@@ -1,22 +1,19 @@
 ;(async () => {
-  const { Fetch } = await import('../utils/fetch.utility.js')
+  const { registrationService } = await import('../services/auth.js')
 
   const registrationForm = document.querySelector('#registration-form')
 
   registrationForm.addEventListener('submit', async e => {
     e.preventDefault()
 
-    const user = {
+    const response = registrationService({
       name: e.target.name.value,
       lastName: e.target.lastName.value,
+      email: e.target.email.value,
       phone: e.target.phone.value,
       password: e.target.password.value,
-    }
-
-    const response = await Fetch({
-      method: 'post',
-      url: '/api/login',
-      body: user,
     })
+
+    console.log('errors =>', response.errors)
   })
 })()
