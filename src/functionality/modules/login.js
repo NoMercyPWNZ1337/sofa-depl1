@@ -1,5 +1,6 @@
 ;(async () => {
   const { loginService } = await import('../services/auth.js')
+  const { Redirect } = await import('../utils/redirect.utillity.js')
 
   const loginForm = document.querySelector('#login-form')
 
@@ -7,13 +8,13 @@
     e.preventDefault()
 
     try {
-      const loginResponse = await loginService({
+      const response = await loginService({
         login: e.target.login.value,
         password: e.target.password.value,
       })
 
-      if (loginResponse.success) {
-        document.location.href = '/'
+      if (response.success) {
+        Redirect('/')
       }
     } catch (error) {
       console.log(error)

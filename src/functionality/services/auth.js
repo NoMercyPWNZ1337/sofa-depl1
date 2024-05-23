@@ -1,5 +1,6 @@
 import { Fetch } from '../utils/fetch.utility.js'
 import { state } from '../state/index.js'
+import { Redirect } from '../utils/redirect.utillity.js'
 
 export const loginService = async userData => {
   const response = await Fetch({
@@ -25,40 +26,32 @@ export const registrationService = async userData => {
   return response
 }
 
-export const autoLoginService = async () => {
+export const checkAuthService = async () => {
   const token = localStorage.getItem('token')
 
   if (token) {
-    const response = await Fetch({
-      method: 'get',
-      url: '/api/check-auth',
-      token,
-    })
+    const response = await Fetch({ method: 'get', url: '/api/check-auth' })
 
     if (response.success) {
       state.isAuth = true
       state.user = response.user
     }
   } else {
-    document.location.href = '/login'
+    Redirect('/login')
   }
 }
 
-export const autoCheckAccess = async () => {
+export const checkAccessService = async () => {
   const token = localStorage.getItem('token')
 
   if (token) {
-    const response = await Fetch({
-      method: 'get',
-      url: '/api/check-access',
-      token,
-    })
+    const response = await Fetch({ method: 'get', url: '/api/check-access' })
 
     if (!response.success) {
-      document.location.href = '/login'
+      Redirect('/login')
     }
   } else {
-    document.location.href = '/login'
+    Redirect('/login')
   }
 }
 

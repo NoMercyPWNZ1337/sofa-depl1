@@ -4,13 +4,15 @@
 
 export const Fetch = async props => {
   try {
+    const token = localStorage.getItem('token')
+
     const headers = {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     }
 
-    if (props.token) {
-      headers.Authorization = `Bearer ${props.token}`
+    if (token) {
+      headers.Authorization = `Bearer ${token}`
     }
 
     const response = await fetch(props.url, {

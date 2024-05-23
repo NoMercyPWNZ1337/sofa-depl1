@@ -2,6 +2,7 @@
   const { registrationService, loginService } = await import(
     '../services/auth.js'
   )
+  const { Redirect } = await import('../utils/redirect.utillity.js')
 
   const registrationForm = document.querySelector('#registration-form')
 
@@ -26,7 +27,7 @@
         })
 
         if (loginResponse.success) {
-          document.location.href = '/'
+          Redirect('/')
         }
       }
     } catch (error) {

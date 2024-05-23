@@ -3,15 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Admin panel</title>
-    <link rel="stylesheet" href="/assets/styles/index.css" />
+    <title>Панель адміністратора | FixHealth</title>
+    <link rel="stylesheet" href="/src/assets/styles/index.css" />
   </head>
   <body>
-    <h1>Admin panel</h1>
+    <h1>Панель адміністратора: добавлення товару</h1>
+
+    <form id="add-product">
+      <label for="name">
+        Назва товару:
+        <input id="name" type="text" name="name" />
+      </label>
+      <span>В наявності:</span>
+      <label for="yes">
+        Так
+        <input type="radio" id="yes" name="availability" value="yes" />
+      </label>
+      <label for="no">
+        Ні
+        <input type="radio" id="no" name="availability" value="no" />
+      </label>
+
+      <label for="price">
+        Ціна товару(грн):
+        <input id="price" type="number" name="price" />
+      </label>
+
+      <label for="quantity">
+        Кількість товару на складі:
+        <input id="quantity" type="number" name="quantity" />
+      </label>
+
+      <label for="image">
+        Зображення товару:
+
+        <input id="image" type="file" name="image" />
+      </label>
+
+      <button type="submit">Добавити товар</button>
+    </form>
 
     <script
       type="text/javascript"
-      src="/functionality/modules/admin-panel.js"
+      src="/src/functionality/modules/admin-panel.js"
     ></script>
   </body>
 </html>

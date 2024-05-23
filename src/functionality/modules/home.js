@@ -1,5 +1,5 @@
 ;(async () => {
-  const { autoLoginService } = await import('../services/auth.js')
+  const { checkAuthService } = await import('../services/auth.js')
 
-  autoLoginService()
+  checkAuthService()
 })()

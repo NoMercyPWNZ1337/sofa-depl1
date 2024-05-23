@@ -1,9 +1,7 @@
 import { check } from 'express-validator'
 
 export const loginValidators = [
-  check('login', 'Телефон або E-mail не може бути коротше 7 символів').isLength(
-    { min: 7 }
-  ),
+  check('login', 'Телефон або E-mail не може бути пустим').notEmpty(),
   check(
     'password',
     'Пароль не може бути коротше 10 символів, і не більше 20 символів'
@@ -18,8 +16,9 @@ export const registrationValidators = [
     min: 3,
   }),
   check('email', 'Введіть корректний E-mail').isEmail(),
-  check('phone', 'Номер телефону не може бути менше 10 цифр').isLength({
+  check('phone', 'Введіть корректний номер телефону - 10 цифер').isLength({
     min: 10,
+    max: 10,
   }),
   check(
     'password',
