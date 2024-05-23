@@ -1,9 +1,6 @@
 import { Router } from 'express'
 import path from 'path'
 
-import roleMiddleware from '../shared/middleware/role.js'
-import authMiddleware from '../shared/middleware/auth.js'
-
 const router = Router()
 
 const fullPathForPages = path.join(path.resolve() + '/src/pages')

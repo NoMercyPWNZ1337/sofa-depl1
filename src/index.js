@@ -1,1 +1,1 @@
-export { default as pages } from './routes/index.js'
+export { default as pages } from './pages/routes/index.js'
