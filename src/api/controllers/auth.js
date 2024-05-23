@@ -118,3 +118,30 @@ export const checkAuth = async (req, res) => {
     })
   }
 }
+
+export const checkAccess = async function (req, res) {
+  const roles = this
+
+  try {
+    const { roles: userRoles } = jwt.verify(
+      req.headers.authorization.split(' ')[1],
+      process.env.SECRET_TOKEN_KEY
+    )
+
+    const hasRole = userRoles.find(role => roles.includes(role))
+
+    if (!hasRole) {
+      return res.status(403).json({
+        message: 'Помилка, у вас немає доступу',
+        success: false,
+      })
+    }
+
+    res.json({ success: true })
+  } catch (error) {
+    res.status(400).json({
+      message: 'Помилка, у вас немає доступу',
+      success: false,
+    })
+  }
+}

@@ -7,10 +7,14 @@
     e.preventDefault()
 
     try {
-      const response = await loginService({
+      const loginResponse = await loginService({
         login: e.target.login.value,
         password: e.target.password.value,
       })
+
+      if (loginResponse.success) {
+        document.location.href = '/'
+      }
     } catch (error) {
       console.log(error)
     }

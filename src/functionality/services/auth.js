@@ -43,3 +43,30 @@ export const autoLoginService = async () => {
     document.location.href = '/login'
   }
 }
+
+export const autoCheckAccess = async () => {
+  const token = localStorage.getItem('token')
+
+  if (token) {
+    const response = await Fetch({
+      method: 'get',
+      url: '/api/check-access',
+      token,
+    })
+
+    if (!response.success) {
+      document.location.href = '/login'
+    }
+  } else {
+    document.location.href = '/login'
+  }
+}
+
+export const logoutService = async () => {
+  localStorage.removeItem('token')
+
+  state.isAuth = false
+  state.user = false
+
+  document.location.reload()
+}

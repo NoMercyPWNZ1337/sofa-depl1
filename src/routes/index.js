@@ -20,12 +20,8 @@ router.get('/registration', (req, res) => {
   res.sendFile(fullPathForPages + '/registration.html')
 })
 
-router.get(
-  '/admin-panel',
-  [authMiddleware, roleMiddleware(['admin'])],
-  (req, res) => {
-    res.sendFile(fullPathForPages + '/admin-panel.html')
-  }
-)
+router.get('/admin-panel', (req, res) => {
+  res.sendFile(fullPathForPages + '/admin-panel.html')
+})
 
 export default router
