@@ -3,7 +3,12 @@ import multer from 'multer'
 
 import authMiddleware from '../../shared/middleware/auth.js'
 import roleMiddleware from '../../shared/middleware/role.js'
-import { createProduct, uploadImage } from '../controllers/product.js'
+import {
+  createProduct,
+  uploadImage,
+  getAllProducts,
+  removeProduct,
+} from '../controllers/product.js'
 
 const router = Router()
 
@@ -18,7 +23,24 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage })
 
-router.post('/create-product', createProduct)
+router.get(
+  '/products',
+  [authMiddleware, roleMiddleware(['admin'])],
+  getAllProducts
+)
+
+router.delete(
+  '/products/:id',
+  [authMiddleware, roleMiddleware(['admin'])],
+  removeProduct
+)
+
+router.post(
+  '/create-product',
+  [authMiddleware, roleMiddleware(['admin'])],
+  createProduct
+)
+
 router.post(
   '/upload-image',
   [authMiddleware, roleMiddleware(['admin']), upload.single('image')],

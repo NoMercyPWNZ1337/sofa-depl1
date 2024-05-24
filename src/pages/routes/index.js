@@ -18,7 +18,11 @@ router.get('/registration', (req, res) => {
 })
 
 router.get('/admin-panel', (req, res) => {
-  res.sendFile(fullPathForPages + '/admin-panel.html')
+  res.sendFile(fullPathForPages + '/admin-panel/index.html')
+})
+
+router.get('/admin-panel/add-product', (req, res) => {
+  res.sendFile(fullPathForPages + '/admin-panel/add-product.html')
 })
 
 export default router

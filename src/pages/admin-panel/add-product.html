@@ -24,11 +24,11 @@
       <span>В наявності:</span>
       <label for="yes">
         Так
-        <input type="radio" id="yes" name="availability" value="yes" />
+        <input type="radio" id="yes" name="availability" value="Так" />
       </label>
       <label for="no">
         Ні
-        <input type="radio" id="no" name="availability" value="no" />
+        <input type="radio" id="no" name="availability" value="Ні" />
       </label>
 
       <label for="price">
@@ -36,9 +36,22 @@
         <input id="price" type="number" name="price" />
       </label>
 
-      <label for="quantity">
+      <label for="quantityInWarehouse">
         Кількість товару на складі:
-        <input id="quantity" type="number" name="quantity" />
+        <input
+          id="quantityInWarehouse"
+          type="number"
+          name="quantityInWarehouse"
+        />
+      </label>
+
+      <label for="quantityInDrugstore">
+        Кількість товару в аптеці:
+        <input
+          id="quantityInDrugstore"
+          type="number"
+          name="quantityInDrugstore"
+        />
       </label>
 
       <button type="submit">Добавити товар</button>
@@ -46,7 +59,7 @@
 
     <script
       type="text/javascript"
-      src="/src/functionality/modules/admin-panel.js"
+      src="/src/functionality/modules/admin-panel/add-product.js"
     ></script>
   </body>
 </html>

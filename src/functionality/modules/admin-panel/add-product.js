@@ -1,8 +1,8 @@
 ;(async () => {
   const { checkAuthService, checkAccessService } = await import(
-    '../services/auth.js'
+    '../../services/auth.js'
   )
-  const { Fetch } = await import('../utils/fetch.utility.js')
+  const { Fetch } = await import('../../utils/fetch.utility.js')
 
   checkAuthService()
   checkAccessService()
@@ -34,6 +34,28 @@
     e.preventDefault()
 
     try {
+      const productData = {
+        name: e.target.name.value,
+        availability: e.target.availability.value,
+        price: e.target.price.value,
+        quantityInWarehouse: e.target.quantityInWarehouse.value,
+        quantityInDrugstore: e.target.quantityInDrugstore.value,
+        image: previewImage.src,
+      }
+
+      const response = await Fetch({
+        url: '/api/create-product',
+        method: 'post',
+        body: productData,
+      })
+
+      if (response.success) {
+        alert(
+          'Товар добавлено, сторінка перезагрузиться після закриття сповіщення'
+        )
+
+        window.location.reload()
+      }
     } catch (error) {
       console.log(error)
     }
