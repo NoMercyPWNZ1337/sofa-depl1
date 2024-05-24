@@ -5,4 +5,144 @@
   list-style: none;
   font-family: Arial;
   box-sizing: border-box;
+  color: #4b4453;
+}
+
+input,
+button {
+  outline: none;
+  border: none;
+  background-color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1300px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.navbar {
+  padding: 20px 0;
+  box-shadow: -1px 6px 22.5px -8px #dddddd;
+}
+
+.navbar .container {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  align-items: center;
+  gap: 0 35px;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+  gap: 0 10px;
+}
+
+.navbar .logo img {
+  width: 50px;
+  height: 50px;
+}
+
+.navbar .logo span {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #07d325;
+}
+
+.navbar .search {
+  width: 100%;
+  border: 1px solid #4b4453;
+  border-radius: 5px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  gap: 0 10px;
+  align-items: center;
+  padding-right: 15px;
+  transition: color 0.2s;
+  transition: border-color 0.2s;
+}
+
+.navbar .search:hover {
+  border-color: #07d325;
+  transition: border-color 0.2s;
+}
+
+.navbar .search img {
+  display: block;
+}
+.navbar .search input {
+  width: 100%;
+  font-size: 20px;
+  padding: 10px 10px;
+}
+
+.navbar .favorite,
+.navbar .basket,
+.navbar .user {
+  position: relative;
+  width: max-content;
+  cursor: pointer;
+}
+
+.navbar .favorite img,
+.navbar .basket img,
+.navbar .user img,
+.navbar .service img {
+  width: 25px;
+  height: 25px;
+}
+
+.navbar .favorite span,
+.navbar .basket span {
+  font-size: 10px;
+  width: 17px;
+  height: 17px;
+  background-color: red;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  display: none;
+}
+
+.navbar .favorite.active span,
+.navbar .basket.active span {
+  display: block;
+}
+
+.navbar .service a {
+  display: flex;
+  align-items: center;
+  gap: 0 10px;
+  font-size: 15px;
+  border: 1px solid #4b4453;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: border-color 0.2s;
+}
+
+.navbar .service a:hover {
+  border-color: #07d325;
+  transition: border-color 0.2s;
+}
+
+.navbar .service span {
+  margin-top: 2px;
+}
+
+.navbar .row {
+  display: flex;
+  gap: 0 30px;
+  align-items: center;
 }
