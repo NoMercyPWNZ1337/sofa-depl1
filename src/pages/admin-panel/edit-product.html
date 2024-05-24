@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/src/assets/styles/index.css" />
   </head>
   <body>
-    <h1>Панель адміністратора: добавлення товару</h1>
+    <h1>Панель адміністратора: редагування товару</h1>
 
     <form id="upload-file">
       <img id="preview-image" src="" alt="" />
@@ -16,7 +16,7 @@
         <input id="image" type="file" name="image" />
       </label>
     </form>
-    <form id="add-product">
+    <form id="edit-product">
       <label for="name">
         Назва товару:
         <input id="name" type="text" name="name" />
@@ -45,12 +45,12 @@
         />
       </label>
 
-      <button type="submit">Добавити товар</button>
+      <button type="submit">Оновити товар</button>
     </form>
 
     <script
       type="text/javascript"
-      src="/src/functionality/modules/admin-panel/add-product.js"
+      src="/src/functionality/modules/admin-panel/edit-product.js"
     ></script>
   </body>
 </html>

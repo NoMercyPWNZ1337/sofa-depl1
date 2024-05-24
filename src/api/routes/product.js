@@ -3,11 +3,16 @@ import multer from 'multer'
 
 import authMiddleware from '../../shared/middleware/auth.js'
 import roleMiddleware from '../../shared/middleware/role.js'
+
+import { productValidators } from '../validators/product.js'
+
 import {
   createProduct,
   uploadImage,
   getAllProducts,
   removeProduct,
+  getOneProduct,
+  updateProduct,
 } from '../controllers/product.js'
 
 const router = Router()
@@ -29,6 +34,12 @@ router.get(
   getAllProducts
 )
 
+router.get(
+  '/products/:id',
+  [authMiddleware, roleMiddleware(['admin'])],
+  getOneProduct
+)
+
 router.delete(
   '/products/:id',
   [authMiddleware, roleMiddleware(['admin'])],
@@ -37,8 +48,14 @@ router.delete(
 
 router.post(
   '/create-product',
-  [authMiddleware, roleMiddleware(['admin'])],
+  [authMiddleware, roleMiddleware(['admin']), productValidators],
   createProduct
+)
+
+router.put(
+  '/update-product/:id',
+  [authMiddleware, roleMiddleware(['admin']), productValidators],
+  updateProduct
 )
 
 router.post(

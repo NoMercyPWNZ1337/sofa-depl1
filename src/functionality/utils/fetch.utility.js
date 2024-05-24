@@ -28,7 +28,15 @@ export const Fetch = async props => {
   const data = await response.json()
 
   if (!response.ok && !data.success) {
-    alert(data.message)
+    const errorsList = data.errors.map(error => `\n⚠️ ${error.msg}`).join('\n')
+    const strAlert =
+      data.message +
+      ' ❌' +
+      '\n' +
+      `${data.errors.length && 'Виправіть помилки:\n'}` +
+      errorsList
+
+    alert(strAlert)
   }
 
   return data

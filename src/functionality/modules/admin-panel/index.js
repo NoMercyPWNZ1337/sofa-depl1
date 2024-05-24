@@ -3,6 +3,7 @@
     '../../services/auth.js'
   )
   const { Fetch } = await import('../../utils/fetch.utility.js')
+  const { Redirect } = await import('../../utils/redirect.utillity.js')
 
   checkAuthService()
   checkAccessService()
@@ -12,12 +13,12 @@
   const responseProducts = await Fetch({ url: '/api/products', method: 'get' })
 
   const onRemoveProduct = () => {
-    const removeBtns = productList.querySelectorAll('button[data-id]')
+    const removeBtns = productList.querySelectorAll('button[data-remove-id]')
 
     removeBtns.forEach(button => {
       button.addEventListener('click', async e => {
         const response = await Fetch({
-          url: `/api/products/${e.target.dataset.id}`,
+          url: `/api/products/${e.target.dataset.removeId}`,
           method: 'delete',
         })
 
@@ -26,6 +27,21 @@
         }
       })
     })
+  }
+
+  const onEditProduct = () => {
+    const editBtns = productList.querySelectorAll('button[data-edit-id]')
+
+    editBtns.forEach(button => {
+      button.addEventListener('click', async e => {
+        Redirect(`/admin-panel/edit-product?id=${e.target.dataset.editId}`)
+      })
+    })
+  }
+
+  const readyProductListInDOM = () => {
+    onRemoveProduct()
+    onEditProduct()
   }
 
   const productListHtml = responseProducts.products.map(product => {
@@ -39,11 +55,11 @@
           }</p>
           <p>Ціна: ${product.price}</p>
           <p>Кількість в аптеці: ${product.quantityInDrugstore}</p>
-          <p>Кількість в аптеці: ${product.quantityInWarehouse}</p>
+          <p>Кількість на складі: ${product.quantityInWarehouse}</p>
         </div>
         <div>
-          <button>Редагувати</button>
-          <button data-id="${product._id}">Видалити</button>
+          <button data-edit-id="${product._id}" >Редагувати</button>
+          <button data-remove-id="${product._id}">Видалити</button>
         </div>
       </div>
     `
@@ -52,7 +68,7 @@
   if (responseProducts.products.length) {
     productList.innerHTML = productListHtml.join('')
 
-    onRemoveProduct()
+    readyProductListInDOM()
   } else {
     productList.innerHTML = '<h4>Немає товарів</h4>'
   }

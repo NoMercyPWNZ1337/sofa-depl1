@@ -1,4 +1,21 @@
+import { validationResult } from 'express-validator'
+
 import Product from '../models/product.js'
+
+export const getOneProduct = async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id).exec()
+
+    return res.json({ success: true, product })
+  } catch (error) {
+    console.log(error)
+
+    return res.status(400).json({
+      message: 'Помилка при полученні товару',
+      success: false,
+    })
+  }
+}
 
 export const getAllProducts = async (req, res) => {
   try {
@@ -9,7 +26,7 @@ export const getAllProducts = async (req, res) => {
     console.log(error)
 
     return res.status(400).json({
-      message: 'Невідома помилка при полученні товарів',
+      message: 'Помилка при полученні товарів',
       success: false,
     })
   }
@@ -17,7 +34,22 @@ export const getAllProducts = async (req, res) => {
 
 export const createProduct = async (req, res) => {
   try {
-    const product = new Product({ ...req.body })
+    const { errors } = validationResult(req)
+
+    if (errors.length) {
+      return res.status(400).json({
+        message: 'Помилка при створенні товару',
+        errors,
+      })
+    }
+
+    const product = new Product({
+      name: req.body.name,
+      price: req.body.price,
+      quantityInWarehouse: req.body.quantityInWarehouse,
+      quantityInDrugstore: req.body.quantityInDrugstore,
+      image: req.body.image,
+    })
 
     await product.save()
 
@@ -26,7 +58,40 @@ export const createProduct = async (req, res) => {
     console.log(error)
 
     return res.status(400).json({
-      message: 'Невідома помилка при створенні товару',
+      message: 'Помилка при створенні товару',
+      success: false,
+    })
+  }
+}
+
+export const updateProduct = async (req, res) => {
+  try {
+    const { errors } = validationResult(req)
+
+    if (errors.length) {
+      return res.status(400).json({
+        message: 'Помилка при оновленні товару',
+        errors,
+      })
+    }
+
+    await Product.findByIdAndUpdate(
+      { _id: req.params.id },
+      {
+        name: req.body.name,
+        price: req.body.price,
+        quantityInWarehouse: req.body.quantityInWarehouse,
+        quantityInDrugstore: req.body.quantityInDrugstore,
+        image: req.body.image,
+      }
+    )
+
+    res.json({ success: true })
+  } catch (error) {
+    console.log(error)
+
+    return res.status(400).json({
+      message: 'Помилка при оновленні товару',
       success: false,
     })
   }
@@ -41,7 +106,7 @@ export const removeProduct = async (req, res) => {
     console.log(error)
 
     return res.status(400).json({
-      message: 'Невідома помилка при видаленні товару',
+      message: 'Помилка при видаленні товару',
       success: false,
     })
   }
@@ -54,7 +119,7 @@ export const uploadImage = async (req, res) => {
     console.log(error)
 
     return res.status(400).json({
-      message: 'Невідома помилка при загрузці зображення',
+      message: 'Помилка при загрузці зображення',
       success: false,
     })
   }

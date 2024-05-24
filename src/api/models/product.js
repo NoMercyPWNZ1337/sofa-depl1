@@ -1,12 +1,11 @@
 import { Schema, model } from 'mongoose'
 
 const Product = new Schema({
-  name: { type: String, required: true },
-  availability: { type: String, required: true },
-  price: { type: Number, required: true },
-  quantityInWarehouse: { type: Number, required: true },
-  quantityInDrugstore: { type: Number, required: true },
-  image: { type: String, required: true },
+  name: { type: String },
+  price: { type: Number },
+  quantityInWarehouse: { type: Number },
+  quantityInDrugstore: { type: Number },
+  image: { type: String },
 })
 
 export default model('Product', Product)

@@ -25,4 +25,8 @@ router.get('/admin-panel/add-product', (req, res) => {
   res.sendFile(fullPathForPages + '/admin-panel/add-product.html')
 })
 
+router.get('/admin-panel/edit-product', (req, res) => {
+  res.sendFile(fullPathForPages + '/admin-panel/edit-product.html')
+})
+
 export default router
