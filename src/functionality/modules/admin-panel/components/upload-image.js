@@ -1,4 +1,4 @@
-import { Fetch } from '../../utils/fetch.utility.js'
+import { Fetch } from '../../../utils/fetch.utility.js'
 
 const uploadFileForm = document.querySelector('#upload-file')
 const inputFile = uploadFileForm.querySelector('input[name="image"]')

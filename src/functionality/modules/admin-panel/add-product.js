@@ -3,8 +3,8 @@
     '../../services/auth.js'
   )
   const { Fetch } = await import('../../utils/fetch.utility.js')
-  const { uploadImage } = await import('./upload-image.js')
-  const { productData } = await import('./product-data.js')
+  const { uploadImage } = await import('./components/upload-image.js')
+  const { productData } = await import('./components/product-data.js')
 
   checkAuthService()
   checkAccessService()
