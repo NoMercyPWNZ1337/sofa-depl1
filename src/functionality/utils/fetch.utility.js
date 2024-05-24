@@ -29,12 +29,11 @@ export const Fetch = async props => {
 
   if (!response.ok && !data.success) {
     const errorsList = data.errors.map(error => `\n⚠️ ${error.msg}`).join('\n')
-    const strAlert =
-      data.message +
-      ' ❌' +
-      '\n' +
-      `${data.errors.length && 'Виправіть помилки:\n'}` +
-      errorsList
+    let strAlert = data.message + ' ❌' + '\n'
+
+    if (data.errors.length) {
+      strAlert += 'Виправіть помилки:\n' + errorsList
+    }
 
     alert(strAlert)
   }
