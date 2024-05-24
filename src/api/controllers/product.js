@@ -2,6 +2,14 @@ import { validationResult } from 'express-validator'
 
 import Product from '../models/product.js'
 
+const productData = ({ req }) => ({
+  name: req.body.name,
+  price: req.body.price,
+  quantityInWarehouse: req.body.quantityInWarehouse,
+  quantityInDrugstore: req.body.quantityInDrugstore,
+  image: req.body.image,
+})
+
 export const getOneProduct = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id).exec()
@@ -43,13 +51,7 @@ export const createProduct = async (req, res) => {
       })
     }
 
-    const product = new Product({
-      name: req.body.name,
-      price: req.body.price,
-      quantityInWarehouse: req.body.quantityInWarehouse,
-      quantityInDrugstore: req.body.quantityInDrugstore,
-      image: req.body.image,
-    })
+    const product = new Product(productData({ req }))
 
     await product.save()
 
@@ -77,13 +79,7 @@ export const updateProduct = async (req, res) => {
 
     await Product.findByIdAndUpdate(
       { _id: req.params.id },
-      {
-        name: req.body.name,
-        price: req.body.price,
-        quantityInWarehouse: req.body.quantityInWarehouse,
-        quantityInDrugstore: req.body.quantityInDrugstore,
-        image: req.body.image,
-      }
+      productData({ req })
     )
 
     res.json({ success: true })
