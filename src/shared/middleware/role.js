@@ -1,3 +1,5 @@
+import jwt from 'jsonwebtoken'
+
 const roleMiddleware = roles => {
   return (req, res, next) => {
     if (req.method === 'OPTIONS') next()

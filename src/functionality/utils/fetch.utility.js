@@ -6,19 +6,20 @@ export const Fetch = async props => {
   try {
     const token = localStorage.getItem('token')
 
-    const headers = {
+    let headers = {
       Accept: 'application/json',
       'Content-Type': 'application/json',
     }
 
-    if (token) {
-      headers.Authorization = `Bearer ${token}`
-    }
+    if (props.file) headers = {}
+    if (token) headers.Authorization = `Bearer ${token}`
+
+    const body = props.file ? props.body : JSON.stringify(props.body)
 
     const response = await fetch(props.url, {
       method: props.method,
       headers,
-      body: JSON.stringify(props.body),
+      body,
     })
 
     return await response.json()

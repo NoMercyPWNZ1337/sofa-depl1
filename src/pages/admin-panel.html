@@ -9,6 +9,13 @@
   <body>
     <h1>Панель адміністратора: добавлення товару</h1>
 
+    <form id="upload-file">
+      <img id="preview-image" src="" alt="" />
+      <label for="image">
+        Зображення товару:
+        <input id="image" type="file" name="image" />
+      </label>
+    </form>
     <form id="add-product">
       <label for="name">
         Назва товару:
@@ -32,12 +39,6 @@
       <label for="quantity">
         Кількість товару на складі:
         <input id="quantity" type="number" name="quantity" />
-      </label>
-
-      <label for="image">
-        Зображення товару:
-
-        <input id="image" type="file" name="image" />
       </label>
 
       <button type="submit">Добавити товар</button>

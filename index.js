@@ -18,7 +18,9 @@ app.use('/api', ...api)
 
 const start = async () => {
   try {
-    await mongoose.connect(process.env.DB_URL)
+    await mongoose.connect(process.env.DB_URL).then(() => {
+      console.log('DB connected')
+    })
 
     app.listen(port, () => console.log(`Server started on port: ${port}`))
   } catch (error) {
