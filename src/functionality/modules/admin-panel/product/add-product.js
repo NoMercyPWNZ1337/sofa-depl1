@@ -3,13 +3,15 @@
   const { ProductService } = await import('../../../services/product.js')
   const { uploadImage } = await import('../components/upload-image.js')
   const { productData } = await import('../components/product-data.js')
+  const { categorySelect } = await import('../components/category-select.js')
 
   await AuthService.checkAuth()
   await AuthService.checkAccess()
 
+  const previewImage = uploadImage()
   const addProductForm = document.querySelector('#add-product')
 
-  const previewImage = uploadImage()
+  categorySelect({ form: addProductForm })
 
   addProductForm.addEventListener('submit', async e => {
     e.preventDefault()

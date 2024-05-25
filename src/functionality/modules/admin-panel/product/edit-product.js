@@ -3,24 +3,33 @@
   const { ProductService } = await import('../../../services/product.js')
   const { uploadImage } = await import('../components/upload-image.js')
   const { productData } = await import('../components/product-data.js')
+  const { categorySelect } = await import('../components/category-select.js')
 
   await AuthService.checkAuth()
   await AuthService.checkAccess()
 
+  const previewImage = uploadImage()
   const productId = new URLSearchParams(window.location.search).get('id')
   const editProductForm = document.querySelector('#edit-product')
 
-  const { product } = await ProductService.getOne({ productId })
+  categorySelect({ form: editProductForm })
 
-  const previewImage = uploadImage()
+  try {
+    const responseProduct = await ProductService.getOne({ productId })
 
-  if (Object.keys(product).length) {
-    editProductForm.name.value = product.name
-    editProductForm.price.value = product.price
-    editProductForm.quantityInWarehouse.value = product.quantityInWarehouse
-    editProductForm.quantityInDrugstore.value = product.quantityInDrugstore
-    previewImage.src = product.image
-    previewImage.setAttribute('data-image', product.image)
+    if (responseProduct.success) {
+      const product = responseProduct.product
+
+      editProductForm.name.value = product.name
+      editProductForm.price.value = product.price
+      editProductForm.quantityInWarehouse.value = product.quantityInWarehouse
+      editProductForm.quantityInDrugstore.value = product.quantityInDrugstore
+      editProductForm.category.value = product.category
+      previewImage.src = product.image
+      previewImage.setAttribute('data-image', product.image)
+    }
+  } catch (error) {
+    console.log(error)
   }
 
   editProductForm.addEventListener('submit', async e => {
