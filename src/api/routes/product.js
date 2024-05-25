@@ -6,14 +6,7 @@ import roleMiddleware from '../../shared/middleware/role.js'
 
 import { productValidators } from '../validators/product.js'
 
-import {
-  createProduct,
-  uploadImage,
-  getAllProducts,
-  removeProduct,
-  getOneProduct,
-  updateProduct,
-} from '../controllers/product.js'
+import { ProductController } from '../controllers/product.js'
 
 const router = Router()
 
@@ -31,37 +24,37 @@ const upload = multer({ storage })
 router.get(
   '/products',
   [authMiddleware, roleMiddleware(['admin'])],
-  getAllProducts
+  ProductController.getAll
 )
 
 router.get(
   '/products/:id',
   [authMiddleware, roleMiddleware(['admin'])],
-  getOneProduct
+  ProductController.getOne
 )
 
 router.delete(
   '/products/:id',
   [authMiddleware, roleMiddleware(['admin'])],
-  removeProduct
+  ProductController.remove
 )
 
 router.post(
   '/products',
   [authMiddleware, roleMiddleware(['admin']), productValidators],
-  createProduct
+  ProductController.create
 )
 
 router.put(
   '/products/:id',
   [authMiddleware, roleMiddleware(['admin']), productValidators],
-  updateProduct
+  ProductController.update
 )
 
 router.post(
   '/upload-image',
   [authMiddleware, roleMiddleware(['admin']), upload.single('image')],
-  uploadImage
+  ProductController.uploadImage
 )
 
 export default router

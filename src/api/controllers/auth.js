@@ -145,3 +145,5 @@ export const checkAccess = async function (req, res) {
     })
   }
 }
+
+export const AuthController = { login, registration, checkAuth, checkAccess }

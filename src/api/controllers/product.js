@@ -10,7 +10,7 @@ const productData = ({ req }) => ({
   image: req.body.image,
 })
 
-export const getOneProduct = async (req, res) => {
+const getOne = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id).exec()
 
@@ -25,7 +25,7 @@ export const getOneProduct = async (req, res) => {
   }
 }
 
-export const getAllProducts = async (req, res) => {
+const getAll = async (req, res) => {
   try {
     const products = await Product.find().exec()
 
@@ -40,7 +40,7 @@ export const getAllProducts = async (req, res) => {
   }
 }
 
-export const createProduct = async (req, res) => {
+const create = async (req, res) => {
   try {
     const { errors } = validationResult(req)
 
@@ -66,7 +66,7 @@ export const createProduct = async (req, res) => {
   }
 }
 
-export const updateProduct = async (req, res) => {
+const update = async (req, res) => {
   try {
     const { errors } = validationResult(req)
 
@@ -93,7 +93,7 @@ export const updateProduct = async (req, res) => {
   }
 }
 
-export const removeProduct = async (req, res) => {
+const remove = async (req, res) => {
   try {
     await Product.findOneAndDelete({ _id: req.params.id })
 
@@ -108,7 +108,7 @@ export const removeProduct = async (req, res) => {
   }
 }
 
-export const uploadImage = async (req, res) => {
+const uploadImage = async (req, res) => {
   try {
     res.json({ success: true, url: `/public/images/${req.file.originalname}` })
   } catch (error) {
@@ -119,4 +119,13 @@ export const uploadImage = async (req, res) => {
       success: false,
     })
   }
+}
+
+export const ProductController = {
+  getOne,
+  getAll,
+  create,
+  update,
+  remove,
+  uploadImage,
 }
