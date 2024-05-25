@@ -27,7 +27,7 @@ const getAll = async () => {
   return await Fetch({ url: '/api/products', method: 'get' })
 }
 
-const getOne = async productId => {
+const getOne = async ({ productId }) => {
   return await Fetch({
     url: `/api/products/${productId}`,
     method: 'get',
