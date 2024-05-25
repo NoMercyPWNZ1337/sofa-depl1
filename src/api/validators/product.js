@@ -12,5 +12,5 @@ export const productValidators = [
     'Кількість товару в аптеці не може перевищувати 10 штук і не може бути менше нуля'
   ).isInt({ min: 0, max: 10 }),
   check('image', 'Додайте зображення товару').notEmpty(),
-  check('category', 'Виберіть категорію').notEmpty(),
+  check('categoryId', 'Виберіть категорію').notEmpty(),
 ]

@@ -8,7 +8,7 @@ const productData = ({ req }) => ({
   quantityInWarehouse: req.body.quantityInWarehouse,
   quantityInDrugstore: req.body.quantityInDrugstore,
   image: req.body.image,
-  category: req.body.category,
+  categoryId: req.body.categoryId,
 })
 
 const getOne = async (req, res) => {

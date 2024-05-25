@@ -5,6 +5,6 @@ export const productData = ({ e, previewImage }) => {
     quantityInWarehouse: e.target.quantityInWarehouse.value,
     quantityInDrugstore: e.target.quantityInDrugstore.value,
     image: previewImage.dataset.image,
-    category: e.target.category.value || null,
+    categoryId: e.target.category.value || null,
   }
 }
