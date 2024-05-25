@@ -6,7 +6,7 @@ const Product = new Schema({
   quantityInWarehouse: { type: Number },
   quantityInDrugstore: { type: Number },
   image: { type: String },
-  categoryId: { type: String, ref: 'Category' },
+  categoryId: { type: Schema.Types.ObjectId, ref: 'Category' },
 })
 
 export default model('Product', Product)
