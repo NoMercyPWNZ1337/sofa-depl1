@@ -1,6 +1,8 @@
+import { validationResult } from 'express-validator'
+
 import Category from '../models/category.js'
 
-const create = async () => {
+const create = async (req, res) => {
   try {
     const { errors } = validationResult(req)
 
@@ -20,13 +22,13 @@ const create = async () => {
     console.log(error)
 
     return res.status(400).json({
-      message: 'Помилка при створенні товару',
+      message: 'Помилка при створенні категорії',
       success: false,
     })
   }
 }
 
-const update = async () => {
+const update = async (req, res) => {
   try {
     const { errors } = validationResult(req)
 
@@ -53,7 +55,7 @@ const update = async () => {
   }
 }
 
-const remove = async () => {
+const remove = async (req, res) => {
   try {
     await Category.findOneAndDelete({ _id: req.params.id })
 
@@ -68,7 +70,7 @@ const remove = async () => {
   }
 }
 
-const getAll = async () => {
+const getAll = async (req, res) => {
   try {
     const categories = await Category.find().exec()
 
@@ -83,7 +85,7 @@ const getAll = async () => {
   }
 }
 
-const getOne = async () => {
+const getOne = async (req, res) => {
   try {
     const category = await Category.findById(req.params.id).exec()
 

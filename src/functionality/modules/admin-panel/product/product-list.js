@@ -1,7 +1,7 @@
 ;(async () => {
-  const { AuthService } = await import('../../services/auth.js')
-  const { ProductService } = await import('../../services/product.js')
-  const { Redirect } = await import('../../utils/redirect.utillity.js')
+  const { AuthService } = await import('../../../services/auth.js')
+  const { ProductService } = await import('../../../services/product.js')
+  const { Redirect } = await import('../../../utils/redirect.utillity.js')
 
   await AuthService.checkAuth()
   await AuthService.checkAccess()

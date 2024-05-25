@@ -1,8 +1,8 @@
 ;(async () => {
-  const { AuthService } = await import('../../services/auth.js')
-  const { ProductService } = await import('../../services/product.js')
-  const { uploadImage } = await import('./components/upload-image.js')
-  const { productData } = await import('./components/product-data.js')
+  const { AuthService } = await import('../../../services/auth.js')
+  const { ProductService } = await import('../../../services/product.js')
+  const { uploadImage } = await import('../components/upload-image.js')
+  const { productData } = await import('../components/product-data.js')
 
   await AuthService.checkAuth()
   await AuthService.checkAccess()

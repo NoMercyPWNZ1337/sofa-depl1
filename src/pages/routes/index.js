@@ -21,12 +21,32 @@ router.get('/admin-panel', (req, res) => {
   res.sendFile(fullPathForPages + '/admin-panel/index.html')
 })
 
+// Product
+router.get('/admin-panel/product-list', (req, res) => {
+  res.sendFile(fullPathForPages + '/admin-panel/product/product-list.html')
+})
+
 router.get('/admin-panel/add-product', (req, res) => {
-  res.sendFile(fullPathForPages + '/admin-panel/add-product.html')
+  res.sendFile(fullPathForPages + '/admin-panel/product/add-product.html')
 })
 
 router.get('/admin-panel/edit-product', (req, res) => {
-  res.sendFile(fullPathForPages + '/admin-panel/edit-product.html')
+  res.sendFile(fullPathForPages + '/admin-panel/product/edit-product.html')
 })
+// - Product!
+
+// Category
+router.get('/admin-panel/category-list', (req, res) => {
+  res.sendFile(fullPathForPages + '/admin-panel/category/category-list.html')
+})
+
+router.get('/admin-panel/add-category', (req, res) => {
+  res.sendFile(fullPathForPages + '/admin-panel/category/add-category.html')
+})
+
+router.get('/admin-panel/edit-category', (req, res) => {
+  res.sendFile(fullPathForPages + '/admin-panel/category/edit-category.html')
+})
+// - Category!
 
 export default router
