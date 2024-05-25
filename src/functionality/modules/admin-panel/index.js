@@ -1,25 +1,22 @@
 ;(async () => {
-  const { checkAuthService, checkAccessService } = await import(
-    '../../services/auth.js'
-  )
-  const { Fetch } = await import('../../utils/fetch.utility.js')
+  const { AuthService } = await import('../../services/auth.js')
+  const { ProductService } = await import('../../services/product.js')
   const { Redirect } = await import('../../utils/redirect.utillity.js')
 
-  checkAuthService()
-  checkAccessService()
+  await AuthService.checkAuth()
+  await AuthService.checkAccess()
 
   const productList = document.querySelector('#product-list')
 
-  const responseProducts = await Fetch({ url: '/api/products', method: 'get' })
+  const responseProducts = await ProductService.getAll()
 
   const onRemoveProduct = () => {
     const removeBtns = productList.querySelectorAll('button[data-remove-id]')
 
     removeBtns.forEach(button => {
       button.addEventListener('click', async e => {
-        const response = await Fetch({
-          url: `/api/products/${e.target.dataset.removeId}`,
-          method: 'delete',
+        const response = await ProductService.remove({
+          productId: e.target.dataset.removeId,
         })
 
         if (response.success) {

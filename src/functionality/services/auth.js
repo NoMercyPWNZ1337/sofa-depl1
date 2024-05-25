@@ -2,7 +2,7 @@ import { Fetch } from '../utils/fetch.utility.js'
 import { state } from '../state/index.js'
 import { Redirect } from '../utils/redirect.utillity.js'
 
-export const loginService = async userData => {
+const login = async userData => {
   const response = await Fetch({
     method: 'post',
     url: '/api/login',
@@ -16,7 +16,7 @@ export const loginService = async userData => {
   return response
 }
 
-export const registrationService = async userData => {
+const registration = async userData => {
   const response = await Fetch({
     method: 'post',
     url: '/api/registration',
@@ -26,7 +26,7 @@ export const registrationService = async userData => {
   return response
 }
 
-export const checkAuthService = async () => {
+const checkAuth = async () => {
   const token = localStorage.getItem('token')
 
   if (token) {
@@ -41,7 +41,7 @@ export const checkAuthService = async () => {
   }
 }
 
-export const checkAccessService = async () => {
+const checkAccess = async () => {
   const token = localStorage.getItem('token')
 
   if (token) {
@@ -55,11 +55,19 @@ export const checkAccessService = async () => {
   }
 }
 
-export const logoutService = async () => {
+const logout = async () => {
   localStorage.removeItem('token')
 
   state.isAuth = false
   state.user = false
 
   document.location.reload()
+}
+
+export const AuthService = {
+  login,
+  registration,
+  checkAuth,
+  checkAccess,
+  logout,
 }

@@ -1,7 +1,5 @@
 ;(async () => {
-  const { registrationService, loginService } = await import(
-    '../services/auth.js'
-  )
+  const { AuthService } = await import('../services/auth.js')
   const { Redirect } = await import('../utils/redirect.utillity.js')
 
   const registrationForm = document.querySelector('#registration-form')
@@ -18,10 +16,10 @@
         password: e.target.password.value,
       }
 
-      const registrationResponse = await registrationService(userData)
+      const registrationResponse = await AuthService.registration(userData)
 
       if (registrationResponse.success) {
-        const loginResponse = await loginService({
+        const loginResponse = await AuthService.login({
           login: userData.email,
           password: userData.password,
         })

@@ -47,13 +47,13 @@ router.delete(
 )
 
 router.post(
-  '/create-product',
+  '/products',
   [authMiddleware, roleMiddleware(['admin']), productValidators],
   createProduct
 )
 
 router.put(
-  '/update-product/:id',
+  '/products/:id',
   [authMiddleware, roleMiddleware(['admin']), productValidators],
   updateProduct
 )

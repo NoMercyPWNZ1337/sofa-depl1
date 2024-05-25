@@ -1,6 +1,19 @@
+import { Redirect } from './redirect.utillity.js'
+
 /**
  * @param {body, method, url}
  */
+
+const notificationErrors = ({ data }) => {
+  const errorsList = data.errors?.map(error => `\n⚠️ ${error.msg}`).join('\n')
+  let strAlert = data.message + ' ❌' + '\n'
+
+  if (data.errors?.length) {
+    strAlert += 'Виправіть помилки:\n' + errorsList
+  }
+
+  alert(strAlert)
+}
 
 export const Fetch = async props => {
   const token = localStorage.getItem('token')
@@ -28,14 +41,19 @@ export const Fetch = async props => {
   const data = await response.json()
 
   if (!response.ok && !data.success) {
-    const errorsList = data.errors.map(error => `\n⚠️ ${error.msg}`).join('\n')
-    let strAlert = data.message + ' ❌' + '\n'
-
-    if (data.errors.length) {
-      strAlert += 'Виправіть помилки:\n' + errorsList
+    if (response.url.includes('/api/check-auth')) {
+      notificationErrors({ data })
+      Redirect('/login')
+      return
     }
 
-    alert(strAlert)
+    if (response.url.includes('/api/check-access')) {
+      notificationErrors({ data })
+      Redirect('/login')
+      return
+    }
+
+    notificationErrors({ data })
   }
 
   return data

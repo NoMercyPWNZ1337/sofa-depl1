@@ -1,13 +1,11 @@
 ;(async () => {
-  const { checkAuthService, checkAccessService } = await import(
-    '../../services/auth.js'
-  )
-  const { Fetch } = await import('../../utils/fetch.utility.js')
+  const { AuthService } = await import('../../services/auth.js')
+  const { ProductService } = await import('../../services/product.js')
   const { uploadImage } = await import('./components/upload-image.js')
   const { productData } = await import('./components/product-data.js')
 
-  checkAuthService()
-  checkAccessService()
+  await AuthService.checkAuth()
+  await AuthService.checkAccess()
 
   const addProductForm = document.querySelector('#add-product')
 
@@ -17,10 +15,8 @@
     e.preventDefault()
 
     try {
-      const response = await Fetch({
-        url: '/api/create-product',
-        method: 'post',
-        body: productData({ e, previewImage }),
+      const response = await ProductService.create({
+        productData: productData({ e, previewImage }),
       })
 
       if (response.success) {

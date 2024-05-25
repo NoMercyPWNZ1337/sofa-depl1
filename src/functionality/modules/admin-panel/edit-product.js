@@ -1,21 +1,16 @@
 ;(async () => {
-  const { checkAuthService, checkAccessService } = await import(
-    '../../services/auth.js'
-  )
-  const { Fetch } = await import('../../utils/fetch.utility.js')
+  const { AuthService } = await import('../../services/auth.js')
+  const { ProductService } = await import('../../services/product.js')
   const { uploadImage } = await import('./components/upload-image.js')
   const { productData } = await import('./components/product-data.js')
 
-  checkAuthService()
-  checkAccessService()
+  await AuthService.checkAuth()
+  await AuthService.checkAccess()
 
   const productId = new URLSearchParams(window.location.search).get('id')
   const editProductForm = document.querySelector('#edit-product')
 
-  const { product } = await Fetch({
-    url: `/api/products/${productId}`,
-    method: 'get',
-  })
+  const { product } = await ProductService.getOne({ productId })
 
   const previewImage = uploadImage()
 
@@ -32,10 +27,9 @@
     e.preventDefault()
 
     try {
-      const response = await Fetch({
-        url: `/api/update-product/${productId}`,
-        method: 'put',
-        body: productData({ e, previewImage }),
+      const response = await ProductService.update({
+        productData: productData({ e, previewImage }),
+        productId,
       })
 
       if (response.success) {

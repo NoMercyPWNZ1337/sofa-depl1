@@ -1,5 +1,5 @@
 ;(async () => {
-  const { loginService } = await import('../services/auth.js')
+  const { AuthService } = await import('../services/auth.js')
   const { Redirect } = await import('../utils/redirect.utillity.js')
 
   const loginForm = document.querySelector('#login-form')
@@ -8,7 +8,7 @@
     e.preventDefault()
 
     try {
-      const response = await loginService({
+      const response = await AuthService.login({
         login: e.target.login.value,
         password: e.target.password.value,
       })
