@@ -34,7 +34,7 @@ export const login = async (req, res) => {
 
     if (!validPassword) {
       return res.status(400).json({
-        message: 'Введений не правильний пароль',
+        message: 'Неправильний e-mail або пароль',
         success: false,
       })
     }
