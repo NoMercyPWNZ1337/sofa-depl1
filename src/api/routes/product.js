@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import multer from 'multer'
+import fs from 'fs'
 
 import authMiddleware from '../../shared/middleware/auth.js'
 import roleMiddleware from '../../shared/middleware/role.js'
@@ -12,6 +13,7 @@ const router = Router()
 
 const storage = multer.diskStorage({
   destination: (_, __, cb) => {
+    fs.mkdirSync('public/images', { recursive: true })
     cb(null, 'public/images')
   },
   filename: (_, file, cb) => {
