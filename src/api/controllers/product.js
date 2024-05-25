@@ -109,6 +109,22 @@ const remove = async (req, res) => {
   }
 }
 
+const search = async (req, res) => {
+  try {
+    const regex = new RegExp(req.query.text, 'i')
+    const products = await Product.find({ name: { $regex: regex } })
+
+    res.json({ success: true, products })
+  } catch (error) {
+    console.log(error)
+
+    return res.status(400).json({
+      message: 'Помилка при пошуку товарів',
+      success: false,
+    })
+  }
+}
+
 const uploadImage = async (req, res) => {
   try {
     res.json({ success: true, url: `/public/images/${req.file.originalname}` })
@@ -129,4 +145,5 @@ export const ProductController = {
   update,
   remove,
   uploadImage,
+  search,
 }

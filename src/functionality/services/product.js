@@ -34,4 +34,11 @@ const getOne = async ({ productId }) => {
   })
 }
 
-export const ProductService = { create, update, remove, getAll, getOne }
+const search = async ({ text }) => {
+  return await Fetch({
+    url: `/api/products/search?text=${text}`,
+    method: 'get',
+  })
+}
+
+export const ProductService = { create, update, remove, getAll, getOne, search }

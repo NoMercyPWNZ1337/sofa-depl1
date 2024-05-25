@@ -23,6 +23,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage })
 
+router.get('/products/search', [productValidators], ProductController.search)
+
 router.get(
   '/products',
   [authMiddleware, roleMiddleware(['admin'])],
