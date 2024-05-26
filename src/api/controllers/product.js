@@ -111,7 +111,7 @@ const remove = async (req, res) => {
 
 const search = async (req, res) => {
   try {
-    const regex = new RegExp(req.query.text, 'i')
+    const regex = new RegExp(req.query.search, 'i')
     const products = await Product.find({ name: { $regex: regex } })
 
     res.json({ success: true, products })

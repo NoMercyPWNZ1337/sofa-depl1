@@ -7,23 +7,34 @@
     <link rel="stylesheet" href="/src/assets/styles/index.css" />
   </head>
   <body>
-    <div class="navbar">
+    <header class="header">
       <div class="container">
         <a class="logo" href="/">
           <img src="/src/assets/images/logo.svg" alt="heart icon" />
           <span>FixHealth</span>
         </a>
 
-        <form id="search-product" class="search">
-          <input name="search" type="text" />
-          <button type="submit">
-            <img src="/src/assets/images/search.svg" alt="search icon" />
-          </button>
-
-          <ul id="search-list" class="search-list"></ul>
-        </form>
+        <nav class="links">
+          <a class="link" href="/">Товари</a>
+          <a class="link" href="/">Про нас</a>
+        </nav>
 
         <div class="row">
+          <div id="search" class="search">
+            <div id="search-bg" class="search-bg"></div>
+            <button type="submit" id="search-trigger" class="search-trigger">
+              <img src="/src/assets/images/search.svg" alt="search icon" />
+            </button>
+            <form id="search-form" class="search-form">
+              <input name="search" type="text" class="search-input" />
+              <button type="submit" class="search-btn">
+                <img src="/src/assets/images/search.svg" alt="search icon" />
+              </button>
+
+              <ul id="search-list" class="search-list"></ul>
+            </form>
+          </div>
+
           <div class="service">
             <a href="#">
               <img
@@ -49,7 +60,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </header>
 
     <script
       type="text/javascript"

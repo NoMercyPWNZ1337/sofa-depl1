@@ -2,77 +2,63 @@ import { ProductService } from '../../services/product.js'
 import { Redirect } from '../../utils/redirect.utillity.js'
 
 export const searchProduct = async () => {
-  const searchProductForm = document.querySelector('#search-product')
-  const searchList = searchProductForm.querySelector('#search-list')
+  const wraperSearchForm = document.querySelector('#search')
+  const showSearchFormBtn = wraperSearchForm.querySelector('#search-trigger')
+  const searchList = wraperSearchForm.querySelector('#search-list')
+  const searchForm = wraperSearchForm.querySelector('#search-form')
+  const searchBgForHideForm = wraperSearchForm.querySelector('#search-bg')
+  const searchInput = searchForm.search
 
-  searchProductForm.addEventListener('submit', e => {
-    const text = e.target.search.value
+  showSearchFormBtn.addEventListener('click', () => {
+    wraperSearchForm.classList.add('active')
+    searchInput.focus()
+  })
+
+  searchBgForHideForm.addEventListener('click', () => {
+    wraperSearchForm.classList.remove('active')
+  })
+
+  searchForm.addEventListener('submit', e => {
+    const search = e.target.search.value
 
     e.preventDefault()
 
-    if (text.length >= 3) {
-      Redirect(`/search-result?text=${text}`)
+    if (search.length >= 3) {
+      Redirect(`/search-result/search=${search}`)
     }
   })
 
-  searchProductForm.search.addEventListener('focus', () => {
-    const productsNodeList = searchList.querySelectorAll('li')
+  try {
+    searchInput.addEventListener('input', async e => {
+      const search = e.target.value
 
-    searchProductForm.classList.add('focus')
-
-    if (productsNodeList.length) {
-      searchList.classList.add('active')
-    }
-  })
-
-  searchProductForm.search.addEventListener('focusout', () => {
-    searchProductForm.classList.remove('focus')
-  })
-
-  searchProductForm.search.addEventListener('input', async e => {
-    const text = e.target.value
-
-    try {
-      if (text.length < 3) {
+      if (search.length < 3) {
         searchList.innerHTML = ''
         searchList.classList.remove('active')
 
         return
       }
 
-      const responseProducts = await ProductService.search({ text })
+      const responseProducts = await ProductService.search({ search })
 
       if (!responseProducts.success) return
 
       if (responseProducts.products.length) {
-        const productsListHtml = responseProducts.products
-          .map(product => {
-            return `
-              <li>
-                <a href="/product/${product._id}">${product.name}</a>
-              </li>
-            `
-          })
-          .join('')
+        const productListHtml = responseProducts.products.map(product => {
+          return `
+            <li>
+              <a href="/products${product._id}">${product.name}</a>
+            </li>
+          `
+        })
 
-        searchList.innerHTML = productsListHtml
-
+        searchList.innerHTML = productListHtml.join('')
         searchList.classList.add('active')
       } else {
-        searchList.innerHTML = `<h3>Нічого не знайдено</h3>`
+        searchList.innerHTML = '<h3>Нічого не знайдено</h3>'
       }
-    } catch (error) {
-      console.log(error)
-    }
-  })
-
-  document.body.addEventListener('click', e => {
-    if (
-      searchProductForm &&
-      typeof searchProductForm.contains === 'function' &&
-      !searchProductForm.contains(e.target)
-    ) {
-      searchList.classList.remove('active')
-    }
-  })
+    })
+  } catch (error) {
+    console.log(error)
+  }
 }

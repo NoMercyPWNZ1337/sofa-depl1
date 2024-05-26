@@ -34,9 +34,9 @@ const getOne = async ({ productId }) => {
   })
 }
 
-const search = async ({ text }) => {
+const search = async ({ search }) => {
   return await Fetch({
-    url: `/api/products/search?text=${text}`,
+    url: `/api/products/search?search=${search}`,
     method: 'get',
   })
 }
