@@ -205,6 +205,12 @@ a:hover {
   border-left: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  display: flex;
+}
+
+.header .search .search-form .search-btn img {
+  width: 30px;
+  height: 30px;
 }
 
 .header .search .search-form .search-list {
