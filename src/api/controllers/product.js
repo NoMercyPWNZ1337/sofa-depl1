@@ -113,8 +113,16 @@ const remove = async (req, res) => {
 
 const search = async (req, res) => {
   try {
-    const regex = new RegExp(req.query.search, 'i')
-    const products = await Product.find({ name: { $regex: regex } })
+    const products = await Product.aggregate([
+      {
+        $match: {
+          $or: [
+            { name: { $regex: req.query.search, $options: 'i' } },
+            { description: { $regex: req.query.search, $options: 'i' } },
+          ],
+        },
+      },
+    ])
 
     res.json({ success: true, products })
   } catch (error) {

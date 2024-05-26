@@ -56,6 +56,7 @@ export const searchProduct = async () => {
         searchList.classList.add('active')
       } else {
         searchList.innerHTML = '<h3>Нічого не знайдено</h3>'
+        searchList.classList.add('active')
       }
     })
   } catch (error) {
