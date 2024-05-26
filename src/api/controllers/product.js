@@ -11,6 +11,7 @@ const productData = ({ req }) => ({
   image: req.body.image,
   categoryId: req.body.categoryId,
   description: req.body.description,
+  analogs: req.body.analogs,
 })
 
 const getOne = async (req, res) => {

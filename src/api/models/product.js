@@ -9,6 +9,7 @@ const Product = new Schema({
   quantityInDrugstore: { type: Number },
   image: { type: String },
   categoryId: { type: Schema.Types.ObjectId, ref: 'Category' },
+  analogs: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
 })
 
 export default model('Product', Product)
