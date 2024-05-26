@@ -11,17 +11,9 @@ export const productSelect = async ({
     const responseProducts = await ProductService.getAll()
 
     if (responseProducts.success) {
-      const products = responseProducts.products.reduce((acc, product) => {
-        if (selectedAnalogs.length) {
-          selectedAnalogs.forEach(analogId => {
-            acc.push({ ...product, selected: analogId === product._id })
-          })
-        } else {
-          acc = responseProducts.products
-        }
-
-        return acc
-      }, [])
+      const products = responseProducts.products.map(product => {
+        return { ...product, selected: selectedAnalogs.includes(product._id) }
+      })
 
       const productsHtml = products.map(product => {
         if (product._id === productId) return
@@ -33,15 +25,13 @@ export const productSelect = async ({
         `
       })
 
-      console.log(responseProducts.products)
-
       if (products.length) {
         select.innerHTML = `
-          <option>Виберіть аналогічний товар</option>
+          <option value="">Виберіть аналогічний товар</option>
           ${productsHtml.join('')}
         `
       } else {
-        select.innerHTML = `<option>Товарів ще немає</option>`
+        select.innerHTML = `<option value="">Товарів ще немає</option>`
       }
     }
   } catch (error) {

@@ -125,7 +125,14 @@ const search = async (req, res) => {
       },
     ])
 
-    res.json({ success: true, products })
+    const analogProductIds = products.map(product => product.analogs).flat()
+
+    const analogProducts = await Product.find()
+      .where('_id')
+      .in(analogProductIds)
+      .exec()
+
+    res.json({ success: true, products, analogProducts })
   } catch (error) {
     console.log(error)
 
