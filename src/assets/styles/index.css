@@ -32,6 +32,19 @@ a:hover {
   transition: color 0.2s;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #07d325;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #07de27;
+}
+
 .container {
   max-width: 1300px;
   width: 95%;
@@ -162,7 +175,6 @@ a:hover {
 
 .header .search .search-form {
   position: fixed;
-  height: max-content;
   top: 100px;
   left: 0;
   right: 0;
@@ -232,6 +244,17 @@ a:hover {
 
 .header .search .search-form .search-list li a {
   font-size: 20px;
+}
+
+.header .search .search-form .search-list h3 {
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+}
+
+.header .search .search-form .search-list h4 {
+  font-weight: 500;
+  font-size: 18px;
 }
 
 .header .search .search-form .search-list.active {

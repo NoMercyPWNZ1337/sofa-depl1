@@ -4,7 +4,8 @@ import { Redirect } from '../../utils/redirect.utillity.js'
 export const searchProduct = async () => {
   const wraperSearchForm = document.querySelector('#search')
   const showSearchFormBtn = wraperSearchForm.querySelector('#search-trigger')
-  const searchList = wraperSearchForm.querySelector('#search-list')
+  const searchProductList = wraperSearchForm.querySelector('#product-list')
+  const searchAnalogList = wraperSearchForm.querySelector('#analog-list')
   const searchForm = wraperSearchForm.querySelector('#search-form')
   const searchBgForHideForm = wraperSearchForm.querySelector('#search-bg')
   const searchInput = searchForm.search
@@ -33,8 +34,8 @@ export const searchProduct = async () => {
       const search = e.target.value
 
       if (search.length < 3) {
-        searchList.innerHTML = ''
-        searchList.classList.remove('active')
+        searchProductList.innerHTML = ''
+        searchProductList.classList.remove('active')
 
         return
       }
@@ -43,20 +44,42 @@ export const searchProduct = async () => {
 
       if (!responseProducts.success) return
 
-      if (responseProducts.products.length) {
-        const productListHtml = responseProducts.products.map(product => {
-          return `
-            <li>
-              <a href="/products/${product._id}">${product.name}</a>
-            </li>
-          `
-        })
+      console.log(responseProducts)
 
-        searchList.innerHTML = productListHtml.join('')
-        searchList.classList.add('active')
+      if (responseProducts.products.length) {
+        const renderProductListHtml = ({ products }) => {
+          return products.map(product => {
+            return `
+              <li>
+                <a href="/products/${product._id}">${product.name}</a>
+              </li>
+            `
+          })
+        }
+
+        const productListHtml = renderProductListHtml({
+          products: responseProducts.products,
+        }).join('')
+
+        const analogListHtml = renderProductListHtml({
+          products: responseProducts.analogProducts,
+        }).join('')
+
+        if (responseProducts.analogProducts.length) {
+          searchAnalogList.innerHTML = `
+            <h4>Аналогічні товари: </h4>
+            ${analogListHtml}
+          `
+          searchAnalogList.classList.add('active')
+        } else {
+          searchAnalogList.classList.remove('active')
+        }
+
+        searchProductList.innerHTML = productListHtml
+        searchProductList.classList.add('active')
       } else {
-        searchList.innerHTML = '<h3>Нічого не знайдено</h3>'
-        searchList.classList.add('active')
+        searchProductList.innerHTML = '<h3>Нічого не знайдено</h3>'
+        searchProductList.classList.add('active')
       }
     })
   } catch (error) {
