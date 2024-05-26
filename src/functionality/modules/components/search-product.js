@@ -8,9 +8,15 @@ export const searchProduct = async () => {
   searchProductForm.search.addEventListener('focus', () => {
     const productsNodeList = searchList.querySelectorAll('li')
 
+    searchProductForm.classList.add('focus')
+
     if (productsNodeList.length) {
       searchList.classList.add('active')
     }
+  })
+
+  searchProductForm.search.addEventListener('focusout', () => {
+    searchProductForm.classList.remove('focus')
   })
 
   searchProductForm.search.addEventListener('input', async e => {

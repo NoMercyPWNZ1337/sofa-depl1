@@ -69,6 +69,11 @@ button {
   position: relative;
 }
 
+.navbar .search.focus {
+  border-color: #07d325;
+  transition: color 0.2s;
+}
+
 .navbar .search .search-list {
   position: absolute;
   width: 100%;
