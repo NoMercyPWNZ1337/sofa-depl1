@@ -5,6 +5,16 @@ export const searchProduct = async () => {
   const searchProductForm = document.querySelector('#search-product')
   const searchList = searchProductForm.querySelector('#search-list')
 
+  searchProductForm.addEventListener('submit', e => {
+    const text = e.target.search.value
+
+    e.preventDefault()
+
+    if (text.length >= 3) {
+      Redirect(`/search-result?text=${text}`)
+    }
+  })
+
   searchProductForm.search.addEventListener('focus', () => {
     const productsNodeList = searchList.querySelectorAll('li')
 
@@ -53,16 +63,6 @@ export const searchProduct = async () => {
       }
     } catch (error) {
       console.log(error)
-    }
-  })
-
-  searchProductForm.addEventListener('submit', e => {
-    const text = e.target.search.value
-
-    e.preventDefault()
-
-    if (text.length >= 3) {
-      Redirect(`/search-result?text=${text}`)
     }
   })
 
