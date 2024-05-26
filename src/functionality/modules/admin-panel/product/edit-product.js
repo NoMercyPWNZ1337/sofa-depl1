@@ -25,6 +25,8 @@
       editProductForm.quantityInWarehouse.value = product.quantityInWarehouse
       editProductForm.quantityInDrugstore.value = product.quantityInDrugstore
       editProductForm.category.value = product.categoryId
+      editProductForm.description.value = product.description
+      editProductForm.discountedPrice.value = product.discountedPrice
       previewImage.src = product.image
       previewImage.setAttribute('data-image', product.image)
     }

@@ -6,5 +6,7 @@ export const productData = ({ e, previewImage }) => {
     quantityInDrugstore: e.target.quantityInDrugstore.value,
     image: previewImage.dataset.image,
     categoryId: e.target.category.value || null,
+    discountedPrice: e.target.discountedPrice.value,
+    description: e.target.description.value,
   }
 }

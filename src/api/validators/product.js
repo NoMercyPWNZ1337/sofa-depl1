@@ -13,4 +13,8 @@ export const productValidators = [
   ).isInt({ min: 0, max: 10 }),
   check('image', 'Додайте зображення товару').notEmpty(),
   check('categoryId', 'Виберіть категорію').notEmpty(),
+  check(
+    'description',
+    'Опис не товару не може бути менше 100 симоволів'
+  ).isLength({ min: 100 }),
 ]

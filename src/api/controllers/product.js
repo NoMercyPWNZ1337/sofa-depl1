@@ -5,10 +5,12 @@ import Product from '../models/product.js'
 const productData = ({ req }) => ({
   name: req.body.name,
   price: req.body.price,
+  discountedPrice: req.body.discountedPrice,
   quantityInWarehouse: req.body.quantityInWarehouse,
   quantityInDrugstore: req.body.quantityInDrugstore,
   image: req.body.image,
   categoryId: req.body.categoryId,
+  description: req.body.description,
 })
 
 const getOne = async (req, res) => {

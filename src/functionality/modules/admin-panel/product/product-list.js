@@ -50,7 +50,9 @@
           <p>${
             product.availability === 'Так' ? 'В наявності' : 'Немає в наявності'
           }</p>
-          <p>Ціна: ${product.price}</p>
+          <p>Ціна: <b>${
+            product.discountedPrice ? product.discountedPrice : ''
+          }</b> ${product.price}</p>
           <p>Кількість в аптеці: ${product.quantityInDrugstore}</p>
           <p>Кількість на складі: ${product.quantityInWarehouse}</p>
         </div>

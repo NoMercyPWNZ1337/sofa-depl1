@@ -28,6 +28,11 @@
         <input id="price" type="number" name="price" />
       </label>
 
+      <label for="discountedPrice">
+        Ціна товару зі знижкою(грн):
+        <input id="discountedPrice" type="number" name="discountedPrice" />
+      </label>
+
       <label for="quantityInWarehouse">
         Кількість товару на складі:
         <input
@@ -47,6 +52,15 @@
       </label>
 
       <select name="category"></select>
+
+      <label for="description">
+        <textarea
+          name="description"
+          id="description"
+          cols="200"
+          rows="20"
+        ></textarea>
+      </label>
 
       <button type="submit">Оновити товар</button>
     </form>
