@@ -3,7 +3,7 @@ import { ProductService } from '../../../services/product.js'
 export const productSelect = async ({
   form,
   productId = null,
-  selectedAnalogs = [],
+  selectedAnalogsIds = [],
 }) => {
   const select = form.product
 
@@ -12,7 +12,10 @@ export const productSelect = async ({
 
     if (responseProducts.success) {
       const products = responseProducts.products.map(product => {
-        return { ...product, selected: selectedAnalogs.includes(product._id) }
+        return {
+          ...product,
+          selected: selectedAnalogsIds.includes(product._id),
+        }
       })
 
       const productsHtml = products.map(product => {

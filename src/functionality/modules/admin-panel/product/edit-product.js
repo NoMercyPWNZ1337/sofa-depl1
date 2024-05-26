@@ -31,7 +31,7 @@
       productSelect({
         form: editProductForm,
         productId,
-        selectedAnalogs: responseProduct.product.analogs,
+        selectedAnalogsIds: responseProduct.product.analogs,
       })
 
       categorySelect({
