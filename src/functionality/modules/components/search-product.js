@@ -47,7 +47,7 @@ export const searchProduct = async () => {
         const productListHtml = responseProducts.products.map(product => {
           return `
             <li>
-              <a href="/products${product._id}">${product.name}</a>
+              <a href="/products/${product._id}">${product.name}</a>
             </li>
           `
         })
