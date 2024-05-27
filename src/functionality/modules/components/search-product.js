@@ -35,7 +35,10 @@ export const searchProduct = async () => {
 
       if (search.length < 3) {
         searchProductList.innerHTML = ''
+        searchAnalogList.innerHTML = '<h3>Нічого не знайдено</h3>'
+
         searchProductList.classList.remove('active')
+        searchAnalogList.classList.remove('active')
 
         return
       }

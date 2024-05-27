@@ -120,10 +120,7 @@ const search = async (req, res) => {
     const products = await Product.aggregate([
       {
         $match: {
-          $or: [
-            { name: { $regex: req.query.search, $options: 'i' } },
-            { description: { $regex: req.query.search, $options: 'i' } },
-          ],
+          $or: [{ name: { $regex: req.query.search, $options: 'i' } }],
         },
       },
     ])
