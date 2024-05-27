@@ -31,6 +31,8 @@ router.get(
   ProductController.getAll
 )
 
+router.get('/products/discounted', ProductController.getDiscountedProducts)
+
 router.get(
   '/products/:id',
   [authMiddleware, roleMiddleware(['admin'])],

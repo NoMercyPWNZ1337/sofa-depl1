@@ -41,4 +41,16 @@ const search = async ({ search }) => {
   })
 }
 
-export const ProductService = { create, update, remove, getAll, getOne, search }
+const getDiscounted = async () => {
+  return await Fetch({ url: '/api/products/discounted', method: 'get' })
+}
+
+export const ProductService = {
+  create,
+  update,
+  remove,
+  getAll,
+  getOne,
+  search,
+  getDiscounted,
+}

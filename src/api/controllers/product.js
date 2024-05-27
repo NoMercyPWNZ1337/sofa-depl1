@@ -143,6 +143,23 @@ const search = async (req, res) => {
   }
 }
 
+const getDiscountedProducts = async (req, res) => {
+  try {
+    const productsDiscounted = await Product.find({
+      discountedPrice: { $type: 'number' },
+    }).limit(10)
+
+    res.json({ success: true, productsDiscounted })
+  } catch (error) {
+    console.log(error)
+
+    return res.status(400).json({
+      message: 'Помилка при полученні товарів зі скидкою',
+      success: false,
+    })
+  }
+}
+
 const uploadImage = async (req, res) => {
   try {
     res.json({ success: true, url: `/public/images/${req.file.originalname}` })
@@ -164,4 +181,5 @@ export const ProductController = {
   remove,
   uploadImage,
   search,
+  getDiscountedProducts,
 }

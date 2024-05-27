@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Головна | FixHealth</title>
     <link rel="stylesheet" href="/src/assets/styles/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <header class="header">
@@ -63,6 +67,71 @@
       </div>
     </header>
 
+    <main class="home">
+      <section class="home-swiper">
+        <div class="container">
+          <div id="home-swiper" class="swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a href="/">
+                  <img
+                    src="/src/assets/images/solaray.jpg"
+                    alt="solaray image"
+                  />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="/">
+                  <img
+                    src="/src/assets/images/levocetirizine.jpg"
+                    alt="levocetirizine image"
+                  />
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="/">
+                  <img
+                    src="/src/assets/images/natures-way.jpg"
+                    alt="natures way image"
+                  />
+                </a>
+              </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+      </section>
+      <section id="discounted-products" class="discounted-products">
+        <div class="container">
+          <h1 class="title">
+            Товари зі знижкою
+            <a href="/">
+              Всі товари
+              <img src="/src/assets/images/arrow-right.svg" alt="arrow right" />
+            </a>
+          </h1>
+
+          <!--  
+            - назва товару, 
+            - зображення товару, 
+            - статус (в наявності чи ні), 
+            - ціна товару, 
+            - кількість товару на складі (яка динамічна - міняється, якщо хтось із користувачів замовив певну кількість). 
+            При цьому кількість кожного товару на складі може бути від 0 до 10.
+            Виглядає приблизно так, тільки ще на картці видно кількість товару в наявності в аптеці. 
+          -->
+
+          <div id="discounted-swiper" class="swiper">
+            <div class="swiper-wrapper">
+              
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script
       type="text/javascript"
       src="/src/functionality/modules/base.js"
