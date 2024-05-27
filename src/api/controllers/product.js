@@ -12,6 +12,9 @@ const productData = ({ req }) => ({
   categoryId: req.body.categoryId,
   description: req.body.description,
   analogs: req.body.analogs,
+  manufacturer: req.body.manufacturer,
+  manufacturerCountry: req.body.manufacturerCountry,
+  withRecipe: req.body.withRecipe
 })
 
 const getOne = async (req, res) => {

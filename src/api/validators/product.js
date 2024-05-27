@@ -17,4 +17,10 @@ export const productValidators = [
     'description',
     'Опис не товару не може бути менше 100 симоволів'
   ).isLength({ min: 100 }),
+  check('manufacturer', 'Вкажіть виробника товару').notEmpty(),
+  check('manufacturerCountry', 'Вкажіть країну виробництва').notEmpty(),
+  check(
+    'withRecipe',
+    'Вкажіть продаж товару за рецептом чи без рецепту'
+  ).notEmpty(),
 ]

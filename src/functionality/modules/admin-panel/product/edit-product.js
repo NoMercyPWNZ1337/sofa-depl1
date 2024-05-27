@@ -25,6 +25,9 @@
       editProductForm.quantityInDrugstore.value = product.quantityInDrugstore
       editProductForm.description.value = product.description
       editProductForm.discountedPrice.value = product.discountedPrice
+      editProductForm.manufacturer.value = product.manufacturer
+      editProductForm.manufacturerCountry.value = product.manufacturerCountry
+      editProductForm.withRecipe.checked = product.withRecipe
       previewImage.src = product.image
       previewImage.setAttribute('data-image', product.image)
 

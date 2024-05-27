@@ -14,5 +14,8 @@ export const productData = ({ e, previewImage }) => {
     discountedPrice: e.target.discountedPrice.value,
     description: e.target.description.value,
     analogs: analogsProducts,
+    manufacturer: e.target.manufacturer.value,
+    manufacturerCountry: e.target.manufacturerCountry.value,
+    withRecipe: e.target.withRecipe.checked,
   }
 }

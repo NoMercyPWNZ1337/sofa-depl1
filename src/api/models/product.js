@@ -10,6 +10,9 @@ const Product = new Schema({
   image: { type: String },
   categoryId: { type: Schema.Types.ObjectId, ref: 'Category' },
   analogs: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
+  manufacturer: { type: String },
+  manufacturerCountry: { type: String },
+  withRecipe: { type: Boolean },
 })
 
 export default model('Product', Product)
