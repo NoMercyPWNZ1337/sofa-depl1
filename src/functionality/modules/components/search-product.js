@@ -44,14 +44,36 @@ export const searchProduct = async () => {
 
       if (!responseProducts.success) return
 
-      console.log(responseProducts)
-
       if (responseProducts.products.length) {
         const renderProductListHtml = ({ products }) => {
           return products.map(product => {
             return `
               <li>
-                <a href="/products/${product._id}">${product.name}</a>
+                <a 
+                  class="search-link ${
+                    !!product.discountedPrice && 'discounted'
+                  }" 
+                  href="/products/${product._id}"
+                  >
+                  <span class="title">${product.name}</span>
+                  <span class="manufacturer">Виробник: ${
+                    product.manufacturer
+                  }</span>
+                  <span class="price">
+                    Ціна: 
+                    <span>${product.price} грн</span>
+                  </span>
+                  ${
+                    product.discountedPrice
+                      ? `
+                        <span class="price-discounted">
+                          Ціна зі знижкою: 
+                          <span>${product.discountedPrice} грн</span>
+                        </span>
+                      `
+                      : ''
+                  }
+                </a>
               </li>
             `
           })
@@ -70,9 +92,8 @@ export const searchProduct = async () => {
             <h4>Аналогічні товари: </h4>
             ${analogListHtml}
           `
+
           searchAnalogList.classList.add('active')
-        } else {
-          searchAnalogList.classList.remove('active')
         }
 
         searchProductList.innerHTML = productListHtml
@@ -80,6 +101,11 @@ export const searchProduct = async () => {
       } else {
         searchProductList.innerHTML = '<h3>Нічого не знайдено</h3>'
         searchProductList.classList.add('active')
+      }
+
+      if (!responseProducts.analogProducts.length) {
+        searchAnalogList.innerHTML = '<h3>Нічого не знайдено</h3>'
+        searchAnalogList.classList.remove('active')
       }
     })
   } catch (error) {

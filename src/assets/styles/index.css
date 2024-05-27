@@ -37,12 +37,12 @@ a:hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #07d325;
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 15px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #07de27;
+  background: #07d325;
 }
 
 .container {
@@ -238,12 +238,8 @@ a:hover {
   overflow-x: hidden;
   padding: 20px;
   grid-template-columns: 1fr;
-  gap: 15px 0;
+  gap: 20px 0;
   display: none;
-}
-
-.header .search .search-form .search-list li a {
-  font-size: 20px;
 }
 
 .header .search .search-form .search-list h3 {
@@ -254,7 +250,58 @@ a:hover {
 
 .header .search .search-form .search-list h4 {
   font-weight: 500;
+  font-size: 20px;
+}
+
+.header .search .search-form .search-list li:not(:nth-of-type(1)) {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+}
+
+.header .search .search-form .search-link {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'title price' 'manufacturer price-discounted';
+  align-items: center;
+  gap: 5px;
+}
+
+.header .search .search-form .search-link .manufacturer {
+  font-size: 13px;
+  grid-area: manufacturer;
+}
+
+.header .search .search-form .search-link .title {
+  font-size: 20px;
+  grid-area: title;
+  transition: color 0.2s;
+}
+
+.header .search .search-form .search-link .price {
+  font-size: 16px;
+  grid-area: price;
+  justify-self: end;
+}
+
+.header .search .search-form .search-link:hover .title {
+  color: #07d325;
+  transition: color 0.2s;
+}
+
+.header .search .search-form .search-link .price-discounted {
+  grid-area: price-discounted;
+  justify-self: end;
+}
+
+.header .search .search-form .search-link .price span,
+.header .search .search-form .search-link .price-discounted span {
   font-size: 18px;
+  color: red;
+}
+
+.header .search .search-form .search-link.discounted .price {
+  text-decoration-line: line-through;
+  opacity: 0.3;
 }
 
 .header .search .search-form .search-list.active {
