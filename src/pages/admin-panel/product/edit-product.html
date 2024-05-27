@@ -70,8 +70,14 @@
         <input id="withRecipe" type="checkbox" name="withRecipe" />
       </label>
 
-      <select name="category"></select>
-      <select name="product" multiple></select>
+      <label for="category">
+        Виберіть категорію:
+        <select id="category" name="category"></select>
+      </label>
+      <label for="product">
+        Виберіть аналогічний товар(можна декілька):
+        <select id="product" name="product" multiple></select>
+      </label>
 
       <label for="description">
         <textarea

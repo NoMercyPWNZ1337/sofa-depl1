@@ -30,7 +30,7 @@ export const productSelect = async ({
 
       if (products.length) {
         select.innerHTML = `
-          <option value="">Виберіть аналогічний товар</option>
+          <option value="">...</option>
           ${productsHtml.join('')}
         `
       } else {

@@ -17,7 +17,7 @@ export const categorySelect = async ({ form, selectedCategoryId }) => {
       })
 
       select.innerHTML = `
-        <option value="">Виберіть категорію</option>
+        <option value="">...</option>
         ${categoriesHtml.join('')}
       `
     }
