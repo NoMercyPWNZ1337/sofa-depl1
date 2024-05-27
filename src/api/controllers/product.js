@@ -14,7 +14,7 @@ const productData = ({ req }) => ({
   analogs: req.body.analogs,
   manufacturer: req.body.manufacturer,
   manufacturerCountry: req.body.manufacturerCountry,
-  withRecipe: req.body.withRecipe
+  withRecipe: req.body.withRecipe,
 })
 
 const getOne = async (req, res) => {
@@ -123,6 +123,10 @@ const search = async (req, res) => {
           $or: [
             { name: { $regex: req.query.search, $options: 'i' } },
             { description: { $regex: req.query.search, $options: 'i' } },
+            { manufacturer: { $regex: req.query.search, $options: 'i' } },
+            {
+              manufacturerCountry: { $regex: req.query.search, $options: 'i' },
+            },
           ],
         },
       },
