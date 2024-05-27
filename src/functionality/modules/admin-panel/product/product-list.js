@@ -2,7 +2,7 @@
   const { AuthService } = await import('../../../services/auth.js')
   const { ProductService } = await import('../../../services/product.js')
   const { Redirect } = await import('../../../utils/redirect.utillity.js')
-  const { productTemplate } = await import('../components/product-template.js')
+  const { productCard } = await import('../components/product-card.js')
 
   await AuthService.checkAuth()
   await AuthService.checkAccess()
@@ -43,7 +43,7 @@
   }
 
   const productListHtml = responseProducts.products.map(product => {
-    return productTemplate({ product })
+    return productCard({ product })
   })
 
   if (responseProducts.products.length) {

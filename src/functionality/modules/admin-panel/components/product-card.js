@@ -1,4 +1,4 @@
-export const productTemplate = ({ product }) => `
+export const productCard = ({ product }) => `
     <div>
         <div>
             <img src="${product.image}" />
