@@ -17,7 +17,7 @@ const create = async (req, res) => {
 
     await category.save()
 
-    res.json({ success: true, category })
+    res.json({ success: true })
   } catch (error) {
     console.log(error)
 

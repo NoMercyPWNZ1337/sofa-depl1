@@ -8,7 +8,7 @@ const Product = new Schema({
   quantityInWarehouse: { type: Number },
   quantityInDrugstore: { type: Number },
   image: { type: String },
-  categoryId: { type: Schema.Types.ObjectId, ref: 'Category' },
+  underCategoryId: { type: Schema.Types.ObjectId, ref: 'UnderCategory' },
   analogs: [{ type: Schema.Types.ObjectId, ref: 'Product' }],
   manufacturer: { type: String },
   manufacturerCountry: { type: String },

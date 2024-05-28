@@ -18,15 +18,15 @@
 
       const registrationResponse = await AuthService.registration(userData)
 
-      if (registrationResponse.success) {
-        const loginResponse = await AuthService.login({
-          login: userData.email,
-          password: userData.password,
-        })
+      if (!registrationResponse.success) return
 
-        if (loginResponse.success) {
-          Redirect('/')
-        }
+      const loginResponse = await AuthService.login({
+        login: userData.email,
+        password: userData.password,
+      })
+
+      if (loginResponse.success) {
+        Redirect('/')
       }
     } catch (error) {
       console.log(error)

@@ -3,7 +3,9 @@
   const { ProductService } = await import('../../../services/product.js')
   const { uploadImage } = await import('../components/upload-image.js')
   const { productData } = await import('../components/product-data.js')
-  const { categorySelect } = await import('../components/category-select.js')
+  const { underCategorySelect } = await import(
+    '../components/under-category-select.js'
+  )
   const { productSelect } = await import('../components/product-select.js')
 
   await AuthService.checkAuth()
@@ -16,32 +18,32 @@
   try {
     const responseProduct = await ProductService.getOne({ productId })
 
-    if (responseProduct.success) {
-      const product = responseProduct.product
+    if (!responseProduct.success) return
 
-      editProductForm.name.value = product.name
-      editProductForm.price.value = product.price
-      editProductForm.quantityInWarehouse.value = product.quantityInWarehouse
-      editProductForm.quantityInDrugstore.value = product.quantityInDrugstore
-      editProductForm.description.value = product.description
-      editProductForm.discountedPrice.value = product.discountedPrice
-      editProductForm.manufacturer.value = product.manufacturer
-      editProductForm.manufacturerCountry.value = product.manufacturerCountry
-      editProductForm.withRecipe.checked = product.withRecipe
-      previewImage.src = product.image
-      previewImage.setAttribute('data-image', product.image)
+    const product = responseProduct.product
 
-      productSelect({
-        form: editProductForm,
-        productId,
-        selectedAnalogsIds: responseProduct.product.analogs,
-      })
+    editProductForm.name.value = product.name
+    editProductForm.price.value = product.price
+    editProductForm.quantityInWarehouse.value = product.quantityInWarehouse
+    editProductForm.quantityInDrugstore.value = product.quantityInDrugstore
+    editProductForm.description.value = product.description
+    editProductForm.discountedPrice.value = product.discountedPrice
+    editProductForm.manufacturer.value = product.manufacturer
+    editProductForm.manufacturerCountry.value = product.manufacturerCountry
+    editProductForm.withRecipe.checked = product.withRecipe
+    previewImage.src = product.image
+    previewImage.setAttribute('data-image', product.image)
 
-      categorySelect({
-        form: editProductForm,
-        selectedCategoryId: product.categoryId,
-      })
-    }
+    productSelect({
+      form: editProductForm,
+      productId,
+      selectedAnalogsIds: responseProduct.product.analogs,
+    })
+
+    underCategorySelect({
+      form: editProductForm,
+      selectedUnderCategoryId: product.underCategoryId,
+    })
   } catch (error) {
     console.log(error)
   }

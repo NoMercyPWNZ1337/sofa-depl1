@@ -49,4 +49,24 @@ router.get('/admin-panel/edit-category', (req, res) => {
 })
 // - Category!
 
+// Under Category
+router.get('/admin-panel/under-category-list', (req, res) => {
+  res.sendFile(
+    fullPathForPages + '/admin-panel/under-category/under-category-list.html'
+  )
+})
+
+router.get('/admin-panel/add-under-category', (req, res) => {
+  res.sendFile(
+    fullPathForPages + '/admin-panel/under-category/add-under-category.html'
+  )
+})
+
+router.get('/admin-panel/edit-under-category', (req, res) => {
+  res.sendFile(
+    fullPathForPages + '/admin-panel/under-category/edit-under-category.html'
+  )
+})
+// - Under Category!
+
 export default router

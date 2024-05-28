@@ -9,8 +9,6 @@
 
   const productList = document.querySelector('#product-list')
 
-  const responseProducts = await ProductService.getAll()
-
   const onRemoveProduct = () => {
     const removeBtns = productList.querySelectorAll('button[data-remove-id]')
 
@@ -37,20 +35,24 @@
     })
   }
 
-  const readyProductListInDOM = () => {
-    onRemoveProduct()
-    onEditProduct()
-  }
+  try {
+    const responseProducts = await ProductService.getAll()
 
-  const productListHtml = responseProducts.products.map(product => {
-    return productCard({ product })
-  })
+    if (!responseProducts.success) return
 
-  if (responseProducts.products.length) {
-    productList.innerHTML = productListHtml.join('')
+    if (responseProducts.products.length) {
+      const productListHtml = responseProducts.products.map(product => {
+        return productCard({ product })
+      })
 
-    readyProductListInDOM()
-  } else {
-    productList.innerHTML = '<h4>Немає товарів</h4>'
+      productList.innerHTML = productListHtml.join('')
+
+      onRemoveProduct()
+      onEditProduct()
+    } else {
+      productList.innerHTML = '<h4>Немає товарів</h4>'
+    }
+  } catch (error) {
+    console.log(error)
   }
 })()

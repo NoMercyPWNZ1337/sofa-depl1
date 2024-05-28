@@ -9,7 +9,7 @@ const productData = ({ req }) => ({
   quantityInWarehouse: req.body.quantityInWarehouse,
   quantityInDrugstore: req.body.quantityInDrugstore,
   image: req.body.image,
-  categoryId: req.body.categoryId,
+  underCategoryId: req.body.underCategoryId,
   description: req.body.description,
   analogs: req.body.analogs,
   manufacturer: req.body.manufacturer,
@@ -62,7 +62,7 @@ const create = async (req, res) => {
 
     await product.save()
 
-    res.json({ success: true, product })
+    res.json({ success: true })
   } catch (error) {
     console.log(error)
 

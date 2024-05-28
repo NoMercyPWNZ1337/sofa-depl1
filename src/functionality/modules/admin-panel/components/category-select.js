@@ -6,19 +6,27 @@ export const categorySelect = async ({ form, selectedCategoryId }) => {
   try {
     const responseCategories = await CategoryService.getAll()
 
-    if (responseCategories.success) {
+    if (!responseCategories.success) return
+
+    if (responseCategories.categories.length) {
       const categoriesHtml = responseCategories.categories.map(category => {
         return `
-          <option value="${category._id}" ${
-          selectedCategoryId === category._id ? 'selected' : ''
-        }>
-          ${category.name}
-        </option>`
+          <option 
+            value="${category._id}" 
+            ${selectedCategoryId === category._id ? 'selected' : ''}
+          >
+            ${category.name}
+          </option>
+        `
       })
 
       select.innerHTML = `
-        <option value="">...</option>
+        <option value="">Не вибрано</option>
         ${categoriesHtml.join('')}
+      `
+    } else {
+      select.innerHTML = `
+       <option value="">Немає категорій</option>
       `
     }
   } catch (error) {
