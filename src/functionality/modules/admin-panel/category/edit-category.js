@@ -8,10 +8,14 @@
   const categoryId = new URLSearchParams(window.location.search).get('id')
   const editCategoryForm = document.querySelector('#edit-category')
 
-  const { category } = await CategoryService.getOne({ categoryId })
+  try {
+    const responseCategory = await CategoryService.getOne({ categoryId })
 
-  if (Object.keys(category).length) {
-    editCategoryForm.name.value = category.name
+    if (Object.keys(responseCategory.category).length) {
+      editCategoryForm.name.value = responseCategory.category.name
+    }
+  } catch (error) {
+    console.log(error)
   }
 
   editCategoryForm.addEventListener('submit', async e => {
