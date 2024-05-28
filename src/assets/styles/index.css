@@ -8,6 +8,10 @@
 
 @import url('./pages/home.css');
 
+html {
+  scroll-behavior: smooth;
+}
+
 main {
   margin-top: 20px;
 }

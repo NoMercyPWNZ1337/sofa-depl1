@@ -3,7 +3,7 @@
   border-radius: 5px;
   transition: border-color 0.2s;
   position: relative;
-  padding: 15px;
+  padding: 30px 15px 25px;
   gap: 0 15px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -37,12 +37,13 @@
   width: 100%;
   height: auto;
   grid-area: image;
-  padding: 0 20px 30px;
+  padding-right: 25px;
+  padding-bottom: 30px;
 }
 
 .product-card .card-title {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   grid-area: title;
   margin-bottom: 25px;
 }

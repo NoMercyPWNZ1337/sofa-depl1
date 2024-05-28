@@ -21,7 +21,7 @@
   background-color: #fff;
   width: 45px;
   height: 45px;
-  border-radius: 50%;
+  border-radius: 100%;
 }
 
 .home .home-swiper .swiper-button-next:after,
@@ -30,7 +30,7 @@
 }
 
 .home .discounted-products .title {
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 }
 
 .home .discounted-products {
@@ -39,4 +39,81 @@
 
 .home .discounted-products.active {
   display: block;
+}
+
+.home .about {
+  margin: 70px 0;
+}
+
+.home .about .about-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.home .about .about-title.small {
+  font-size: 22px;
+  margin: 18px 0;
+}
+
+.home .about .about-description {
+  margin-bottom: 16px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.home .about .about-description a {
+  text-decoration: underline;
+  color: #07d325;
+  opacity: 0.7;
+  font-weight: 400;
+}
+
+.home .about .about-description a:hover {
+  text-decoration: none;
+}
+
+.home .about .about-list {
+  margin: 10px 0 15px 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 0;
+}
+
+.home .about .about-list li {
+  padding-left: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.home .about .about-list li:before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 100%;
+  position: absolute;
+  left: 0;
+  background-color: #07d325;
+  opacity: 0.6;
+  margin-top: 2px;
+}
+
+.home .awards {
+  margin-bottom: 70px;
+}
+
+.home .awards .title {
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+}
+
+.home .awards .row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px 20px;
+}
+.home .awards .awards-item {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
