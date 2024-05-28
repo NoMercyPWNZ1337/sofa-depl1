@@ -16,7 +16,7 @@ export const underCategorySelect = async ({
         underCategory => {
           return `
             <option 
-              value="${category._id}" 
+              value="${underCategory._id}" 
               ${selectedUnderCategoryId === underCategory._id ? 'selected' : ''}
             >
               ${underCategory.name}

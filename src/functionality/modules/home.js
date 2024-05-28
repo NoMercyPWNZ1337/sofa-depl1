@@ -7,7 +7,6 @@
     '#discounted-swiper .swiper-wrapper'
   )
 
-  console.log(discountedSwiper)
   try {
     const responseProducts = await ProductService.getDiscounted()
 
@@ -16,20 +15,26 @@
     if (responseProducts.productsDiscounted.length) {
       discountedSection.classList.add('active')
 
-      const productsDiscountedHtml = responseProducts.productsDiscounted.map(
-        product => {
-          return `
+      const productsDiscountedHtml = [
+        ...responseProducts.productsDiscounted,
+        ...responseProducts.productsDiscounted,
+        ...responseProducts.productsDiscounted,
+        ...responseProducts.productsDiscounted,
+        ...responseProducts.productsDiscounted,
+        ...responseProducts.productsDiscounted,
+        ...responseProducts.productsDiscounted,
+        ...responseProducts.productsDiscounted,
+        ...responseProducts.productsDiscounted,
+      ].map(product => {
+        return `
             <div class="swiper-slide">
               ${productCard({ product })}
             </div>
           `
-        }
-      )
+      })
 
       discountedSwiper.innerHTML = productsDiscountedHtml.join('')
     }
-
-    console.log(responseProducts.productsDiscounted)
   } catch (error) {
     console.log(error)
   }
@@ -48,9 +53,6 @@ new Swiper('#home-swiper', {
 })
 
 new Swiper('#discounted-swiper', {
-  autoplay: {
-    delay: 3000,
-  },
   slidesPerView: 4,
   // loop: true,
   spaceBetween: 20,

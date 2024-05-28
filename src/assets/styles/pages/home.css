@@ -1,3 +1,7 @@
+.home {
+  overflow: hidden;
+}
+
 .home .home-swiper {
   margin-bottom: 70px;
 }
@@ -27,6 +31,10 @@
 .home .home-swiper .swiper-button-next:after,
 .home .home-swiper .swiper-button-prev:after {
   font-size: 20px;
+}
+
+.home .discounted-products .swiper {
+  overflow: visible !important;
 }
 
 .home .discounted-products .title {
