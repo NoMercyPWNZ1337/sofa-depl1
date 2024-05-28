@@ -432,8 +432,8 @@ main {
 .product-card .card-image {
   width: 100%;
   height: auto;
-  margin-bottom: 30px;
   grid-area: image;
+  padding: 0 20px 30px;
 }
 
 .product-card .card-title {
