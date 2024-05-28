@@ -1,0 +1,36 @@
+.footer {
+  padding: 40px 0;
+  box-shadow: -1px 6px 22.5px -8px #dddddd;
+}
+
+.footer .container {
+  align-items: start;
+  display: grid;
+  grid-template-columns: max-content 2fr max-content max-content 1fr;
+  gap: 0 60px;
+}
+
+.footer .footer-title {
+  font-size: 17px;
+  margin-bottom: 6px;
+}
+
+.footer .footer-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 0;
+}
+
+.footer .footer-list a {
+  font-size: 14px;
+}
+
+.footer .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.footer .footer-apps .footer-title {
+  margin-bottom: 16px;
+}

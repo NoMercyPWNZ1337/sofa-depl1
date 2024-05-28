@@ -10,24 +10,6 @@
   gap: 0 35px;
 }
 
-.header .logo {
-  display: flex;
-  align-items: center;
-  gap: 0 10px;
-}
-
-.header .logo img {
-  width: 50px;
-  height: 50px;
-}
-
-.header .logo span {
-  font-size: 20px;
-  text-transform: uppercase;
-  font-weight: 500;
-  color: #07d325;
-}
-
 .header .favorite,
 .header .basket,
 .header .user {
