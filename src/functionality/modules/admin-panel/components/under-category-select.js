@@ -13,13 +13,13 @@ export const underCategorySelect = async ({
 
     if (responseUnderCategories.underCategories.length) {
       const underCategoriesHtml = responseUnderCategories.underCategories.map(
-        category => {
+        underCategory => {
           return `
             <option 
               value="${category._id}" 
-              ${selectedUnderCategoryId === category._id ? 'selected' : ''}
+              ${selectedUnderCategoryId === underCategory._id ? 'selected' : ''}
             >
-              ${category.name}
+              ${underCategory.name}
             </option>
           `
         }
