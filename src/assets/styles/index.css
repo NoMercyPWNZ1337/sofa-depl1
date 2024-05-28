@@ -7,6 +7,7 @@
 @import url('./components/product-card/index.css');
 @import url('./components/scrollbar/index.css');
 @import url('./components/title/index.css');
+@import url('./components/dropdown-header/index.css');
 
 @import url('./pages/home.css');
 

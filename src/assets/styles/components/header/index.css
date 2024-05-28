@@ -1,5 +1,5 @@
 .header {
-  padding: 20px 0;
+  padding: 10px 0;
   box-shadow: -1px 6px 22.5px -8px #dddddd;
 }
 
@@ -76,6 +76,7 @@
 
 .header .links {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 0 25px;
 }
