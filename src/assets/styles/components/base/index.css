@@ -1,0 +1,33 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: Roboto;
+  box-sizing: border-box;
+  color: #4b4453;
+}
+
+input,
+button {
+  outline: none;
+  border: none;
+  background-color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+}
+
+a {
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #07d325;
+  transition: color 0.2s;
+}

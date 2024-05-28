@@ -1,0 +1,29 @@
+.title {
+  font-size: 42px;
+  font-weight: 500;
+  gap: 0 40px;
+  display: flex;
+  align-items: center;
+}
+
+.title a {
+  font-size: 16px;
+  text-decoration: underline;
+  color: #4b4453;
+  display: flex;
+  align-items: center;
+  gap: 0 15px;
+  letter-spacing: 0.5px;
+  transition: gap 0.1s, color 0.1s;
+}
+
+.title a:hover {
+  color: #07d325;
+  gap: 0 25px;
+  transition: gap 0.1s, color 0.1s;
+}
+
+.title a img {
+  width: 25px;
+  height: 25px;
+}
