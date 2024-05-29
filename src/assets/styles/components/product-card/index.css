@@ -16,19 +16,18 @@
 }
 
 .product-card .card-favorite {
+  cursor: pointer;
+  align-self: start;
+}
+
+.product-card .card-favorite svg {
   width: 20px;
   height: 20px;
-  cursor: pointer;
 }
 
 .product-card .card-favorite path {
   transition: fill 0.2s;
   fill: rgba(0, 0, 0, 0.2);
-}
-
-.product-card .card-favorite:hover path {
-  fill: #fd0;
-  transition: fill 0.2s;
 }
 
 .product-card .card-favorite.active path {

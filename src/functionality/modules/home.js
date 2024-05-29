@@ -2,6 +2,7 @@
   const { ProductService } = await import('../services/product.js')
   const { productCard } = await import('./components/product-card.js')
   const { addToCart } = await import('./components/add-to-cart.js')
+  const { addToFavorite } = await import('./components/add-to-favorite.js')
 
   const discountedSection = document.querySelector('#discounted-products')
   const discountedSwiper = discountedSection.querySelector(
@@ -29,6 +30,7 @@
       discountedSwiper.innerHTML = productsDiscountedHtml.join('')
 
       addToCart()
+      addToFavorite()
     }
   } catch (error) {
     console.log(error)
