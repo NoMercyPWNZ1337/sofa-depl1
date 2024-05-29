@@ -1,43 +1,41 @@
 export const addToCart = () => {
-  const toCartBtns = document.querySelectorAll('button[data-to-cart]')
+  const toShoppingCartBtns = document.querySelectorAll('button[data-to-cart]')
   const basket = document.querySelector('#basket')
   const basketQuantity = basket.querySelector('#basket-quantity')
 
-  let shopingCart = JSON.parse(localStorage.getItem('shopingCart')) || []
+  let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || []
 
-  const hasViewCartQuantity = () => {
-    basketQuantity.innerHTML = shopingCart.length
+  const showShoppingCartQiantity = () => {
+    basketQuantity.innerHTML = shoppingCart.length
 
-    if (shopingCart.length) {
+    if (shoppingCart.length) {
       basket.classList.add('active')
     } else {
       basket.classList.remove('active')
     }
   }
 
-  hasViewCartQuantity()
+  showShoppingCartQiantity()
 
-  toCartBtns.forEach(btn => {
+  toShoppingCartBtns.forEach(btn => {
     btn.addEventListener('click', e => {
-      const productId = e.target.dataset.toCart
+      const productId = btn.dataset.toCart
 
-      if (shopingCart) {
-        if (!shopingCart.includes(productId)) {
-          shopingCart.push(productId)
+      if (!shoppingCart.includes(productId)) {
+        shoppingCart.push(productId)
 
-          btn.innerHTML = 'В кошику'
-          btn.classList.add('active')
-          hasViewCartQuantity()
-        } else {
-          shopingCart = shopingCart.filter(id => id !== productId)
+        btn.innerHTML = 'В кошику'
+        btn.classList.add('active')
+        showShoppingCartQiantity()
+      } else {
+        shoppingCart = shoppingCart.filter(id => id !== productId)
 
-          btn.innerHTML = 'В кошик'
-          btn.classList.remove('active')
-          hasViewCartQuantity()
-        }
+        btn.innerHTML = 'В кошик'
+        btn.classList.remove('active')
+        showShoppingCartQiantity()
       }
 
-      localStorage.setItem('shopingCart', JSON.stringify(shopingCart))
+      localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
     })
   })
 }

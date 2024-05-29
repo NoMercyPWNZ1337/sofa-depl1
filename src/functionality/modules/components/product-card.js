@@ -1,6 +1,6 @@
 export const productCard = ({ product }) => {
-  const shopingCart = JSON.parse(localStorage.getItem('shopingCart')) || []
-  const hasInCart = shopingCart.includes(product._id)
+  const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || []
+  const hasInCart = shoppingCart.includes(product._id)
 
   return `
     <article class="product-card">
