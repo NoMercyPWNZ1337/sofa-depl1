@@ -59,6 +59,11 @@
   font-weight: 400;
 }
 
+.home .about .about-title:not(.small) {
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 .home .about .about-title.small {
   font-size: 22px;
   margin: 18px 0;
