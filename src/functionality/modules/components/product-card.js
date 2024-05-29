@@ -1,4 +1,7 @@
 export const productCard = ({ product }) => {
+  const shopingCart = JSON.parse(localStorage.getItem('shopingCart')) || []
+  const hasInCart = shopingCart.includes(product._id)
+
   return `
     <article class="product-card">
       <img class="card-image" src="${product.image}" alt="product image" />
@@ -52,12 +55,11 @@ export const productCard = ({ product }) => {
         </span>
         <span class="text">за упаковку</span>
       </p>
-      <button class="card-btn">
-        <img
-          src="/src/assets/images/basket.svg"
-          alt="basket icon"
-        />
-        Купити
+      <button 
+          class="card-btn ${hasInCart && 'active'}" 
+          data-to-cart="${product._id}"
+        >
+        ${hasInCart ? 'В кошику' : 'В кошик'}
       </button>
     </article>
   `

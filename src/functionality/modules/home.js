@@ -1,6 +1,7 @@
 ;(async () => {
   const { ProductService } = await import('../services/product.js')
   const { productCard } = await import('./components/product-card.js')
+  const { addToCart } = await import('./components/add-to-cart.js')
 
   const discountedSection = document.querySelector('#discounted-products')
   const discountedSwiper = discountedSection.querySelector(
@@ -26,6 +27,8 @@
       )
 
       discountedSwiper.innerHTML = productsDiscountedHtml.join('')
+
+      addToCart()
     }
   } catch (error) {
     console.log(error)
