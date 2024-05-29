@@ -6,12 +6,12 @@ export const addToCart = () => {
   let shopingCart = JSON.parse(localStorage.getItem('shopingCart')) || []
 
   const hasViewCartQuantity = () => {
+    basketQuantity.innerHTML = shopingCart.length
+
     if (shopingCart.length) {
       basket.classList.add('active')
-      basketQuantity.innerHTML = shopingCart.length
     } else {
       basket.classList.remove('active')
-      basketQuantity.innerHTML = shopingCart.length
     }
   }
 
