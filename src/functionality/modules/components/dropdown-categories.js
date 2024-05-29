@@ -14,21 +14,21 @@ export const dropdownCategories = async () => {
         const underDropdownListHtml = category.underCategories.map(
           underCategory => {
             return `
-                <li class="underlist-item">
-                    <a href="/" class="list-link">${underCategory.name}</a>
-                </li>
+              <li class="underlist-item">
+                <a href="/" class="list-link">${underCategory.name}</a>
+              </li>
             `
           }
         )
 
         return `
-            <li class="list-item">
-                <a href="/" class="list-link">${category.name}</a>
+          <li class="list-item">
+            <a href="/" class="list-link">${category.name}</a>
 
-                <ul class="dropdown-underlist">
-                   ${underDropdownListHtml.join('')}
-                </ul>
-            </li>
+            <ul class="dropdown-underlist">
+              ${underDropdownListHtml.join('')}
+            </ul>
+          </li>
         `
       })
 
