@@ -18,7 +18,7 @@ export const addToCart = () => {
   showShoppingCartQiantity()
 
   toShoppingCartBtns.forEach(btn => {
-    btn.addEventListener('click', e => {
+    btn.addEventListener('click', () => {
       const productId = btn.dataset.toCart
 
       if (!shoppingCart.includes(productId)) {

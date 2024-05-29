@@ -18,7 +18,7 @@ export const addToFavorite = () => {
   showfavoritesQuantity()
 
   tofavoritesBtns.forEach(btn => {
-    btn.addEventListener('click', e => {
+    btn.addEventListener('click', () => {
       const favoriteId = btn.dataset.toFavorite
 
       if (!favorites.includes(favoriteId)) {
