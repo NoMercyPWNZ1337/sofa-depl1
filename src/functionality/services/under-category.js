@@ -34,4 +34,18 @@ const getAll = async () => {
   return await Fetch({ url: '/api/under-categories', method: 'get' })
 }
 
-export const UnderCategoryService = { create, update, remove, getOne, getAll }
+const getAllWithCategories = async () => {
+  return await Fetch({
+    url: '/api/under-categories/with-categories',
+    method: 'get',
+  })
+}
+
+export const UnderCategoryService = {
+  create,
+  update,
+  remove,
+  getOne,
+  getAll,
+  getAllWithCategories,
+}
