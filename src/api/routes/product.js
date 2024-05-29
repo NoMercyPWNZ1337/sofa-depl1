@@ -6,7 +6,6 @@ import authMiddleware from '../../shared/middleware/auth.js'
 import roleMiddleware from '../../shared/middleware/role.js'
 
 import { productValidators } from '../validators/product.js'
-
 import { ProductController } from '../controllers/product.js'
 
 const router = Router()

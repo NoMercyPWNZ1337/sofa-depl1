@@ -103,10 +103,50 @@ const getOne = async (req, res) => {
   }
 }
 
+const getAllWithCategories = async (req, res) => {
+  try {
+    const underCategories = await UnderCategory.find().populate('categoryId')
+    const sortCategories = underCategories.map(underCategory => ({
+      name: underCategory.categoryId.name,
+      _id: underCategory.categoryId._id,
+      underCategory: { name: underCategory.name, _id: underCategory._id },
+    }))
+
+    const categories = sortCategories.reduce((acc, category, _, array) => {
+      const categories = array.filter(item => item._id === category._id)
+      const underCategories = categories.map(item => ({
+        ...item.underCategory,
+        categoryId: category._id,
+      }))
+      const hasCategory = acc.find(item => item._id === category._id)
+
+      if (!hasCategory) {
+        acc.push({
+          name: category.name,
+          _id: category._id,
+          underCategories,
+        })
+      }
+
+      return acc
+    }, [])
+
+    return res.json({ success: true, categories })
+  } catch (error) {
+    console.log(error)
+
+    return res.status(400).json({
+      message: 'Помилка при полученні категорій',
+      success: false,
+    })
+  }
+}
+
 export const UnderCategoryController = {
   create,
   update,
   remove,
   getAll,
   getOne,
+  getAllWithCategories,
 }

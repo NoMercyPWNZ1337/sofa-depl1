@@ -4,7 +4,6 @@ import authMiddleware from '../../shared/middleware/auth.js'
 import roleMiddleware from '../../shared/middleware/role.js'
 
 import { categoryValidators } from '../validators/category.js'
-
 import { CategoryController } from '../controllers/category.js'
 
 const router = Router()

@@ -4,10 +4,14 @@ import authMiddleware from '../../shared/middleware/auth.js'
 import roleMiddleware from '../../shared/middleware/role.js'
 
 import { underCategoryValidators } from '../validators/under-category.js'
-
 import { UnderCategoryController } from '../controllers/under-category.js'
 
 const router = Router()
+
+router.get(
+  '/under-categories/with-categories',
+  UnderCategoryController.getAllWithCategories
+)
 
 router.get(
   '/under-categories',
