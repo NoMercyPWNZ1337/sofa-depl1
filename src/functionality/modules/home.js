@@ -15,23 +15,15 @@
     if (responseProducts.productsDiscounted.length) {
       discountedSection.classList.add('active')
 
-      const productsDiscountedHtml = [
-        ...responseProducts.productsDiscounted,
-        ...responseProducts.productsDiscounted,
-        ...responseProducts.productsDiscounted,
-        ...responseProducts.productsDiscounted,
-        ...responseProducts.productsDiscounted,
-        ...responseProducts.productsDiscounted,
-        ...responseProducts.productsDiscounted,
-        ...responseProducts.productsDiscounted,
-        ...responseProducts.productsDiscounted,
-      ].map(product => {
-        return `
+      const productsDiscountedHtml = responseProducts.productsDiscounted.map(
+        product => {
+          return `
             <div class="swiper-slide">
               ${productCard({ product })}
             </div>
           `
-      })
+        }
+      )
 
       discountedSwiper.innerHTML = productsDiscountedHtml.join('')
     }
