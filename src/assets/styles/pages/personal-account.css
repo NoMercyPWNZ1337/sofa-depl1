@@ -158,7 +158,7 @@
   font-size: 18px;
 }
 
-.personal .personal-content .product .product-quantity .btn[data-minus] {
+.personal .personal-content .product .product-quantity .btn[name='minus'] {
   padding-left: 17.5px;
   padding-right: 17.5px;
 }

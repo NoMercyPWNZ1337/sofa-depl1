@@ -7,8 +7,12 @@
   let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || []
   const products = document.querySelector('#products')
 
+  let productsData = []
+
   const onRemoveProduct = () => {
-    const removeBtns = document.querySelectorAll('.product .btn[data-remove]')
+    const removeBtns = document.querySelectorAll(
+      '#products .product .btn[data-remove]'
+    )
 
     removeBtns.forEach(btn => {
       btn.addEventListener('click', e => {
@@ -23,6 +27,35 @@
     })
   }
 
+  const onQuantityProduct = () => {
+    const quantityForms = document.querySelectorAll(
+      '#products .product form[data-quantity]'
+    )
+
+    quantityForms.forEach(form => {
+      form.addEventListener('click', e => {
+        e.preventDefault()
+
+        const maxQuantity = +form.dataset.max
+
+        if (e.target.name === 'plus') {
+          if (form.quantity.value >= maxQuantity) {
+            alert(`В продавця в наявності є тільки - ${maxQuantity}`)
+
+            return
+          }
+
+          form.quantity.value++
+        }
+        if (e.target.name === 'minus') {
+          if (form.quantity.value <= 1) return
+
+          form.quantity.value--
+        }
+      })
+    })
+  }
+
   try {
     const responseProducts = await ProductService.getAllForShoppingCart({
       productIds: JSON.stringify(shoppingCart),
@@ -31,6 +64,8 @@
     if (!responseProducts.success) return
 
     if (responseProducts.products.length) {
+      productsData = responseProducts.products
+
       const productListHtml = responseProducts.products.map(product => {
         return `
           <div class="product">
@@ -56,14 +91,19 @@
               </span>
               <span class="text">за упаковку</span>
             </p>
-            <form class="product-quantity" data-quantity>
-              <button class="btn" data-minus>-</button>
+            <form 
+                class="product-quantity" 
+                data-quantity="${product._id}"
+                data-max="${product.quantityInDrugstore}"
+              >
+              <button class="btn" name="minus">-</button>
               <input
                 disabled
+                value="1"
+                name="quantity"
                 class="form-input" 
-                value="${product.quantityInDrugstore}" 
               />
-              <button class="btn" data-plus>+</button>
+              <button class="btn" name="plus">+</button>
             </form>
             <button class="btn" data-remove="${product._id}">
               Видалити
@@ -73,7 +113,9 @@
       })
 
       products.innerHTML = productListHtml.join('')
+
       onRemoveProduct()
+      onQuantityProduct()
     }
   } catch (error) {
     console.log(error)
