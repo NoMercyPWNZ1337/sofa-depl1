@@ -1,4 +1,5 @@
 import { validationResult } from 'express-validator'
+import mongoose from 'mongoose'
 
 import Product from '../models/product.js'
 
@@ -160,6 +161,24 @@ const getDiscountedProducts = async (req, res) => {
   }
 }
 
+const getAllForShoppingCart = async (req, res) => {
+  try {
+    const productIds = JSON.parse(req.params.productIds).map(id => {
+      return new mongoose.Types.ObjectId(id)
+    })
+    const products = await Product.find({ _id: { $in: productIds } })
+
+    res.json({ success: true, products })
+  } catch (error) {
+    console.log(error)
+
+    return res.status(400).json({
+      message: 'Помилка при полученні товарів зі скидкою',
+      success: false,
+    })
+  }
+}
+
 const uploadImage = async (req, res) => {
   try {
     res.json({ success: true, url: `/public/images/${req.file.originalname}` })
@@ -182,4 +201,5 @@ export const ProductController = {
   uploadImage,
   search,
   getDiscountedProducts,
+  getAllForShoppingCart,
 }

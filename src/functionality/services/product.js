@@ -45,6 +45,13 @@ const getDiscounted = async () => {
   return await Fetch({ url: '/api/products/discounted', method: 'get' })
 }
 
+const getAllForShoppingCart = async ({ productIds }) => {
+  return await Fetch({
+    url: `/api/products/shopping-cart/${productIds}`,
+    method: 'get',
+  })
+}
+
 export const ProductService = {
   create,
   update,
@@ -53,4 +60,5 @@ export const ProductService = {
   getOne,
   search,
   getDiscounted,
+  getAllForShoppingCart,
 }
