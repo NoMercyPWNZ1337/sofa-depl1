@@ -1,6 +1,6 @@
 import { Router } from 'express'
 
-import authMiddleware from '../../shared/middleware/auth.js'
+import authMiddleware from '../middleware/auth.js'
 
 import { OrderController } from '../controllers/order.js'
 

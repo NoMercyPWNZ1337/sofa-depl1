@@ -2,8 +2,8 @@ import { Router } from 'express'
 import multer from 'multer'
 import fs from 'fs'
 
-import authMiddleware from '../../shared/middleware/auth.js'
-import roleMiddleware from '../../shared/middleware/role.js'
+import authMiddleware from '../middleware/auth.js'
+import roleMiddleware from '../middleware/role.js'
 
 import { productValidators } from '../validators/product.js'
 import { ProductController } from '../controllers/product.js'
