@@ -100,15 +100,19 @@
 .personal .personal-content .product .product-title {
   font-size: 18px;
   font-weight: 400;
+  grid-area: product-title;
+  align-self: center;
 }
 
 .personal .personal-content .product .product-stock {
   font-size: 15px;
   color: #07d325;
+  grid-area: product-stock;
 }
 
 .personal .personal-content .product .product-price {
   font-size: 13px;
+  grid-area: product-price;
 }
 
 .personal .personal-content .product .product-price.active {
@@ -138,9 +142,11 @@
 }
 
 .personal .personal-content .product .product-quantity {
+  grid-area: product-quantity;
   display: flex;
   gap: 0 10px;
   max-width: 150px;
+  align-self: end;
 }
 
 .personal .personal-content .product .product-quantity .form-input {
@@ -153,11 +159,33 @@
 }
 
 .personal .personal-content .product .product-quantity .btn[data-minus] {
-  padding-left: 18px;
-  padding-right: 18px;
+  padding-left: 17.5px;
+  padding-right: 17.5px;
+}
+
+.personal .personal-content .product .btn[data-remove] {
+  grid-area: product-remove;
 }
 
 .personal .personal-content .product .product-image {
+  grid-area: product-image;
   width: 100%;
   height: auto;
+  border-radius: 5px;
+}
+
+.personal .personal-content .products {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px 0;
+}
+
+.personal .personal-content .product {
+  display: grid;
+  gap: 0 20px;
+  grid-template-columns: 0.5fr 1fr max-content;
+  grid-template-areas:
+    'product-image product-title product-remove'
+    'product-image product-stock product-stock'
+    'product-image product-price product-quantity';
 }
