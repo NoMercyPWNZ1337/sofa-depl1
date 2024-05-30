@@ -49,6 +49,8 @@
   grid-template-columns: 1fr max-content;
   gap: 0 10px;
   justify-content: space-between;
+  height: 42px;
+  overflow: hidden;
 }
 
 .product-card .card-manufacturer {

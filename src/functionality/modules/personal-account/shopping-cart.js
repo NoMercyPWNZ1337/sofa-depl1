@@ -4,8 +4,24 @@
 
   await AuthService.checkAuth()
 
-  const shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || []
+  let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || []
   const products = document.querySelector('#products')
+
+  const onRemoveProduct = () => {
+    const removeBtns = document.querySelectorAll('.product .btn[data-remove]')
+
+    removeBtns.forEach(btn => {
+      btn.addEventListener('click', e => {
+        const productId = e.target.dataset.remove
+
+        shoppingCart = shoppingCart.filter(id => id !== productId)
+
+        localStorage.setItem('shoppingCart', JSON.stringify(shoppingCart))
+
+        window.location.reload()
+      })
+    })
+  }
 
   try {
     const responseProducts = await ProductService.getAllForShoppingCart({
@@ -49,12 +65,15 @@
               />
               <button class="btn" data-plus>+</button>
             </form>
-            <button class="btn" data-remove>Видалити</button>
+            <button class="btn" data-remove="${product._id}">
+              Видалити
+            </button>
           </div>
         `
       })
 
       products.innerHTML = productListHtml.join('')
+      onRemoveProduct()
     }
   } catch (error) {
     console.log(error)
