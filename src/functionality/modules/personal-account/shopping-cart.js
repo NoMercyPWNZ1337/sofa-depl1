@@ -6,6 +6,7 @@
 
   let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || []
   const products = document.querySelector('#products')
+  const submitOrderBtn = document.querySelector('#submit-order')
 
   let productsData = []
 
@@ -120,4 +121,14 @@
   } catch (error) {
     console.log(error)
   }
+
+  submitOrderBtn.addEventListener('click', async () => {
+    const address = prompt('Введіть адресу куди доставити замовлення')
+
+    if (!address.length) {
+      alert('Ви не ввели адресу')
+
+      return
+    }
+  })
 })()
