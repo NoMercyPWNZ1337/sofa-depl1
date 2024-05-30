@@ -26,6 +26,16 @@
   height: 25px;
 }
 
+.header .basket img {
+  width: 30px;
+  height: 30px;
+}
+
+.header .user img {
+  width: 29px;
+  height: 29px;
+}
+
 .header .favorite span,
 .header .basket span {
   font-size: 10px;

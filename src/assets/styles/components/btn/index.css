@@ -1,0 +1,17 @@
+.btn {
+  grid-area: btn;
+  padding: 8px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: max-content;
+  font-size: 15px;
+  justify-self: end;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btn.active,
+.btn:hover {
+  border-color: #07d325;
+  color: #07d325;
+  transition: border-color 0.2s, color 0.2s;
+}

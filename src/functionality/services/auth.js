@@ -36,6 +36,8 @@ const checkAuth = async () => {
       state.isAuth = true
       state.user = response.user
     }
+
+    return response
   } else {
     Redirect('/login')
   }

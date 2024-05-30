@@ -69,4 +69,8 @@ router.get('/admin-panel/edit-under-category', (req, res) => {
 })
 // - Under Category!
 
+router.get('/personal-account', (req, res) => {
+  res.sendFile(fullPathForPages + '/personal-account/index.html')
+})
+
 export default router

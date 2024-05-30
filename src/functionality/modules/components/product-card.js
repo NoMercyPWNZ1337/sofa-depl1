@@ -62,7 +62,7 @@ export const productCard = ({ product }) => {
         <span class="text">за упаковку</span>
       </p>
       <button 
-          class="card-btn ${hasInCart && 'active'}" 
+          class="card-btn btn ${hasInCart && 'active'}" 
           data-to-cart="${product._id}"
         >
         ${hasInCart ? 'В кошику' : 'В кошик'}

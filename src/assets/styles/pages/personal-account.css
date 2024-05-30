@@ -1,0 +1,35 @@
+.personal {
+  margin: 70px 0 70px;
+}
+
+.personal .links {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-self: start;
+  gap: 15px 0;
+  position: sticky;
+  top: 30px;
+}
+
+.personal .links .link.active {
+  color: #07d325;
+}
+
+.personal .container {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0 70px;
+}
+
+.personal .personal-content {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.personal .account-form .btn {
+  margin-left: auto;
+  margin-right: auto;
+}

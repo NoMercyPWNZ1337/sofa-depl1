@@ -8,12 +8,12 @@
     e.preventDefault()
 
     try {
-      const response = await AuthService.login({
+      const responseLogin = await AuthService.login({
         login: e.target.login.value,
         password: e.target.password.value,
       })
 
-      if (response.success) {
+      if (responseLogin.success) {
         Redirect('/')
       }
     } catch (error) {

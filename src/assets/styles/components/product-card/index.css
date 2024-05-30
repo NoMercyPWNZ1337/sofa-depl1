@@ -116,32 +116,8 @@
   opacity: 0.3;
 }
 
-.product-card .card-btn {
+.product-card .btn {
   grid-area: btn;
-  padding: 8px 15px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  width: max-content;
-  gap: 0 10px;
-  font-size: 15px;
-  transition: border-color 0.2s;
-  justify-self: end;
-}
-
-.product-card .card-btn.active {
-  border-color: #07d325;
-  transition: border-color 0.2s;
-}
-
-.product-card .card-btn.active {
-  color: #07d325;
-}
-
-.product-card .card-btn:hover {
-  border-color: #07d325;
-  transition: border-color 0.2s;
 }
 
 .product-card .card-btn img {

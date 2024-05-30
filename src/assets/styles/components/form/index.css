@@ -1,0 +1,45 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px 0;
+}
+
+.form .btn {
+  margin-top: 10px;
+}
+
+.form-field {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 0;
+}
+
+.form-field .form-input,
+.form-field .form-textarea {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 17px;
+  transition: border-color 0.2s;
+}
+
+.form-field .form-input:hover,
+.form-field .form-input:focus {
+  border-color: #07d325;
+  transition: border-color 0.2s;
+}
+
+.form-field .form-title {
+  position: relative;
+  font-size: 14px;
+  width: max-content;
+}
+
+.form-field .form-title:before {
+  content: '*';
+  color: red;
+  position: absolute;
+  right: -15px;
+  top: -5px;
+  font-size: 18px;
+}

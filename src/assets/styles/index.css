@@ -8,8 +8,11 @@
 @import url('./components/scrollbar/index.css');
 @import url('./components/title/index.css');
 @import url('./components/dropdown-header/index.css');
+@import url('./components/btn/index.css');
+@import url('./components/form/index.css');
 
 @import url('./pages/home.css');
+@import url('./pages/personal-account.css');
 
 html {
   scroll-behavior: smooth;

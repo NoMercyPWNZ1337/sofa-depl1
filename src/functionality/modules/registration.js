@@ -7,6 +7,11 @@
   registrationForm.addEventListener('submit', async e => {
     e.preventDefault()
 
+    if (!e.target.agree.checked) {
+      alert('Приміть умови щоб зареєструватися')
+      return
+    }
+
     try {
       const userData = {
         name: e.target.name.value,
@@ -16,16 +21,16 @@
         password: e.target.password.value,
       }
 
-      const registrationResponse = await AuthService.registration(userData)
+      const responseRegistration = await AuthService.registration(userData)
 
-      if (!registrationResponse.success) return
+      if (!responseRegistration.success) return
 
-      const loginResponse = await AuthService.login({
+      const responseLogin = await AuthService.login({
         login: userData.email,
         password: userData.password,
       })
 
-      if (loginResponse.success) {
+      if (responseLogin.success) {
         Redirect('/')
       }
     } catch (error) {
