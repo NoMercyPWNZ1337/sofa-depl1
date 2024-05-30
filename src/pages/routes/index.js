@@ -73,4 +73,8 @@ router.get('/personal-account', (req, res) => {
   res.sendFile(fullPathForPages + '/personal-account/index.html')
 })
 
+router.get('/personal-account/shopping-cart', (req, res) => {
+  res.sendFile(fullPathForPages + '/personal-account/shopping-cart.html')
+})
+
 export default router

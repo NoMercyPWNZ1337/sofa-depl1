@@ -173,7 +173,7 @@ const getAllForShoppingCart = async (req, res) => {
     console.log(error)
 
     return res.status(400).json({
-      message: 'Помилка при полученні товарів зі скидкою',
+      message: 'Помилка при полученні товарів для корзини',
       success: false,
     })
   }
