@@ -145,11 +145,11 @@ const search = async (req, res) => {
 
 const getDiscountedProducts = async (req, res) => {
   try {
-    const productsDiscounted = await Product.find({
+    const products = await Product.find({
       discountedPrice: { $type: 'number' },
     }).limit(10)
 
-    res.json({ success: true, productsDiscounted })
+    res.json({ success: true, products })
   } catch (error) {
     console.log(error)
 

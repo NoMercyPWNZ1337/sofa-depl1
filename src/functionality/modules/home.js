@@ -14,20 +14,18 @@
 
     if (!responseProducts.success) return
 
-    if (responseProducts.productsDiscounted.length) {
+    if (responseProducts.products.length) {
       discountedSection.classList.add('active')
 
-      const productsDiscountedHtml = responseProducts.productsDiscounted.map(
-        product => {
-          return `
-            <div class="swiper-slide">
-              ${productCard({ product })}
-            </div>
-          `
-        }
-      )
+      const productListHtml = responseProducts.products.map(product => {
+        return `
+          <div class="swiper-slide">
+            ${productCard({ product })}
+          </div>
+        `
+      })
 
-      discountedSwiper.innerHTML = productsDiscountedHtml.join('')
+      discountedSwiper.innerHTML = productListHtml.join('')
 
       addToCart()
       addToFavorite()
@@ -51,6 +49,5 @@ new Swiper('#home-swiper', {
 
 new Swiper('#discounted-swiper', {
   slidesPerView: 4,
-  // loop: true,
   spaceBetween: 20,
 })
