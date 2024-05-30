@@ -66,7 +66,7 @@
 }
 
 .product-card .card-stock.active {
-  color: #de1d09;
+  color: red;
 }
 
 .product-card .card-quantity {
@@ -81,7 +81,7 @@
 
 .product-card .card-quantity.active,
 .product-card .card-quantity.active span {
-  color: #de1d09;
+  color: red;
 }
 .product-card .card-price {
   grid-area: price;
@@ -107,7 +107,7 @@
   font-weight: 600;
 }
 .product-card .card-price .discounted {
-  color: #de1d09;
+  color: red;
   margin-left: 5px;
 }
 
