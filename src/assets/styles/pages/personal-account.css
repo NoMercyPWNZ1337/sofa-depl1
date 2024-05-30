@@ -102,6 +102,7 @@
 
 .personal .personal-content .product .btn[data-remove] {
   grid-area: product-remove;
+  align-self: end;
 }
 
 .personal .personal-content .product .product-image {

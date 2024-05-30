@@ -26,6 +26,7 @@ router.get('/products/search', ProductController.search)
 
 router.get(
   '/products/shopping-cart/:productIds',
+  [authMiddleware],
   ProductController.getAllForShoppingCart
 )
 
