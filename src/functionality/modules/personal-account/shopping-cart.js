@@ -71,6 +71,17 @@ const productTemplate = ({ product }) => {
   let productsData = []
   let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || []
 
+  const amountOrder = () => {
+    const productPrices = productsData.map(product => {
+      return (product.discountedPrice || product.price) * +product.quantity
+    })
+    const totalPrice = productPrices.reduce((acc, price) => acc + price, 0)
+
+    DOM.amountOrder.innerHTML = `До оплати без доставки: <span>${totalPrice}</span> грн.`
+
+    return totalPrice
+  }
+
   const onRemoveProduct = () => {
     const removeBtns = actualDOM().removeProductBtns
 
@@ -116,19 +127,10 @@ const productTemplate = ({ product }) => {
         }
 
         productsData[productIndex].quantity = form.quantity.value
+
+        amountOrder()
       })
     })
-  }
-
-  const amountOrder = () => {
-    const productPrices = productsData.map(product => {
-      return product.discountedPrice || product.price
-    })
-    const totalPrice = productPrices.reduce((acc, price) => acc + price, 0)
-
-    DOM.amountOrder.innerHTML = `До оплати без доставки: <span>${totalPrice}</span> грн.`
-
-    return totalPrice
   }
 
   try {
@@ -139,7 +141,10 @@ const productTemplate = ({ product }) => {
     if (!responseProducts.success) return
 
     if (responseProducts.products.length) {
-      productsData = responseProducts.products
+      productsData = responseProducts.products.map(product => ({
+        ...product,
+        quantity: 1,
+      }))
 
       const productListHtml = responseProducts.products.map(product => {
         return productTemplate({ product })
@@ -170,7 +175,7 @@ const productTemplate = ({ product }) => {
     try {
       const productsInOrder = productsData.map(product => ({
         name: product.name,
-        quantity: +product.quantity || 1,
+        quantity: product.quantity,
       }))
 
       const responseOrder = await OrderService.create({
@@ -185,6 +190,7 @@ const productTemplate = ({ product }) => {
         alert('Дякуємо за замовлення')
 
         localStorage.removeItem('shoppingCart')
+
         window.location.reload()
       }
     } catch (error) {
