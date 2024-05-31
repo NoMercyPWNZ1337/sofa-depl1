@@ -3,10 +3,17 @@ import Order from '../models/order.js'
 
 const getAllActive = async (req, res) => {
   try {
-    const orders = await Order.find({
-      userId: req.params.userId,
-      delivered: false,
-    }).exec()
+    const orders = await Order.aggregate([
+      {
+        $match: {
+          userId: new mongoose.Types.ObjectId(req.params.userId),
+          $or: [
+            { status: { $regex: 'Комплектується', $options: 'i' } },
+            { status: { $regex: 'Відправлено', $options: 'i' } },
+          ],
+        },
+      },
+    ])
 
     return res.json({ success: true, orders })
   } catch (error) {

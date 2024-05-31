@@ -212,16 +212,9 @@
 
 .personal .personal-content .orders-history .order .order-status {
   font-size: 17px;
-}
-
-.personal .personal-content .orders-history .order.history .order-status {
   color: #07d325;
 }
 
-.personal
-  .personal-content
-  .orders-history
-  .order.history
-  .order-status.active {
+.personal .personal-content .orders-history .order .order-status.active {
   color: red;
 }

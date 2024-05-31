@@ -63,6 +63,7 @@ const productTemplate = ({ product }) => {
   const { AuthService } = await import('../../services/auth.js')
   const { ProductService } = await import('../../services/product.js')
   const { OrderService } = await import('../../services/order.js')
+  const { Redirect } = await import('../../utils/redirect.utillity.js')
 
   const responseAuth = await AuthService.checkAuth()
 
@@ -77,7 +78,7 @@ const productTemplate = ({ product }) => {
     })
     const totalPrice = productPrices.reduce((acc, price) => acc + price, 0)
 
-    DOM.amountOrder.innerHTML = `До оплати без доставки: <span>${totalPrice}</span> грн.`
+    DOM.amountOrder.innerHTML = `До оплати без доставки: <span>${totalPrice}</span> грн`
 
     return totalPrice
   }
@@ -192,7 +193,7 @@ const productTemplate = ({ product }) => {
 
         localStorage.removeItem('shoppingCart')
 
-        window.location.reload()
+        Redirect('/personal-account/orders-tracking')
       }
     } catch (error) {
       console.log(error)

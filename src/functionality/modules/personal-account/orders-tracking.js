@@ -16,20 +16,20 @@ const actualDOM = () => {
 
     if (!responseAuth.success) return
 
-    const responseOrder = await OrderService.getAllNotActive({
+    const responseOrder = await OrderService.getAllActive({
       userId: responseAuth.user._id,
     })
 
     if (!responseOrder.success) return
 
     if (responseOrder.orders.length) {
-      const orderListHtml = responseOrder.orders.map(order => {
+      const orderListHtml = responseOrder.orders.reverse().map(order => {
         return orderTemplate({ order })
       })
 
       DOM.ordersHistory.innerHTML = orderListHtml.join('')
     } else {
-      DOM.ordersHistory.innerHTML = `<h2>Замовлень поки що не було</h2>`
+      DOM.ordersHistory.innerHTML = `<h2>Замовлень для відстеження немає</h2>`
     }
   } catch (error) {
     console.log(error)
