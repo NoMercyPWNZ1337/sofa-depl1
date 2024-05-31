@@ -36,31 +36,4 @@ const create = async (req, res) => {
   }
 }
 
-const update = async (req, res) => {
-  try {
-    const { errors } = validationResult(req)
-
-    if (errors.length) {
-      return res.status(400).json({
-        message: 'Помилка при оновленні замовлення',
-        errors,
-      })
-    }
-
-    await Product.findByIdAndUpdate(
-      { _id: req.params.id },
-      productData({ req })
-    )
-
-    res.json({ success: true })
-  } catch (error) {
-    console.log(error)
-
-    return res.status(400).json({
-      message: 'Помилка при оновленні замовлення',
-      success: false,
-    })
-  }
-}
-
-export const OrderController = { getAll, create, update }
+export const OrderController = { getAll, create }

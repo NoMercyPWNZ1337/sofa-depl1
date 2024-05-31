@@ -4,4 +4,8 @@ const create = async ({ orderData }) => {
   return await Fetch({ url: `/api/orders`, method: 'post', body: orderData })
 }
 
-export const OrderService = { create }
+const getAll = async () => {
+  return await Fetch({ url: `/api/orders`, method: 'get' })
+}
+
+export const OrderService = { create, getAll }
