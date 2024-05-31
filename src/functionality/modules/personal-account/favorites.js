@@ -80,8 +80,6 @@ const productTemplate = ({ product }) => {
       DOM.favorites.innerHTML = productListHtml.join('')
 
       onRemoveProduct()
-      onChangeQuantityProduct()
-      amountOrder()
     } else {
       DOM.favorites.innerHTML = `<h2>Товарів в обраному ще немає</h2>`
     }
