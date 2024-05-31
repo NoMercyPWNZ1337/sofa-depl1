@@ -1,8 +1,14 @@
+const actualDOM = () => {
+  return {
+    personalAccountForm: document.querySelector('#account-form'),
+  }
+}
+
 ;(async () => {
   const { AuthService } = await import('../../services/auth.js')
   const { UserService } = await import('../../services/user.js')
 
-  const personalAccountForm = document.querySelector('#account-form')
+  const DOM = actualDOM()
 
   let userId = null
 
@@ -13,21 +19,21 @@
 
     const user = responseAuth.user
 
-    personalAccountForm.name.value = user.name
-    personalAccountForm.lastName.value = user.lastName
-    personalAccountForm.phone.value = user.phone
-    personalAccountForm.email.value = user.email
+    DOM.personalAccountForm.name.value = user.name
+    DOM.personalAccountForm.lastName.value = user.lastName
+    DOM.personalAccountForm.phone.value = user.phone
+    DOM.personalAccountForm.email.value = user.email
 
     userId = user._id
   } catch (error) {
     console.log(error)
   }
 
-  personalAccountForm.addEventListener('submit', async e => {
+  DOM.personalAccountForm.addEventListener('submit', async e => {
     e.preventDefault()
 
     try {
-      const responseUser = await UserService.update({
+      const responseUserUpdate = await UserService.update({
         userId,
         userData: {
           name: e.target.name.value,
@@ -37,7 +43,7 @@
         },
       })
 
-      if (responseUser.success) {
+      if (responseUserUpdate.success) {
         alert(
           'Дані оновленно, сторінка перезагрузиться після закриття сповіщення'
         )

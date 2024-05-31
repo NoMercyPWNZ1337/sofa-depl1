@@ -1,10 +1,16 @@
+const actualDOM = () => {
+  return {
+    loginForm: document.querySelector('#login-form'),
+  }
+}
+
 ;(async () => {
   const { AuthService } = await import('../services/auth.js')
   const { Redirect } = await import('../utils/redirect.utillity.js')
 
-  const loginForm = document.querySelector('#login-form')
+  const DOM = actualDOM()
 
-  loginForm.addEventListener('submit', async e => {
+  DOM.loginForm.addEventListener('submit', async e => {
     e.preventDefault()
 
     try {

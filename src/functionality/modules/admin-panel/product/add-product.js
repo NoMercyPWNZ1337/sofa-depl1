@@ -1,3 +1,9 @@
+const actualDOM = () => {
+  return {
+    addProductForm: document.querySelector('#add-product'),
+  }
+}
+
 ;(async () => {
   const { AuthService } = await import('../../../services/auth.js')
   const { ProductService } = await import('../../../services/product.js')
@@ -11,21 +17,21 @@
   await AuthService.checkAuth()
   await AuthService.checkAccess()
 
+  const DOM = actualDOM()
   const previewImage = uploadImage()
-  const addProductForm = document.querySelector('#add-product')
 
-  underCategorySelect({ form: addProductForm })
-  productSelect({ form: addProductForm })
+  underCategorySelect({ form: DOM.addProductForm })
+  productSelect({ form: DOM.addProductForm })
 
-  addProductForm.addEventListener('submit', async e => {
+  DOM.addProductForm.addEventListener('submit', async e => {
     e.preventDefault()
 
     try {
-      const response = await ProductService.create({
+      const responseProduct = await ProductService.create({
         productData: productData({ e, previewImage }),
       })
 
-      if (response.success) {
+      if (responseProduct.success) {
         alert(
           'Товар добавлено, сторінка перезагрузиться після закриття сповіщення'
         )

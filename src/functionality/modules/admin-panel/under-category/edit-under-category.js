@@ -1,3 +1,9 @@
+const actualDOM = () => {
+  return {
+    editUnderCategoryForm: document.querySelector('#edit-under-category'),
+  }
+}
+
 ;(async () => {
   const { AuthService } = await import('../../../services/auth.js')
   const { UnderCategoryService } = await import(
@@ -8,8 +14,8 @@
   await AuthService.checkAuth()
   await AuthService.checkAccess()
 
+  const DOM = actualDOM()
   const underCategoryId = new URLSearchParams(window.location.search).get('id')
-  const editUnderCategoryForm = document.querySelector('#edit-under-category')
 
   try {
     const responseUnderCategory = await UnderCategoryService.getOne({
@@ -19,11 +25,11 @@
     if (Object.keys(responseUnderCategory.underCategory).length) {
       const underCategory = responseUnderCategory.underCategory
 
-      editUnderCategoryForm.name.value = underCategory.name
-      editUnderCategoryForm.category.value = underCategory.categoryId
+      DOM.editUnderCategoryForm.name.value = underCategory.name
+      DOM.editUnderCategoryForm.category.value = underCategory.categoryId
 
       categorySelect({
-        form: editUnderCategoryForm,
+        form: DOM.editUnderCategoryForm,
         selectedCategoryId: underCategory.categoryId,
       })
     }
@@ -31,11 +37,11 @@
     console.log(error)
   }
 
-  editUnderCategoryForm.addEventListener('submit', async e => {
+  DOM.editUnderCategoryForm.addEventListener('submit', async e => {
     e.preventDefault()
 
     try {
-      const response = await UnderCategoryService.update({
+      const responseUnderCategoryUpdate = await UnderCategoryService.update({
         underCatagoryData: {
           name: e.target.name.value,
           categoryId: e.target.category.value,
@@ -43,7 +49,7 @@
         underCategoryId,
       })
 
-      if (response.success) {
+      if (responseUnderCategoryUpdate.success) {
         alert('Підкатегорію оновлено')
       }
     } catch (error) {

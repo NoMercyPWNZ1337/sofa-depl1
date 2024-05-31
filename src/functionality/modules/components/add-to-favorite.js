@@ -1,23 +1,28 @@
-export const addToFavorite = () => {
-  const tofavoritesBtns = document.querySelectorAll('button[data-to-favorite]')
-  const favorite = document.querySelector('#favorite')
-  const favoriteQuantity = favorite.querySelector('#favorite-quantity')
+const actualDOM = () => {
+  return {
+    tofavoritesBtns: document.querySelectorAll('button[data-to-favorite]'),
+    favorite: document.querySelector('#favorite'),
+    favoriteQuantity: favorite.querySelector('#favorite-quantity'),
+  }
+}
 
+export const addToFavorite = () => {
+  const DOM = actualDOM()
   let favorites = JSON.parse(localStorage.getItem('favorites')) || []
 
   const showfavoritesQuantity = () => {
-    favoriteQuantity.innerHTML = favorites.length
+    DOM.favoriteQuantity.innerHTML = favorites.length
 
     if (favorites.length) {
-      favorite.classList.add('active')
+      DOM.favorite.classList.add('active')
     } else {
-      favorite.classList.remove('active')
+      DOM.favorite.classList.remove('active')
     }
   }
 
   showfavoritesQuantity()
 
-  tofavoritesBtns.forEach(btn => {
+  DOM.tofavoritesBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const favoriteId = btn.dataset.toFavorite
 

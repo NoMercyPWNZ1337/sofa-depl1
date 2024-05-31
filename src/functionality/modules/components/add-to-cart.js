@@ -1,23 +1,28 @@
-export const addToCart = () => {
-  const toShoppingCartBtns = document.querySelectorAll('button[data-to-cart]')
-  const basket = document.querySelector('#basket')
-  const basketQuantity = basket.querySelector('#basket-quantity')
+const actualDOM = () => {
+  return {
+    toShoppingCartBtns: document.querySelectorAll('button[data-to-cart]'),
+    basket: document.querySelector('#basket'),
+    basketQuantity: basket.querySelector('#basket-quantity'),
+  }
+}
 
+export const addToCart = () => {
+  const DOM = actualDOM()
   let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || []
 
   const showShoppingCartQiantity = () => {
-    basketQuantity.innerHTML = shoppingCart.length
+    DOM.basketQuantity.innerHTML = shoppingCart.length
 
     if (shoppingCart.length) {
-      basket.classList.add('active')
+      DOM.basket.classList.add('active')
     } else {
-      basket.classList.remove('active')
+      DOM.basket.classList.remove('active')
     }
   }
 
   showShoppingCartQiantity()
 
-  toShoppingCartBtns.forEach(btn => {
+  DOM.toShoppingCartBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const productId = btn.dataset.toCart
 

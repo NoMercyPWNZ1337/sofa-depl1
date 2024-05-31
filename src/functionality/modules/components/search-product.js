@@ -1,25 +1,31 @@
 import { ProductService } from '../../services/product.js'
 import { Redirect } from '../../utils/redirect.utillity.js'
 
-export const searchProduct = async () => {
-  const wraperSearchForm = document.querySelector('#search')
-  const showSearchFormBtn = wraperSearchForm.querySelector('#search-trigger')
-  const searchProductList = wraperSearchForm.querySelector('#product-list')
-  const searchAnalogList = wraperSearchForm.querySelector('#analog-list')
-  const searchForm = wraperSearchForm.querySelector('#search-form')
-  const searchBgForHideForm = wraperSearchForm.querySelector('#search-bg')
-  const searchInput = searchForm.search
+const actualDOM = () => {
+  return {
+    wraperSearchForm: document.querySelector('#search'),
+    showSearchFormBtn: document.querySelector('#search #search-trigger'),
+    searchProductList: document.querySelector('#search #product-list'),
+    searchAnalogList: document.querySelector('#search #analog-list'),
+    searchForm: document.querySelector('#search #search-form'),
+    searchBgForHideForm: document.querySelector('#search #search-bg'),
+  }
+}
 
-  showSearchFormBtn.addEventListener('click', () => {
-    wraperSearchForm.classList.add('active')
+export const searchProduct = async () => {
+  const DOM = actualDOM()
+  const searchInput = DOM.searchForm.search
+
+  DOM.showSearchFormBtn.addEventListener('click', () => {
+    DOM.wraperSearchForm.classList.add('active')
     searchInput.focus()
   })
 
-  searchBgForHideForm.addEventListener('click', () => {
-    wraperSearchForm.classList.remove('active')
+  DOM.searchBgForHideForm.addEventListener('click', () => {
+    DOM.wraperSearchForm.classList.remove('active')
   })
 
-  searchForm.addEventListener('submit', e => {
+  DOM.searchForm.addEventListener('submit', e => {
     const search = e.target.search.value
 
     e.preventDefault()
@@ -34,11 +40,11 @@ export const searchProduct = async () => {
       const search = e.target.value
 
       if (search.length < 3) {
-        searchProductList.innerHTML = ''
-        searchAnalogList.innerHTML = '<h3>Нічого не знайдено</h3>'
+        DOM.searchProductList.innerHTML = ''
+        DOM.searchAnalogList.innerHTML = '<h3>Нічого не знайдено</h3>'
 
-        searchProductList.classList.remove('active')
-        searchAnalogList.classList.remove('active')
+        DOM.searchProductList.classList.remove('active')
+        DOM.searchAnalogList.classList.remove('active')
 
         return
       }
@@ -53,15 +59,16 @@ export const searchProduct = async () => {
             return `
               <li>
                 <a 
-                  class="search-link ${
-                    !!product.discountedPrice && 'discounted'
-                  }" 
+                  class="
+                    search-link 
+                    ${!!product.discountedPrice && 'discounted'}
+                  " 
                   href="/products/${product._id}"
                   >
                   <span class="title">${product.name}</span>
-                  <span class="manufacturer">Виробник: ${
-                    product.manufacturer
-                  }</span>
+                  <span class="manufacturer">
+                    Виробник: ${product.manufacturer}
+                  </span>
                   <span class="price">
                     Ціна: 
                     <span>${product.price} грн</span>
@@ -91,24 +98,24 @@ export const searchProduct = async () => {
         }).join('')
 
         if (responseProducts.analogProducts.length) {
-          searchAnalogList.innerHTML = `
+          DOM.searchAnalogList.innerHTML = `
             <h4>Аналогічні товари: </h4>
             ${analogListHtml}
           `
 
-          searchAnalogList.classList.add('active')
+          DOM.searchAnalogList.classList.add('active')
         }
 
-        searchProductList.innerHTML = productListHtml
-        searchProductList.classList.add('active')
+        DOM.searchProductList.innerHTML = productListHtml
+        DOM.searchProductList.classList.add('active')
       } else {
-        searchProductList.innerHTML = '<h3>Нічого не знайдено</h3>'
-        searchProductList.classList.add('active')
+        DOM.searchProductList.innerHTML = '<h3>Нічого не знайдено</h3>'
+        DOM.searchProductList.classList.add('active')
       }
 
       if (!responseProducts.analogProducts.length) {
-        searchAnalogList.innerHTML = '<h3>Нічого не знайдено</h3>'
-        searchAnalogList.classList.remove('active')
+        DOM.searchAnalogList.innerHTML = '<h3>Нічого не знайдено</h3>'
+        DOM.searchAnalogList.classList.remove('active')
       }
     })
   } catch (error) {

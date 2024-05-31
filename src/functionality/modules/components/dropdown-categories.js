@@ -1,8 +1,13 @@
 import { UnderCategoryService } from '../../services/under-category.js'
 
+const actualDOM = () => {
+  return {
+    dropdownList: document.querySelector('#dropdown #dropdown-list'),
+  }
+}
+
 export const dropdownCategories = async () => {
-  const dropdown = document.querySelector('#dropdown')
-  const dropdownList = dropdown.querySelector('#dropdown-list')
+  const DOM = actualDOM()
 
   try {
     const responseCategories = await UnderCategoryService.getAllWithCategories()
@@ -32,7 +37,7 @@ export const dropdownCategories = async () => {
         `
       })
 
-      dropdownList.innerHTML = dropdownListHtml.join('')
+      DOM.dropdownList.innerHTML = dropdownListHtml.join('')
     }
   } catch (error) {
     console.log(error)

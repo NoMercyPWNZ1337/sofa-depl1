@@ -1,10 +1,16 @@
+const actualDOM = () => {
+  return {
+    registrationForm: document.querySelector('#registration-form'),
+  }
+}
+
 ;(async () => {
   const { AuthService } = await import('../services/auth.js')
   const { Redirect } = await import('../utils/redirect.utillity.js')
 
-  const registrationForm = document.querySelector('#registration-form')
+  const DOM = actualDOM()
 
-  registrationForm.addEventListener('submit', async e => {
+  DOM.registrationForm.addEventListener('submit', async e => {
     e.preventDefault()
 
     if (!e.target.agree.checked) {

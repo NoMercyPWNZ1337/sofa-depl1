@@ -1,3 +1,9 @@
+const actualDOM = () => {
+  return {
+    editProductForm: document.querySelector('#edit-product'),
+  }
+}
+
 ;(async () => {
   const { AuthService } = await import('../../../services/auth.js')
   const { ProductService } = await import('../../../services/product.js')
@@ -11,9 +17,9 @@
   await AuthService.checkAuth()
   await AuthService.checkAccess()
 
+  const DOM = actualDOM()
   const previewImage = uploadImage()
   const productId = new URLSearchParams(window.location.search).get('id')
-  const editProductForm = document.querySelector('#edit-product')
 
   try {
     const responseProduct = await ProductService.getOne({ productId })
@@ -22,42 +28,42 @@
 
     const product = responseProduct.product
 
-    editProductForm.name.value = product.name
-    editProductForm.price.value = product.price
-    editProductForm.quantityInWarehouse.value = product.quantityInWarehouse
-    editProductForm.quantityInDrugstore.value = product.quantityInDrugstore
-    editProductForm.description.value = product.description
-    editProductForm.discountedPrice.value = product.discountedPrice
-    editProductForm.manufacturer.value = product.manufacturer
-    editProductForm.manufacturerCountry.value = product.manufacturerCountry
-    editProductForm.withRecipe.checked = product.withRecipe
+    DOM.editProductForm.name.value = product.name
+    DOM.editProductForm.price.value = product.price
+    DOM.editProductForm.quantityInWarehouse.value = product.quantityInWarehouse
+    DOM.editProductForm.quantityInDrugstore.value = product.quantityInDrugstore
+    DOM.editProductForm.description.value = product.description
+    DOM.editProductForm.discountedPrice.value = product.discountedPrice
+    DOM.editProductForm.manufacturer.value = product.manufacturer
+    DOM.editProductForm.manufacturerCountry.value = product.manufacturerCountry
+    DOM.editProductForm.withRecipe.checked = product.withRecipe
     previewImage.src = product.image
     previewImage.setAttribute('data-image', product.image)
 
     productSelect({
-      form: editProductForm,
+      form: DOM.editProductForm,
       productId,
       selectedAnalogsIds: responseProduct.product.analogs,
     })
 
     underCategorySelect({
-      form: editProductForm,
+      form: DOM.editProductForm,
       selectedUnderCategoryId: product.underCategoryId,
     })
   } catch (error) {
     console.log(error)
   }
 
-  editProductForm.addEventListener('submit', async e => {
+  DOM.editProductForm.addEventListener('submit', async e => {
     e.preventDefault()
 
     try {
-      const response = await ProductService.update({
+      const responseProductUpdate = await ProductService.update({
         productData: productData({ e, previewImage }),
         productId,
       })
 
-      if (response.success) {
+      if (responseProductUpdate.success) {
         alert('Товар оновлено')
       }
     } catch (error) {

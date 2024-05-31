@@ -1,3 +1,15 @@
+const actualDOM = () => {
+  return {
+    productList: document.querySelector('#product-list'),
+    removeProductBtns: document.querySelectorAll(
+      '#product-list button[data-remove-id]'
+    ),
+    editProductBtns: document.querySelectorAll(
+      '#product-list button[data-edit-id]'
+    ),
+  }
+}
+
 ;(async () => {
   const { AuthService } = await import('../../../services/auth.js')
   const { ProductService } = await import('../../../services/product.js')
@@ -7,10 +19,10 @@
   await AuthService.checkAuth()
   await AuthService.checkAccess()
 
-  const productList = document.querySelector('#product-list')
+  const DOM = actualDOM()
 
   const onRemoveProduct = () => {
-    const removeBtns = productList.querySelectorAll('button[data-remove-id]')
+    const removeBtns = actualDOM().removeProductBtns
 
     removeBtns.forEach(button => {
       button.addEventListener('click', async e => {
@@ -26,7 +38,7 @@
   }
 
   const onEditProduct = () => {
-    const editBtns = productList.querySelectorAll('button[data-edit-id]')
+    const editBtns = actualDOM().editProductBtns
 
     editBtns.forEach(button => {
       button.addEventListener('click', async e => {
@@ -45,12 +57,12 @@
         return productCard({ product })
       })
 
-      productList.innerHTML = productListHtml.join('')
+      DOM.productList.innerHTML = productListHtml.join('')
 
       onRemoveProduct()
       onEditProduct()
     } else {
-      productList.innerHTML = '<h4>Немає товарів</h4>'
+      DOM.productList.innerHTML = '<h4>Немає товарів</h4>'
     }
   } catch (error) {
     console.log(error)

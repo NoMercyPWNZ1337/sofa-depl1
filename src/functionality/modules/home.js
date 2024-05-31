@@ -1,13 +1,19 @@
+const actualDOM = () => {
+  return {
+    discountedSection: document.querySelector('#discounted-products'),
+    discountedSwiper: document.querySelector(
+      '#discounted-products #discounted-swiper .swiper-wrapper'
+    ),
+  }
+}
+
 ;(async () => {
   const { ProductService } = await import('../services/product.js')
   const { productCard } = await import('./components/product-card.js')
   const { addToCart } = await import('./components/add-to-cart.js')
   const { addToFavorite } = await import('./components/add-to-favorite.js')
 
-  const discountedSection = document.querySelector('#discounted-products')
-  const discountedSwiper = discountedSection.querySelector(
-    '#discounted-swiper .swiper-wrapper'
-  )
+  const DOM = actualDOM()
 
   try {
     const responseProducts = await ProductService.getDiscounted()
@@ -15,7 +21,7 @@
     if (!responseProducts.success) return
 
     if (responseProducts.products.length) {
-      discountedSection.classList.add('active')
+      DOM.discountedSection.classList.add('active')
 
       const productListHtml = responseProducts.products.map(product => {
         return `
@@ -25,7 +31,7 @@
         `
       })
 
-      discountedSwiper.innerHTML = productListHtml.join('')
+      DOM.discountedSwiper.innerHTML = productListHtml.join('')
 
       addToCart()
       addToFavorite()

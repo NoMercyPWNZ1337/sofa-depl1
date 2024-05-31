@@ -1,11 +1,17 @@
 import { Fetch } from '../../../utils/fetch.utility.js'
 
-const uploadFileForm = document.querySelector('#upload-file')
-const inputFile = uploadFileForm.querySelector('input[name="image"]')
-const previewImage = uploadFileForm.querySelector('#preview-image')
+const actualDOM = () => {
+  return {
+    uploadFileForm: document.querySelector('#upload-file'),
+    inputFile: document.querySelector('#upload-file input[name="image"]'),
+    previewImage: document.querySelector('#upload-file #preview-image'),
+  }
+}
 
 export const uploadImage = () => {
-  inputFile.addEventListener('change', async e => {
+  const DOM = actualDOM()
+
+  DOM.inputFile.addEventListener('change', async e => {
     try {
       const formData = new FormData()
       formData.append('image', e.target.files[0])
@@ -17,12 +23,12 @@ export const uploadImage = () => {
         file: true,
       })
 
-      previewImage.src = response.url
-      previewImage.setAttribute('data-image', response.url)
+      DOM.previewImage.src = response.url
+      DOM.previewImage.setAttribute('data-image', response.url)
     } catch (error) {
       console.log(error)
     }
   })
 
-  return previewImage
+  return DOM.previewImage
 }

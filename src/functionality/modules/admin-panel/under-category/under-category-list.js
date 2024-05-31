@@ -1,3 +1,15 @@
+const actualDOM = () => {
+  return {
+    underCategoryList: document.querySelector('#under-category-list'),
+    removeUnderCategoryBtns: document.querySelectorAll(
+      '#under-category-list button[data-remove-id]'
+    ),
+    editUnderCategoryBtns: document.querySelectorAll(
+      '#under-category-list button[data-edit-id]'
+    ),
+  }
+}
+
 ;(async () => {
   const { AuthService } = await import('../../../services/auth.js')
   const { UnderCategoryService } = await import(
@@ -8,12 +20,10 @@
   await AuthService.checkAuth()
   await AuthService.checkAccess()
 
-  const underCategoryList = document.querySelector('#under-category-list')
+  const DOM = actualDOM()
 
   const onRemoveUnderCategory = () => {
-    const removeBtns = underCategoryList.querySelectorAll(
-      'button[data-remove-id]'
-    )
+    const removeBtns = actualDOM().removeUnderCategoryBtns
 
     removeBtns.forEach(button => {
       button.addEventListener('click', async e => {
@@ -29,7 +39,7 @@
   }
 
   const onEditUnderCategory = () => {
-    const editBtns = underCategoryList.querySelectorAll('button[data-edit-id]')
+    const editBtns = actualDOM().editUnderCategoryBtns
 
     editBtns.forEach(button => {
       button.addEventListener('click', async e => {
@@ -62,12 +72,12 @@
         }
       )
 
-      underCategoryList.innerHTML = underCategoryListHtml.join('')
+      DOM.underCategoryList.innerHTML = underCategoryListHtml.join('')
 
       onRemoveUnderCategory()
       onEditUnderCategory()
     } else {
-      underCategoryList.innerHTML = '<h4>Немає підкатегорій</h4>'
+      DOM.underCategoryList.innerHTML = '<h4>Немає підкатегорій</h4>'
     }
   } catch (error) {
     console.log(error)

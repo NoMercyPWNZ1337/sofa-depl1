@@ -100,7 +100,7 @@
   padding-right: 17.5px;
 }
 
-.personal .personal-content .product .btn[data-remove] {
+.personal .personal-content .product .btn[data-remove-id] {
   grid-area: product-remove;
   align-self: end;
 }

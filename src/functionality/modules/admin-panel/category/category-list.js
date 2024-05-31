@@ -1,3 +1,15 @@
+const actualDOM = () => {
+  return {
+    categoryList: document.querySelector('#category-list'),
+    removeCategoryBtns: document.querySelectorAll(
+      '#category-list button[data-remove-id]'
+    ),
+    editCategoryBtns: document.querySelectorAll(
+      '#category-list button[data-edit-id]'
+    ),
+  }
+}
+
 ;(async () => {
   const { AuthService } = await import('../../../services/auth.js')
   const { CategoryService } = await import('../../../services/category.js')
@@ -6,10 +18,10 @@
   await AuthService.checkAuth()
   await AuthService.checkAccess()
 
-  const categoryList = document.querySelector('#category-list')
+  const DOM = actualDOM()
 
   const onRemoveCategory = () => {
-    const removeBtns = categoryList.querySelectorAll('button[data-remove-id]')
+    const removeBtns = actualDOM().removeCategoryBtns
 
     removeBtns.forEach(button => {
       button.addEventListener('click', async e => {
@@ -25,7 +37,7 @@
   }
 
   const onEditCategory = () => {
-    const editBtns = categoryList.querySelectorAll('button[data-edit-id]')
+    const editBtns = actualDOM().editCategoryBtns
 
     editBtns.forEach(button => {
       button.addEventListener('click', async e => {
@@ -54,12 +66,12 @@
         `
       })
 
-      categoryList.innerHTML = categoryListHtml.join('')
+      DOM.categoryList.innerHTML = categoryListHtml.join('')
 
       onRemoveCategory()
       onEditCategory()
     } else {
-      categoryList.innerHTML = '<h4>Немає категорій</h4>'
+      DOM.categoryList.innerHTML = '<h4>Немає категорій</h4>'
     }
   } catch (error) {
     console.log(error)

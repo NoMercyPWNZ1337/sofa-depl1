@@ -1,3 +1,9 @@
+const actualDOM = () => {
+  return {
+    addUnderCategoryForm: document.querySelector('#add-under-category'),
+  }
+}
+
 ;(async () => {
   const { AuthService } = await import('../../../services/auth.js')
   const { categorySelect } = await import('../components/category-select.js')
@@ -8,11 +14,11 @@
   await AuthService.checkAuth()
   await AuthService.checkAccess()
 
-  const addUnderCategoryForm = document.querySelector('#add-under-category')
+  const DOM = actualDOM()
 
-  categorySelect({ form: addUnderCategoryForm })
+  categorySelect({ form: DOM.addUnderCategoryForm })
 
-  addUnderCategoryForm.addEventListener('submit', async e => {
+  DOM.addUnderCategoryForm.addEventListener('submit', async e => {
     e.preventDefault()
 
     try {

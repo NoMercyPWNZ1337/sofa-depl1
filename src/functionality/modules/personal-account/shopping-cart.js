@@ -1,23 +1,33 @@
+const actualDOM = () => {
+  return {
+    productList: document.querySelector('#products'),
+    submitOrderBtn: document.querySelector('#submit-order'),
+    removeProductBtns: document.querySelectorAll(
+      '#products .product .btn[data-remove-id]'
+    ),
+    changeQuantityForms: document.querySelectorAll(
+      '#products .product form[data-product-id]'
+    ),
+  }
+}
+
 ;(async () => {
   const { AuthService } = await import('../../services/auth.js')
   const { ProductService } = await import('../../services/product.js')
 
   await AuthService.checkAuth()
 
-  let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || []
-  const products = document.querySelector('#products')
-  const submitOrderBtn = document.querySelector('#submit-order')
+  const DOM = actualDOM()
 
   let productsData = []
+  let shoppingCart = JSON.parse(localStorage.getItem('shoppingCart')) || []
 
   const onRemoveProduct = () => {
-    const removeBtns = document.querySelectorAll(
-      '#products .product .btn[data-remove]'
-    )
+    const removeBtns = actualDOM().removeProductBtns
 
     removeBtns.forEach(btn => {
       btn.addEventListener('click', e => {
-        const productId = e.target.dataset.remove
+        const productId = e.target.dataset.removeId
 
         shoppingCart = shoppingCart.filter(id => id !== productId)
 
@@ -28,10 +38,8 @@
     })
   }
 
-  const onQuantityProduct = () => {
-    const quantityForms = document.querySelectorAll(
-      '#products .product form[data-quantity]'
-    )
+  const onChangeQuantityProduct = () => {
+    const quantityForms = actualDOM().changeQuantityForms
 
     quantityForms.forEach(form => {
       form.addEventListener('click', e => {
@@ -94,7 +102,7 @@
             </p>
             <form 
                 class="product-quantity" 
-                data-quantity="${product._id}"
+                data-product-id="${product._id}"
                 data-max="${product.quantityInDrugstore}"
               >
               <button class="btn" name="minus">-</button>
@@ -106,23 +114,23 @@
               />
               <button class="btn" name="plus">+</button>
             </form>
-            <button class="btn" data-remove="${product._id}">
+            <button class="btn" data-remove-id="${product._id}">
               Видалити
             </button>
           </div>
         `
       })
 
-      products.innerHTML = productListHtml.join('')
+      DOM.productList.innerHTML = productListHtml.join('')
 
       onRemoveProduct()
-      onQuantityProduct()
+      onChangeQuantityProduct()
     }
   } catch (error) {
     console.log(error)
   }
 
-  submitOrderBtn.addEventListener('click', async () => {
+  DOM.submitOrderBtn.addEventListener('click', async () => {
     const address = prompt('Введіть адресу куди доставити замовлення')
 
     if (!address.length) {
