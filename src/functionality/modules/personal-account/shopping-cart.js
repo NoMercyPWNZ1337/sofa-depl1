@@ -141,6 +141,8 @@ const productTemplate = ({ product }) => {
     if (!responseProducts.success) return
 
     if (responseProducts.products.length) {
+      DOM.submitOrderBtnWrapper.classList.add('show')
+
       productsData = responseProducts.products.map(product => ({
         ...product,
         quantity: 1,
@@ -157,7 +159,6 @@ const productTemplate = ({ product }) => {
       amountOrder()
     } else {
       DOM.shoppingCart.innerHTML = `<h2>Товарів в кошику ще немає</h2>`
-      DOM.submitOrderBtnWrapper.classList.add('hide')
     }
   } catch (error) {
     console.log(error)

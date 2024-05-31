@@ -36,7 +36,7 @@
 
 .product-card .card-image {
   width: 100%;
-  height: auto;
+  height: 141px;
   grid-area: image;
 }
 

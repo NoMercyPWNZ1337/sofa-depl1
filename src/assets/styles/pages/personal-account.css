@@ -145,13 +145,13 @@
 
 .personal .personal-content .row {
   margin-top: 30px;
-  display: flex;
   align-items: center;
   justify-content: space-between;
+  display: none;
 }
 
-.personal .personal-content .row.hide {
-  display: none;
+.personal .personal-content .row.show {
+  display: flex;
 }
 
 .personal .personal-content .amount-order {
