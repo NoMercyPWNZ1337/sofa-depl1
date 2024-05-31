@@ -1,12 +1,12 @@
 const actualDOM = () => {
   return {
-    productList: document.querySelector('#products'),
+    shoppingCart: document.querySelector('#shopping-cart'),
     submitOrderBtn: document.querySelector('#submit-order'),
     removeProductBtns: document.querySelectorAll(
-      '#products .product .btn[data-remove-id]'
+      '#shopping-cart .product .btn[data-remove-id]'
     ),
     changeQuantityForms: document.querySelectorAll(
-      '#products .product form[data-product-id]'
+      '#shopping-cart .product form[data-product-id]'
     ),
     amountOrder: document.querySelector('#amount-order'),
     submitOrderBtnWrapper: document.querySelector('#submit-order-wrapper'),
@@ -150,13 +150,13 @@ const productTemplate = ({ product }) => {
         return productTemplate({ product })
       })
 
-      DOM.productList.innerHTML = productListHtml.join('')
+      DOM.shoppingCart.innerHTML = productListHtml.join('')
 
       onRemoveProduct()
       onChangeQuantityProduct()
       amountOrder()
     } else {
-      DOM.productList.innerHTML = `<h2>Товарів в кошику ще немає</h2>`
+      DOM.shoppingCart.innerHTML = `<h2>Товарів в кошику ще немає</h2>`
       DOM.submitOrderBtnWrapper.classList.add('hide')
     }
   } catch (error) {
