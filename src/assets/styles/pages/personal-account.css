@@ -117,8 +117,6 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 30px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding-bottom: 30px;
 }
 
 .personal .personal-content .favorites {
@@ -127,7 +125,8 @@
 }
 
 .personal .personal-content .shopping-cart h2,
-.personal .personal-content .favorites h2 {
+.personal .personal-content .favorites h2,
+.personal .personal-content .orders-history h2 {
   text-align: center;
   font-weight: 400;
   font-size: 20px;
@@ -148,6 +147,8 @@
   align-items: center;
   justify-content: space-between;
   display: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 30px;
 }
 
 .personal .personal-content .row.show {
@@ -161,4 +162,66 @@
 .personal .personal-content .amount-order span {
   font-weight: 500;
   font-size: 17px;
+}
+
+.personal .personal-content .orders-history .order {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  justify-content: space-between;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  gap: 0 20px;
+}
+
+.personal .personal-content .orders-history .order:first-child {
+  padding-top: 0;
+}
+
+.personal .personal-content .orders-history .order:last-child {
+  padding-bottom: 0;
+}
+
+.personal .personal-content .orders-history .order:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.personal .personal-content .orders-history .order .order-products {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 0;
+}
+
+.personal .personal-content .orders-history .order .order-products li {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+}
+
+.personal .personal-content .orders-history .order .order-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px 0;
+}
+
+.personal .personal-content .orders-history .order .order-price span {
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.personal .personal-content .orders-history .order .order-status {
+  font-size: 17px;
+}
+
+.personal .personal-content .orders-history .order.history .order-status {
+  color: #07d325;
+}
+
+.personal
+  .personal-content
+  .orders-history
+  .order.history
+  .order-status.active {
+  color: red;
 }

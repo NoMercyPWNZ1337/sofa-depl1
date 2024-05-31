@@ -81,4 +81,8 @@ router.get('/personal-account/favorites', (req, res) => {
   res.sendFile(fullPathForPages + '/personal-account/favorites.html')
 })
 
+router.get('/personal-account/orders-history', (req, res) => {
+  res.sendFile(fullPathForPages + '/personal-account/orders-history.html')
+})
+
 export default router

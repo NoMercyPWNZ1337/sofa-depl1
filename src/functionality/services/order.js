@@ -4,8 +4,12 @@ const create = async ({ orderData }) => {
   return await Fetch({ url: `/api/orders`, method: 'post', body: orderData })
 }
 
-const getAll = async () => {
-  return await Fetch({ url: `/api/orders`, method: 'get' })
+const getAllActive = async ({ userId }) => {
+  return await Fetch({ url: `/api/orders/active/${userId}`, method: 'get' })
 }
 
-export const OrderService = { create, getAll }
+const getAllNotActive = async ({ userId }) => {
+  return await Fetch({ url: `/api/orders/history/${userId}`, method: 'get' })
+}
+
+export const OrderService = { create, getAllActive, getAllNotActive }
