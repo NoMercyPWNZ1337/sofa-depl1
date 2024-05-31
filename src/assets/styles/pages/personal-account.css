@@ -120,6 +120,12 @@
   padding-bottom: 30px;
 }
 
+.personal .personal-content .products h2 {
+  text-align: center;
+  font-weight: 400;
+  font-size: 20px;
+}
+
 .personal .personal-content .product {
   display: grid;
   gap: 0 20px;
@@ -130,6 +136,22 @@
     'product-image product-price product-quantity';
 }
 
-.personal .personal-content .submit-order {
+.personal .personal-content .row {
   margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.personal .personal-content .row.hide {
+  display: none;
+}
+
+.personal .personal-content .amount-order {
+  font-size: 16px;
+}
+
+.personal .personal-content .amount-order span {
+  font-weight: 500;
+  font-size: 17px;
 }

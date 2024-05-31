@@ -17,7 +17,11 @@ const getAll = async (req, res) => {
 
 const create = async (req, res) => {
   try {
-    const order = new Order({})
+    const order = new Order({
+      userId: req.body.userId,
+      amount: req.body.amount,
+      products: req.body.products,
+    })
 
     await order.save()
 

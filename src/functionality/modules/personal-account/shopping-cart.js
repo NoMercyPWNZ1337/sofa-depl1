@@ -8,14 +8,17 @@ const actualDOM = () => {
     changeQuantityForms: document.querySelectorAll(
       '#products .product form[data-product-id]'
     ),
+    amountOrder: document.querySelector('#amount-order'),
+    submitOrderBtnWrapper: document.querySelector('#submit-order-wrapper'),
   }
 }
 
 ;(async () => {
   const { AuthService } = await import('../../services/auth.js')
   const { ProductService } = await import('../../services/product.js')
+  const { OrderService } = await import('../../services/order.js')
 
-  await AuthService.checkAuth()
+  const responseAuth = await AuthService.checkAuth()
 
   const DOM = actualDOM()
 
@@ -46,6 +49,10 @@ const actualDOM = () => {
         e.preventDefault()
 
         const maxQuantity = +form.dataset.max
+        const productId = form.dataset.productId
+        const productIndex = productsData.findIndex(product => {
+          return product._id === productId
+        })
 
         if (e.target.name === 'plus') {
           if (form.quantity.value >= maxQuantity) {
@@ -61,8 +68,21 @@ const actualDOM = () => {
 
           form.quantity.value--
         }
+
+        productsData[productIndex].quantity = form.quantity.value
       })
     })
+  }
+
+  const amountOrder = () => {
+    const productPrices = productsData.map(product => {
+      return product.discountedPrice || product.price
+    })
+    const totalPrice = productPrices.reduce((acc, price) => acc + price, 0)
+
+    DOM.amountOrder.innerHTML = `До оплати без доставки: <span>${totalPrice}</span> грн.`
+
+    return totalPrice
   }
 
   try {
@@ -125,6 +145,10 @@ const actualDOM = () => {
 
       onRemoveProduct()
       onChangeQuantityProduct()
+      amountOrder()
+    } else {
+      DOM.productList.innerHTML = `<h2>Товарів в кошику ще немає</h2>`
+      DOM.submitOrderBtnWrapper.classList.add('hide')
     }
   } catch (error) {
     console.log(error)
@@ -137,6 +161,30 @@ const actualDOM = () => {
       alert('Ви не ввели адресу')
 
       return
+    }
+
+    try {
+      const productsInOrder = productsData.map(product => ({
+        name: product.name,
+        quantity: +product.quantity || 1,
+      }))
+
+      const responseOrder = await OrderService.create({
+        orderData: {
+          userId: responseAuth.user._id,
+          amount: amountOrder(),
+          products: productsInOrder,
+        },
+      })
+
+      if (responseOrder.success) {
+        alert('Дякуємо за замовлення')
+
+        localStorage.removeItem('shoppingCart')
+        window.location.reload()
+      }
+    } catch (error) {
+      console.log(error)
     }
   })
 })()
