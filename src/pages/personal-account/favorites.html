@@ -71,10 +71,8 @@
       <div class="container">
         <nav class="links">
           <a class="link" href="/personal-account">Особистий кабінет</a>
-          <a class="link active" href="/personal-account/shopping-cart">
-            Кошик
-          </a>
-          <a class="link" href="/personal-account/favorites">Обране</a>
+          <a class="link" href="/personal-account/shopping-cart"> Кошик </a>
+          <a class="link active" href="/personal-account/favorites">Обране</a>
           <a class="link" href="/personal-account/orders-history">
             Історія замовлень
           </a>
@@ -83,13 +81,7 @@
           </a>
         </nav>
         <section class="personal-content">
-          <div id="shopping-cart" class="shopping-cart"></div>
-          <div id="submit-order-wrapper" class="row">
-            <button id="submit-order" class="submit-order btn">
-              Оформити замовлення
-            </button>
-            <p id="amount-order" class="amount-order"></p>
-          </div>
+          <div id="favorites" class="favorites"></div>
         </section>
       </div>
     </main>
@@ -198,7 +190,7 @@
 
     <script
       type="text/javascript"
-      src="/src/functionality/modules/personal-account/shopping-cart.js"
+      src="/src/functionality/modules/personal-account/favorites.js"
     ></script>
   </body>
 </html>

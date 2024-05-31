@@ -31,6 +31,12 @@ router.get(
 )
 
 router.get(
+  '/products/favorites/:productIds',
+  [authMiddleware],
+  ProductController.getAllForShoppingCart
+)
+
+router.get(
   '/products',
   [authMiddleware, roleMiddleware(['admin'])],
   ProductController.getAll
