@@ -1,6 +1,7 @@
 .header .dropdown {
   position: relative;
 }
+
 .header .dropdown .dropdown-list,
 .header .dropdown .dropdown-underlist {
   position: absolute;
@@ -15,32 +16,38 @@
   pointer-events: none;
   transition: opacity 0.2s;
 }
+
 .header .dropdown .dropdown-list:hover,
 .header .dropdown .dropdown-list .dropdown-underlist:hover {
   opacity: 1;
   pointer-events: all;
   transition: opacity 0.2s;
 }
+
 .header .dropdown .dropdown-trigger:hover + .dropdown-list,
 .header .dropdown .dropdown-list .list-item:hover .dropdown-underlist {
   opacity: 1;
   pointer-events: all;
   transition: opacity 0.2s;
 }
+
 .header .dropdown .dropdown-list .list-item,
 .header .dropdown .dropdown-underlist .underlist-item {
   background-color: #fff;
   padding: 15px 30px;
   position: relative;
 }
+
 .header .dropdown .dropdown-list .list-item,
 .header .dropdown .dropdown-underlist .underlist-item {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 .header .dropdown .dropdown-list .list-link {
   font-size: 17px;
   display: block;
 }
+
 .header .dropdown .dropdown-underlist {
   position: absolute;
   left: 100%;
@@ -48,6 +55,7 @@
   padding-top: 10px;
   padding: 0;
 }
+
 .header .dropdown .list-item:first-child .dropdown-underlist:before {
   content: '';
   position: absolute;
@@ -56,6 +64,7 @@
   height: 10px;
   background-color: #fff;
 }
+
 .header .dropdown .dropdown-underlist .list-link {
   display: block;
 }
