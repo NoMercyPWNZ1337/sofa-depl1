@@ -13,6 +13,52 @@ const actualDOM = () => {
   }
 }
 
+const productTemplate = ({ product }) => {
+  return `
+    <div class="product">
+      <img 
+        class="product-image"
+        src="${product.image}" 
+        alt="product image" 
+      />
+      <a class="product-title" href="">${product.name}</a>
+      <p class="product-stock">
+        В наявності: ${product.quantityInDrugstore}
+      </p>
+      <p class="product-price ${product.discountedPrice ? 'active' : ''}">
+        <span>
+          <span class="price">${product.price}</span>
+          ${
+            product.discountedPrice &&
+            `<span class="discounted">
+              ${product.discountedPrice}
+            </span>`
+          }
+          грн
+        </span>
+        <span class="text">за упаковку</span>
+      </p>
+      <form 
+          class="product-quantity" 
+          data-product-id="${product._id}"
+          data-max="${product.quantityInDrugstore}"
+        >
+        <button class="btn" name="minus">-</button>
+        <input
+          disabled
+          value="1"
+          name="quantity"
+          class="form-input" 
+        />
+        <button class="btn" name="plus">+</button>
+      </form>
+      <button class="btn" data-remove-id="${product._id}">
+        Видалити
+      </button>
+    </div>
+  `
+}
+
 ;(async () => {
   const { AuthService } = await import('../../services/auth.js')
   const { ProductService } = await import('../../services/product.js')
@@ -96,49 +142,7 @@ const actualDOM = () => {
       productsData = responseProducts.products
 
       const productListHtml = responseProducts.products.map(product => {
-        return `
-          <div class="product">
-            <img 
-              class="product-image"
-              src="${product.image}" 
-              alt="product image" 
-            />
-            <a class="product-title" href="">${product.name}</a>
-            <p class="product-stock">
-              В наявності: ${product.quantityInDrugstore}
-            </p>
-            <p class="product-price ${product.discountedPrice ? 'active' : ''}">
-              <span>
-                <span class="price">${product.price}</span>
-                ${
-                  product.discountedPrice &&
-                  `<span class="discounted">
-                    ${product.discountedPrice}
-                  </span>`
-                }
-                грн
-              </span>
-              <span class="text">за упаковку</span>
-            </p>
-            <form 
-                class="product-quantity" 
-                data-product-id="${product._id}"
-                data-max="${product.quantityInDrugstore}"
-              >
-              <button class="btn" name="minus">-</button>
-              <input
-                disabled
-                value="1"
-                name="quantity"
-                class="form-input" 
-              />
-              <button class="btn" name="plus">+</button>
-            </form>
-            <button class="btn" data-remove-id="${product._id}">
-              Видалити
-            </button>
-          </div>
-        `
+        return productTemplate({ product })
       })
 
       DOM.productList.innerHTML = productListHtml.join('')

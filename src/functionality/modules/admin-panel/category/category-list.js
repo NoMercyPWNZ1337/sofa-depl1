@@ -10,6 +10,20 @@ const actualDOM = () => {
   }
 }
 
+const categoryTemplate = ({ category }) => {
+  return `
+    <div>
+      <div>
+        <h6>${category.name}</h6>
+      </div>
+      <div>
+        <button data-edit-id="${category._id}" >Редагувати</button>
+        <button data-remove-id="${category._id}">Видалити</button>
+      </div>
+    </div>
+  `
+}
+
 ;(async () => {
   const { AuthService } = await import('../../../services/auth.js')
   const { CategoryService } = await import('../../../services/category.js')
@@ -53,17 +67,7 @@ const actualDOM = () => {
 
     if (responseCategories.categories.length) {
       const categoryListHtml = responseCategories.categories.map(category => {
-        return `
-          <div>
-            <div>
-              <h6>${category.name}</h6>
-            </div>
-            <div>
-              <button data-edit-id="${category._id}" >Редагувати</button>
-              <button data-remove-id="${category._id}">Видалити</button>
-            </div>
-          </div>
-        `
+        return categoryTemplate({ category })
       })
 
       DOM.categoryList.innerHTML = categoryListHtml.join('')

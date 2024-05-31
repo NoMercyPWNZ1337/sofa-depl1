@@ -1,5 +1,16 @@
 import { UnderCategoryService } from '../../../services/under-category.js'
 
+const underCategoryOptionTemplate = ({ underCategory }) => {
+  return `
+    <option 
+      value="${underCategory._id}" 
+      ${selectedUnderCategoryId === underCategory._id ? 'selected' : ''}
+    >
+      ${underCategory.name}
+    </option>
+  `
+}
+
 export const underCategorySelect = async ({
   form,
   selectedUnderCategoryId,
@@ -14,14 +25,7 @@ export const underCategorySelect = async ({
     if (responseUnderCategories.underCategories.length) {
       const underCategoriesHtml = responseUnderCategories.underCategories.map(
         underCategory => {
-          return `
-            <option 
-              value="${underCategory._id}" 
-              ${selectedUnderCategoryId === underCategory._id ? 'selected' : ''}
-            >
-              ${underCategory.name}
-            </option>
-          `
+          return underCategoryOptionTemplate({ underCategory })
         }
       )
 

@@ -12,6 +12,39 @@ const actualDOM = () => {
   }
 }
 
+const productTemplate = ({ product }) => {
+  return `
+    <li>
+      <a 
+        class="
+          search-link 
+          ${!!product.discountedPrice && 'discounted'}
+        " 
+        href="/products/${product._id}"
+        >
+        <span class="title">${product.name}</span>
+        <span class="manufacturer">
+          Виробник: ${product.manufacturer}
+        </span>
+        <span class="price">
+          Ціна: 
+          <span>${product.price} грн</span>
+        </span>
+        ${
+          product.discountedPrice
+            ? `
+              <span class="price-discounted">
+                Ціна зі знижкою: 
+                <span>${product.discountedPrice} грн</span>
+              </span>
+            `
+            : ''
+        }
+      </a>
+    </li>
+  `
+}
+
 export const searchProduct = async () => {
   const DOM = actualDOM()
   const searchInput = DOM.searchForm.search
@@ -56,36 +89,7 @@ export const searchProduct = async () => {
       if (responseProducts.products.length) {
         const renderProductListHtml = ({ products }) => {
           return products.map(product => {
-            return `
-              <li>
-                <a 
-                  class="
-                    search-link 
-                    ${!!product.discountedPrice && 'discounted'}
-                  " 
-                  href="/products/${product._id}"
-                  >
-                  <span class="title">${product.name}</span>
-                  <span class="manufacturer">
-                    Виробник: ${product.manufacturer}
-                  </span>
-                  <span class="price">
-                    Ціна: 
-                    <span>${product.price} грн</span>
-                  </span>
-                  ${
-                    product.discountedPrice
-                      ? `
-                        <span class="price-discounted">
-                          Ціна зі знижкою: 
-                          <span>${product.discountedPrice} грн</span>
-                        </span>
-                      `
-                      : ''
-                  }
-                </a>
-              </li>
-            `
+            return productTemplate({ product })
           })
         }
 

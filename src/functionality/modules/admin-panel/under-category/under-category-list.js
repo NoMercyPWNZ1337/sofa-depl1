@@ -10,6 +10,20 @@ const actualDOM = () => {
   }
 }
 
+const underCategoryTemplate = ({ underCategory }) => {
+  return `
+    <div>
+      <div>
+        <h6>${underCategory.name}</h6>
+      </div>
+      <div>
+        <button data-edit-id="${underCategory._id}" >Редагувати</button>
+        <button data-remove-id="${underCategory._id}">Видалити</button>
+      </div>
+    </div>
+  `
+}
+
 ;(async () => {
   const { AuthService } = await import('../../../services/auth.js')
   const { UnderCategoryService } = await import(
@@ -58,17 +72,7 @@ const actualDOM = () => {
     if (responseUnderCategories.underCategories.length) {
       const underCategoryListHtml = responseUnderCategories.underCategories.map(
         underCategory => {
-          return `
-            <div>
-              <div>
-                <h6>${underCategory.name}</h6>
-              </div>
-              <div>
-                <button data-edit-id="${underCategory._id}" >Редагувати</button>
-                <button data-remove-id="${underCategory._id}">Видалити</button>
-              </div>
-            </div>
-          `
+          return underCategoryTemplate({ underCategory })
         }
       )
 
