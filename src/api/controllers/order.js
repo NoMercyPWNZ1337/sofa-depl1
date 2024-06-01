@@ -10,20 +10,20 @@ const changeStatus = ({ status }) => {
 }
 
 const changeStatusOrder = async ({ userId }) => {
-  const orders = await Order.find({ userId }).exec()
+  try {
+    const orders = await Order.find({ userId }).exec()
 
-  for (let i = 0; i < orders.length; i++) {
-    const order = orders[i]
+    for (let i = 0; i < orders.length; i++) {
+      const order = orders[i]
 
-    const updateDate = order.creationTime + order.updateHour * 3.6e6
-    const currentDate = new Date().getTime()
+      if (order.status === 'Скасовано' || order.status === 'Доставлено') {
+        return
+      }
 
-    if (order.status === 'Скасовано' || order.status === 'Доставлено') {
-      return
-    }
+      const updateDate = order.creationTime + order.updateHour * 3.6e6
+      const currentDate = new Date().getTime()
 
-    if (currentDate >= updateDate) {
-      try {
+      if (currentDate >= updateDate) {
         await Order.findByIdAndUpdate(
           { _id: order._id },
           {
@@ -31,17 +31,17 @@ const changeStatusOrder = async ({ userId }) => {
             updateHour: order.updateHour * 2,
           }
         )
-      } catch (error) {
-        console.log(error)
       }
     }
+  } catch (error) {
+    console.log('Помилка при оновленні статусу замовлення')
   }
 }
 
 const getAllActive = async (req, res) => {
-  try {
-    await changeStatusOrder({ userId: req.params.userId })
+  await changeStatusOrder({ userId: req.params.userId })
 
+  try {
     const orders = await Order.aggregate([
       {
         $match: {
