@@ -11,6 +11,7 @@ export const orderTemplate = ({ order }) => {
   return `
     <div class="order">
       <ul class="order-products">
+        <li class="order-date">${order.date}</li>
         ${products.join('')}
       </ul>
       <ul class="order-info">

@@ -7,12 +7,13 @@ const Order = new Schema({
   updateHour: { type: Number },
   products: [
     {
+      _id: { type: Schema.Types.ObjectId },
       name: { type: String },
       quantity: { type: Number },
       remainingQuantity: { type: Number },
     },
   ],
-  delivered: { type: Boolean, default: false },
+  date: { type: String },
   status: { type: String, default: 'Комплектується' },
 })
 

@@ -218,3 +218,7 @@
 .personal .personal-content .orders-history .order .order-status.active {
   color: red;
 }
+
+.personal .personal-content .orders-history .order .order-date {
+  margin-bottom: 15px;
+}

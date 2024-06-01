@@ -107,6 +107,7 @@ const create = async (req, res) => {
       userId: req.body.userId,
       amount: req.body.amount,
       products: req.body.products,
+      date: req.body.date,
       creationTime: new Date().getTime(),
       updateHour: Math.floor(Math.random() * (6 - 1 + 1) + 1),
     })

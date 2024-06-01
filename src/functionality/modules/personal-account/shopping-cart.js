@@ -175,6 +175,8 @@ const productTemplate = ({ product }) => {
     }
 
     try {
+      const date = new Date()
+
       const productsInOrder = productsData.map(product => ({
         name: product.name,
         quantity: product.quantity,
@@ -187,6 +189,7 @@ const productTemplate = ({ product }) => {
           userId: responseAuth.user._id,
           amount: amountOrder(),
           products: productsInOrder,
+          date: `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`,
         },
       })
 
