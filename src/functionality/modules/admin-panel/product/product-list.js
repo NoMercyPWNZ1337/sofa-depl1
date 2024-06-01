@@ -14,7 +14,7 @@ const actualDOM = () => {
   const { AuthService } = await import('../../../services/auth.js')
   const { ProductService } = await import('../../../services/product.js')
   const { Redirect } = await import('../../../utils/redirect.utillity.js')
-  const { productCard } = await import('../components/product-card.js')
+  const { productTemplate } = await import('../components/product-template.js')
 
   await AuthService.checkAuth()
   await AuthService.checkAccess()
@@ -54,7 +54,7 @@ const actualDOM = () => {
 
     if (responseProducts.products.length) {
       const productListHtml = responseProducts.products.map(product => {
-        return productCard({ product })
+        return productTemplate({ product })
       })
 
       DOM.productList.innerHTML = productListHtml.join('')
