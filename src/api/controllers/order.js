@@ -15,8 +15,7 @@ const changeStatusOrder = async ({ userId }) => {
   for (let i = 0; i < orders.length; i++) {
     const order = orders[i]
 
-    const updateDate =
-      new Date(order.creationTime).getTime() + order.updateHour * 3.6e6
+    const updateDate = order.creationTime + order.updateHour * 3.6e6
     const currentDate = new Date().getTime()
 
     if (order.status === 'Скасовано' || order.status === 'Доставлено') {
