@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 
 import Order from '../models/order.js'
+import Product from '../models/product.js'
 
 const changeStatus = ({ status }) => {
   if (status === 'Комплектується') return 'Відправлено'
@@ -24,13 +25,22 @@ const changeStatusOrder = async ({ userId }) => {
       const currentDate = new Date().getTime()
 
       if (currentDate >= updateDate) {
-        await Order.findByIdAndUpdate(
+        const status = changeStatus({ status: order.status })
+        const orderUpdate = await Order.findByIdAndUpdate(
           { _id: order._id },
-          {
-            status: changeStatus({ status: order.status }),
-            updateHour: order.updateHour * 2,
-          }
+          { status, updateHour: order.updateHour * 2 }
         )
+
+        if (order.status === 'Доставлено') {
+          for (let p = 0; p < orderUpdate.products.length; p++) {
+            const product = orderUpdate.products[p]
+
+            await Product.findByIdAndUpdate(
+              { _id: product._id },
+              { quantityInDrugstore: product.remainingQuantity }
+            )
+          }
+        }
       }
     }
   } catch (error) {

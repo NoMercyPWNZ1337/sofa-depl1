@@ -179,6 +179,7 @@ const productTemplate = ({ product }) => {
         name: product.name,
         quantity: product.quantity,
         _id: product._id,
+        remainingQuantity: product.quantityInDrugstore - product.quantity,
       }))
 
       const responseOrder = await OrderService.create({
