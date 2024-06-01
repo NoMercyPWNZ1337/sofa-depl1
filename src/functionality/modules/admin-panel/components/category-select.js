@@ -1,6 +1,6 @@
 import { CategoryService } from '../../../services/category.js'
 
-const categoryOptionTemplate = ({ category }) => {
+const categoryOptionTemplate = ({ category, selectedCategoryId }) => {
   return `
     <option 
       value="${category._id}" 
@@ -21,7 +21,7 @@ export const categorySelect = async ({ form, selectedCategoryId }) => {
 
     if (responseCategories.categories.length) {
       const categoriesHtml = responseCategories.categories.map(category => {
-        return categoryOptionTemplate({ category })
+        return categoryOptionTemplate({ category, selectedCategoryId })
       })
 
       select.innerHTML = `

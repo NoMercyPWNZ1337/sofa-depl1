@@ -53,10 +53,14 @@ const getAllNotActive = async (req, res) => {
 
 const create = async (req, res) => {
   try {
+    const randomHourForUpdateTime = Math.floor(Math.random() * (6 - 1 + 1) + 1)
+
     const order = new Order({
       userId: req.body.userId,
       amount: req.body.amount,
       products: req.body.products,
+      creationTime: new Date().getTime(),
+      updateHour: randomHourForUpdateTime,
     })
 
     await order.save()

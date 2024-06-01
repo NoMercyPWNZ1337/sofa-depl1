@@ -1,6 +1,9 @@
 import { UnderCategoryService } from '../../../services/under-category.js'
 
-const underCategoryOptionTemplate = ({ underCategory }) => {
+const underCategoryOptionTemplate = ({
+  underCategory,
+  selectedUnderCategoryId,
+}) => {
   return `
     <option 
       value="${underCategory._id}" 
@@ -25,7 +28,10 @@ export const underCategorySelect = async ({
     if (responseUnderCategories.underCategories.length) {
       const underCategoriesHtml = responseUnderCategories.underCategories.map(
         underCategory => {
-          return underCategoryOptionTemplate({ underCategory })
+          return underCategoryOptionTemplate({
+            underCategory,
+            selectedUnderCategoryId,
+          })
         }
       )
 
