@@ -44,6 +44,7 @@ const changeStatusOrder = async ({ userId }) => {
       }
     }
   } catch (error) {
+    console.log(error)
     console.log('Помилка при оновленні статусу замовлення')
   }
 }
