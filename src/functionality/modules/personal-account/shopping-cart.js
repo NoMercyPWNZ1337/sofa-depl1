@@ -178,6 +178,7 @@ const productTemplate = ({ product }) => {
       const productsInOrder = productsData.map(product => ({
         name: product.name,
         quantity: product.quantity,
+        _id: product._id,
       }))
 
       const responseOrder = await OrderService.create({
