@@ -4,7 +4,7 @@ import Order from '../models/order.js'
 import Product from '../models/product.js'
 
 const changeStatus = ({ status }) => {
-  if (Math.random() < 0.7) return 'Скасовано'
+  if (Math.random() < 0.3) return 'Скасовано'
   if (status === 'Комплектується') return 'Відправлено'
   if (status === 'Відправлено') return 'Доставлено'
 
