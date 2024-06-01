@@ -15,3 +15,8 @@
   color: #07d325;
   transition: border-color 0.2s, color 0.2s;
 }
+
+.btn:disabled {
+  color: rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+}

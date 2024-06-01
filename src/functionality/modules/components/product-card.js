@@ -62,6 +62,7 @@ export const productCard = ({ product }) => {
         <span class="text">за упаковку</span>
       </p>
       <button 
+          ${product.quantityInDrugstore <= 0 && 'disabled'}
           class="card-btn btn ${hasInCart && 'active'}" 
           data-to-cart="${product._id}"
         >

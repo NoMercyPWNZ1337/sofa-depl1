@@ -31,7 +31,7 @@ const changeStatusOrder = async ({ userId }) => {
           { status, updateHour: order.updateHour * 2 }
         )
 
-        if (order.status === 'Доставлено') {
+        if (status === 'Доставлено') {
           for (let p = 0; p < orderUpdate.products.length; p++) {
             const product = orderUpdate.products[p]
 
