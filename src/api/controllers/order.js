@@ -1,8 +1,48 @@
 import mongoose from 'mongoose'
+
 import Order from '../models/order.js'
+
+const changeStatus = ({ status }) => {
+  if (status === 'Комплектується') return 'Відправлено'
+  if (status === 'Відправлено') return 'Доставлено'
+
+  return status
+}
+
+const changeStatusOrder = async ({ userId }) => {
+  const orders = await Order.find({ userId }).exec()
+
+  for (let i = 0; i < orders.length; i++) {
+    const order = orders[i]
+
+    const updateDate =
+      new Date(order.creationTime).getTime() + order.updateHour * 3.6e6
+    const currentDate = new Date().getTime()
+
+    if (order.status === 'Скасовано' || order.status === 'Доставлено') {
+      return
+    }
+
+    if (currentDate >= updateDate) {
+      try {
+        await Order.findByIdAndUpdate(
+          { _id: order._id },
+          {
+            status: changeStatus({ status: order.status }),
+            updateHour: order.updateHour * 2,
+          }
+        )
+      } catch (error) {
+        console.log(error)
+      }
+    }
+  }
+}
 
 const getAllActive = async (req, res) => {
   try {
+    await changeStatusOrder({ userId: req.params.userId })
+
     const orders = await Order.aggregate([
       {
         $match: {
@@ -53,14 +93,12 @@ const getAllNotActive = async (req, res) => {
 
 const create = async (req, res) => {
   try {
-    const randomHourForUpdateHour = Math.floor(Math.random() * (6 - 1 + 1) + 1)
-
     const order = new Order({
       userId: req.body.userId,
       amount: req.body.amount,
       products: req.body.products,
       creationTime: new Date().getTime(),
-      updateHour: randomHourForUpdateHour,
+      updateHour: Math.floor(Math.random() * (6 - 1 + 1) + 1),
     })
 
     await order.save()
