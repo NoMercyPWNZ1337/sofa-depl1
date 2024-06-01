@@ -23,7 +23,7 @@ const actualDOM = () => {
     if (!responseOrder.success) return
 
     if (responseOrder.orders.length) {
-      const orderListHtml = responseOrder.orders.map(order => {
+      const orderListHtml = responseOrder.orders.reverse().map(order => {
         return orderTemplate({ order })
       })
 
