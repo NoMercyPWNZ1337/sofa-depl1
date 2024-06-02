@@ -20,3 +20,13 @@
   color: rgba(0, 0, 0, 0.1);
   pointer-events: none;
 }
+
+.btn.red {
+  border-color: rgba(255, 0, 0, 0.2);
+  color: rgba(255, 0, 0, 0.6);
+}
+.btn.red:hover {
+  border-color: rgba(255, 0, 0, 1);
+  color: red;
+  transition: border-color 0.2s, color 0.2s;
+}

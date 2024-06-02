@@ -58,7 +58,7 @@ const checkAccess = async () => {
 }
 
 const logout = async () => {
-  localStorage.removeItem('token')
+  localStorage.clear()
 
   state.isAuth = false
   state.user = false

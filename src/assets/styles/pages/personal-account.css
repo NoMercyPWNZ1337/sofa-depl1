@@ -29,11 +29,6 @@
   background-color: #fff;
 }
 
-.personal .personal-content .account-form .btn {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .personal .personal-content .product .product-title {
   font-size: 18px;
   font-weight: 400;
@@ -221,4 +216,18 @@
 
 .personal .personal-content .orders-history .order .order-date {
   margin-bottom: 15px;
+}
+
+.personal .personal-content .account-form .row-btns {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 15px;
+}
+
+.personal .personal-content .account-form .row-btns .btn#admin-panel {
+  display: none;
+}
+
+.personal .personal-content .account-form .row-btns .btn#admin-panel.show {
+  display: block;
 }

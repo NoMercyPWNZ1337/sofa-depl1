@@ -1,12 +1,15 @@
 const actualDOM = () => {
   return {
     personalAccountForm: document.querySelector('#account-form'),
+    logoutBtn: document.querySelector('#account-form #logout'),
+    adminPanelBtn: document.querySelector('#account-form #admin-panel'),
   }
 }
 
 ;(async () => {
   const { AuthService } = await import('../../services/auth.js')
   const { UserService } = await import('../../services/user.js')
+  const { Redirect } = await import('../../utils/redirect.utillity.js')
 
   const DOM = actualDOM()
 
@@ -25,6 +28,10 @@ const actualDOM = () => {
     DOM.personalAccountForm.email.value = user.email
 
     userId = user._id
+
+    if (responseAuth.user.roles.includes('admin')) {
+      DOM.adminPanelBtn.classList.add('show')
+    }
   } catch (error) {
     console.log(error)
   }
@@ -53,5 +60,17 @@ const actualDOM = () => {
     } catch (error) {
       console.log(error)
     }
+  })
+
+  DOM.adminPanelBtn.addEventListener('click', e => {
+    e.preventDefault()
+
+    Redirect('/admin-panel')
+  })
+
+  DOM.logoutBtn.addEventListener('click', e => {
+    e.preventDefault()
+
+    AuthService.logout()
   })
 })()
