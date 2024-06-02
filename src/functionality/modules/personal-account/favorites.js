@@ -87,7 +87,7 @@ const productTemplate = ({ product }) => {
 
       onRemoveProduct()
     } else {
-      DOM.favorites.innerHTML = `<h2>Товарів в обраному ще немає</h2>`
+      DOM.favorites.innerHTML = `<h3>Товарів в обраному ще немає</h3>`
     }
   } catch (error) {
     console.log(error)

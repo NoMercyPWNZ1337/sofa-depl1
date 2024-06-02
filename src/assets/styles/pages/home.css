@@ -43,6 +43,7 @@
 
 .home .discounted-products {
   display: none;
+  overflow: hidden;
 }
 
 .home .discounted-products.active {

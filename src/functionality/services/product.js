@@ -66,9 +66,9 @@ const getAllWatched = async ({ productIds }) => {
   })
 }
 
-const getAllByQuery = async ({ productQuery }) => {
+const getAllByQuery = async ({ searchQuery }) => {
   return await Fetch({
-    url: `/api/products/query${productQuery}`,
+    url: `/api/products/query${searchQuery}`,
     method: 'get',
   })
 }

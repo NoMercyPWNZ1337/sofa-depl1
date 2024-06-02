@@ -119,9 +119,9 @@
   padding-bottom: 0;
 }
 
-.personal .personal-content .shopping-cart h2,
-.personal .personal-content .favorites h2,
-.personal .personal-content .orders-history h2 {
+.personal .personal-content .shopping-cart h3,
+.personal .personal-content .favorites h3,
+.personal .personal-content .orders-history h3 {
   text-align: center;
   font-weight: 400;
   font-size: 20px;

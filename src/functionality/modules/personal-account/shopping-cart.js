@@ -167,7 +167,7 @@ const productTemplate = ({ product }) => {
       onChangeQuantityProduct()
       amountOrder()
     } else {
-      DOM.shoppingCart.innerHTML = `<h2>Товарів в кошику ще немає</h2>`
+      DOM.shoppingCart.innerHTML = `<h3>Товарів в кошику ще немає</h3>`
     }
   } catch (error) {
     console.log(error)

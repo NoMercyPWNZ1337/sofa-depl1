@@ -29,7 +29,7 @@ const actualDOM = () => {
 
       DOM.ordersHistory.innerHTML = orderListHtml.join('')
     } else {
-      DOM.ordersHistory.innerHTML = `<h2>Замовлень для відстеження немає</h2>`
+      DOM.ordersHistory.innerHTML = `<h3>Замовлень для відстеження немає</h3>`
     }
   } catch (error) {
     console.log(error)

@@ -206,6 +206,8 @@ const getAllByQuery = async (req, res) => {
     const underCategoryId = req.query.underCategoryId
     const categoryId = req.query.categoryId
     const withRecipe = req.query.withRecipe
+    const minPrice = req.query.minPrice || 0
+    const maxPrice = req.query.maxPrice
 
     const findConfig = {}
 
@@ -213,7 +215,23 @@ const getAllByQuery = async (req, res) => {
     if (categoryId) findConfig.categoryId = categoryId
     if (withRecipe) findConfig.withRecipe = withRecipe
 
-    const products = await Product.find(findConfig)
+    let products = await Product.find(findConfig)
+
+    if (minPrice || maxPrice) {
+      products = products.filter(product => {
+        const price = product.discountedPrice || product.price
+
+        if (maxPrice && !minPrice) {
+          return price <= maxPrice
+        }
+
+        if (minPrice && !maxPrice) {
+          return price >= minPrice
+        }
+
+        return price >= minPrice && price <= maxPrice
+      })
+    }
 
     return res.json({ success: true, products })
   } catch (error) {

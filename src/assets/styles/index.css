@@ -14,6 +14,7 @@
 @import url('./pages/home.css');
 @import url('./pages/personal-account.css');
 @import url('./pages/product.css');
+@import url('./pages/catalog.css');
 
 html {
   scroll-behavior: smooth;
@@ -21,7 +22,6 @@ html {
 
 main {
   margin-top: 20px;
-  overflow: hidden;
 }
 
 .container {

@@ -20,7 +20,9 @@ export const dropdownCategories = async () => {
           underCategory => {
             return `
               <li class="underlist-item">
-                <a href="/" class="list-link">${underCategory.name}</a>
+                <a href="/catalog?underCategoryId=${underCategory._id}" class="list-link">
+                  ${underCategory.name}
+                </a>
               </li>
             `
           }
@@ -28,7 +30,11 @@ export const dropdownCategories = async () => {
 
         return `
           <li class="list-item">
-            <a href="/" class="list-link">${category.name}</a>
+            <a href="/catalog?categoryId=${category._id}" 
+              class="list-link"
+            >
+              ${category.name}
+            </a>
 
             <ul class="dropdown-underlist">
               ${underDropdownListHtml.join('')}

@@ -48,11 +48,7 @@ router.get(
   ProductController.getAll
 )
 
-router.get(
-  '/products/:id',
-  [authMiddleware, roleMiddleware(['admin'])],
-  ProductController.getOne
-)
+router.get('/products/:id', ProductController.getOne)
 
 router.delete(
   '/products/:id',

@@ -93,4 +93,7 @@ router.get('/product', (req, res) => {
   res.sendFile(fullPathForPages + '/product.html')
 })
 
+router.get('/catalog', (req, res) => {
+  res.sendFile(fullPathForPages + '/catalog.html')
+})
 export default router

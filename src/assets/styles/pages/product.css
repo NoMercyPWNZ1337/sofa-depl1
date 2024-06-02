@@ -117,6 +117,7 @@
 .product-page .watched-products {
   margin-top: 50px;
   display: none;
+  overflow: hidden;
 }
 
 .product-page .watched-products .title {
