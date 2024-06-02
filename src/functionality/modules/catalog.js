@@ -43,7 +43,6 @@ const searchProducts = async ({ searchQuery }) => {
     console.log(error)
   }
 
-  console.log(DOM.catalogFilters)
   DOM.catalogFilters.addEventListener('submit', async e => {
     e.preventDefault()
 
