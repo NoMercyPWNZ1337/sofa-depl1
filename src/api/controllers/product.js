@@ -2,8 +2,9 @@ import { validationResult } from 'express-validator'
 import mongoose from 'mongoose'
 
 import Product from '../models/product.js'
+import UnderCategory from '../models/under-category.js'
 
-const productData = ({ req }) => ({
+const productData = ({ req, categoryId }) => ({
   name: req.body.name,
   price: req.body.price,
   discountedPrice: req.body.discountedPrice,
@@ -11,6 +12,7 @@ const productData = ({ req }) => ({
   quantityInDrugstore: req.body.quantityInDrugstore,
   image: req.body.image,
   underCategoryId: req.body.underCategoryId,
+  categoryId,
   description: req.body.description,
   analogs: req.body.analogs,
   manufacturer: req.body.manufacturer,
@@ -59,7 +61,13 @@ const create = async (req, res) => {
       })
     }
 
-    const product = new Product(productData({ req }))
+    const underCategory = await UnderCategory.findById(
+      req.body.underCategoryId
+    ).populate('categoryId')
+
+    const product = new Product(
+      productData({ req, categoryId: underCategory.categoryId._id })
+    )
 
     await product.save()
 
