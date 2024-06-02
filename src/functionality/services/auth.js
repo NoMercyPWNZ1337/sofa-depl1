@@ -1,5 +1,4 @@
 import { Fetch } from '../utils/fetch.utility.js'
-import { state } from '../state/index.js'
 import { Redirect } from '../utils/redirect.utillity.js'
 
 const login = async userData => {
@@ -37,10 +36,7 @@ const checkAccess = async () => {
 const logout = async () => {
   localStorage.clear()
 
-  state.isAuth = false
-  state.user = false
-
-  document.location.reload()
+  Redirect('/')
 }
 
 export const AuthService = {

@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 
 import Product from '../models/product.js'
 import UnderCategory from '../models/under-category.js'
+import Category from '../models/category.js'
 
 const productData = ({ req, categoryId }) => ({
   name: req.body.name,
@@ -200,6 +201,31 @@ const uploadImage = async (req, res) => {
   }
 }
 
+const getAllByQuery = async (req, res) => {
+  try {
+    const underCategoryId = req.query.underCategoryId
+    const categoryId = req.query.categoryId
+    const withRecipe = req.query.withRecipe
+
+    const findConfig = {}
+
+    if (underCategoryId) findConfig.underCategoryId = underCategoryId
+    if (categoryId) findConfig.categoryId = categoryId
+    if (withRecipe) findConfig.withRecipe = withRecipe
+
+    const products = await Product.find(findConfig)
+
+    return res.json({ success: true, products })
+  } catch (error) {
+    console.log(error)
+
+    return res.status(400).json({
+      message: 'Помилка при полученні товарів',
+      success: false,
+    })
+  }
+}
+
 export const ProductController = {
   getOne,
   getAll,
@@ -210,4 +236,5 @@ export const ProductController = {
   search,
   getDiscountedProducts,
   getAllByIds,
+  getAllByQuery,
 }

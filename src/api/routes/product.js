@@ -24,6 +24,12 @@ const upload = multer({ storage })
 
 router.get('/products/search', ProductController.search)
 
+router.get('/products/watched/:productIds', ProductController.getAllByIds)
+
+router.get('/products/discounted', ProductController.getDiscountedProducts)
+
+router.get('/products/query', ProductController.getAllByQuery)
+
 router.get(
   '/products/shopping-cart/:productIds',
   [authMiddleware],
@@ -36,15 +42,11 @@ router.get(
   ProductController.getAllByIds
 )
 
-router.get('/products/watched/:productIds', ProductController.getAllByIds)
-
 router.get(
   '/products',
   [authMiddleware, roleMiddleware(['admin'])],
   ProductController.getAll
 )
-
-router.get('/products/discounted', ProductController.getDiscountedProducts)
 
 router.get(
   '/products/:id',

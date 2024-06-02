@@ -66,6 +66,13 @@ const getAllWatched = async ({ productIds }) => {
   })
 }
 
+const getAllByQuery = async ({ productQuery }) => {
+  return await Fetch({
+    url: `/api/products/query${productQuery}`,
+    method: 'get',
+  })
+}
+
 export const ProductService = {
   create,
   update,
@@ -77,4 +84,5 @@ export const ProductService = {
   getAllForShoppingCart,
   getAllForFavorites,
   getAllWatched,
+  getAllByQuery,
 }
