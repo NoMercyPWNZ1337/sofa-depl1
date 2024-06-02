@@ -101,6 +101,13 @@ export const registration = async (req, res) => {
 
 export const checkAuth = async (req, res) => {
   try {
+    if (!req.headers.authorization) {
+      return res.status(400).json({
+        message: 'Помилка, ввійдіть в свій аккаунт',
+        success: false,
+      })
+    }
+
     const decodedData = jwt.verify(
       req.headers.authorization.split(' ')[1],
       process.env.SECRET_TOKEN_KEY
@@ -123,6 +130,13 @@ export const checkAccess = async function (req, res) {
   const roles = this
 
   try {
+    if (!req.headers.authorization) {
+      return res.status(400).json({
+        message: 'Помилка, ввійдіть в свій аккаунт',
+        success: false,
+      })
+    }
+
     const { roles: userRoles } = jwt.verify(
       req.headers.authorization.split(' ')[1],
       process.env.SECRET_TOKEN_KEY

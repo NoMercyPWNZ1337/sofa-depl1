@@ -43,7 +43,13 @@ const productTemplate = ({ product }) => {
   const { AuthService } = await import('../../services/auth.js')
   const { ProductService } = await import('../../services/product.js')
 
-  await AuthService.checkAuth()
+  try {
+    const responseAuth = await AuthService.checkAuth()
+
+    if (!responseAuth?.success) return
+  } catch (error) {
+    console.log(error)
+  }
 
   const DOM = actualDOM()
 

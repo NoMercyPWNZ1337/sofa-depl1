@@ -11,8 +11,15 @@ const actualDOM = () => {
   )
   const { categorySelect } = await import('../components/category-select.js')
 
-  await AuthService.checkAuth()
-  await AuthService.checkAccess()
+  try {
+    const responseAuth = await AuthService.checkAuth()
+    if (!responseAuth?.success) return
+
+    const responseAccess = await AuthService.checkAccess()
+    if (!responseAccess.success) return
+  } catch (error) {
+    console.log(error)
+  }
 
   const DOM = actualDOM()
   const underCategoryId = new URLSearchParams(window.location.search).get('id')

@@ -16,8 +16,15 @@ const actualDOM = () => {
   const { Redirect } = await import('../../../utils/redirect.utillity.js')
   const { productTemplate } = await import('../components/product-template.js')
 
-  await AuthService.checkAuth()
-  await AuthService.checkAccess()
+  try {
+    const responseAuth = await AuthService.checkAuth()
+    if (!responseAuth?.success) return
+
+    const responseAccess = await AuthService.checkAccess()
+    if (!responseAccess.success) return
+  } catch (error) {
+    console.log(error)
+  }
 
   const DOM = actualDOM()
 

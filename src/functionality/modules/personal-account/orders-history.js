@@ -14,7 +14,7 @@ const actualDOM = () => {
   try {
     const responseAuth = await AuthService.checkAuth()
 
-    if (!responseAuth.success) return
+    if (!responseAuth?.success) return
 
     const responseOrder = await OrderService.getAllNotActive({
       userId: responseAuth.user._id,

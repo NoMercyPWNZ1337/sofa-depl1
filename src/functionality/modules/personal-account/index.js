@@ -18,7 +18,7 @@ const actualDOM = () => {
   try {
     const responseAuth = await AuthService.checkAuth()
 
-    if (!responseAuth.success) return
+    if (!responseAuth?.success) return
 
     const user = responseAuth.user
 

@@ -11,8 +11,15 @@ const actualDOM = () => {
     '../../../services/under-category.js'
   )
 
-  await AuthService.checkAuth()
-  await AuthService.checkAccess()
+  try {
+    const responseAuth = await AuthService.checkAuth()
+    if (!responseAuth?.success) return
+
+    const responseAccess = await AuthService.checkAccess()
+    if (!responseAccess.success) return
+  } catch (error) {
+    console.log(error)
+  }
 
   const DOM = actualDOM()
 

@@ -8,8 +8,15 @@ const actualDOM = () => {
   const { AuthService } = await import('../../../services/auth.js')
   const { CategoryService } = await import('../../../services/category.js')
 
-  await AuthService.checkAuth()
-  await AuthService.checkAccess()
+  try {
+    const responseAuth = await AuthService.checkAuth()
+    if (!responseAuth?.success) return
+
+    const responseAccess = await AuthService.checkAccess()
+    if (!responseAccess.success) return
+  } catch (error) {
+    console.log(error)
+  }
 
   const DOM = actualDOM()
   const categoryId = new URLSearchParams(window.location.search).get('id')

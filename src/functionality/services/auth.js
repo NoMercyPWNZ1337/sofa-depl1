@@ -27,34 +27,11 @@ const registration = async userData => {
 }
 
 const checkAuth = async () => {
-  const token = localStorage.getItem('token')
-
-  if (token) {
-    const response = await Fetch({ method: 'get', url: '/api/check-auth' })
-
-    if (response.success) {
-      state.isAuth = true
-      state.user = response.user
-    }
-
-    return response
-  } else {
-    Redirect('/login')
-  }
+  return await Fetch({ method: 'get', url: '/api/check-auth' })
 }
 
 const checkAccess = async () => {
-  const token = localStorage.getItem('token')
-
-  if (token) {
-    const response = await Fetch({ method: 'get', url: '/api/check-access' })
-
-    if (!response.success) {
-      Redirect('/login')
-    }
-  } else {
-    Redirect('/login')
-  }
+  return await Fetch({ method: 'get', url: '/api/check-access' })
 }
 
 const logout = async () => {
