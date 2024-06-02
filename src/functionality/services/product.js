@@ -59,6 +59,13 @@ const getAllForFavorites = async ({ productIds }) => {
   })
 }
 
+const getAllWatched = async ({ productIds }) => {
+  return await Fetch({
+    url: `/api/products/watched/${productIds}`,
+    method: 'get',
+  })
+}
+
 export const ProductService = {
   create,
   update,
@@ -69,4 +76,5 @@ export const ProductService = {
   getDiscounted,
   getAllForShoppingCart,
   getAllForFavorites,
+  getAllWatched,
 }

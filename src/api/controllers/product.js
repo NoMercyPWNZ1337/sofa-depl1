@@ -161,7 +161,7 @@ const getDiscountedProducts = async (req, res) => {
   }
 }
 
-const getAllForShoppingCart = async (req, res) => {
+const getAllByIds = async (req, res) => {
   try {
     const productIds = JSON.parse(req.params.productIds).map(id => {
       return new mongoose.Types.ObjectId(id)
@@ -173,7 +173,7 @@ const getAllForShoppingCart = async (req, res) => {
     console.log(error)
 
     return res.status(400).json({
-      message: 'Помилка при полученні товарів для корзини',
+      message: 'Помилка при полученні товарів',
       success: false,
     })
   }
@@ -201,5 +201,5 @@ export const ProductController = {
   uploadImage,
   search,
   getDiscountedProducts,
-  getAllForShoppingCart,
+  getAllByIds,
 }

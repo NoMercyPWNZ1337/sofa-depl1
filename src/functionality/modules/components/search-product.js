@@ -20,8 +20,8 @@ const productTemplate = ({ product }) => {
           search-link 
           ${!!product.discountedPrice && 'discounted'}
         " 
-        href="/products/${product._id}"
-        >
+        href="/products?productId=${product._id}"
+      >
         <span class="title">${product.name}</span>
         <span class="manufacturer">
           Виробник: ${product.manufacturer}

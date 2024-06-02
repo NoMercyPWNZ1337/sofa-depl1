@@ -1,0 +1,128 @@
+.product-page {
+  margin: 50px 0;
+}
+
+.product-page .product .product-row {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  gap: 0 30px;
+}
+
+.product-page .product .product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.product-page .product .product-title {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  align-items: start;
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.product-page .product .product-favorite {
+  width: 30px;
+  height: 30px;
+}
+
+.product-page .product .product-favorite path {
+  transition: fill 0.2s;
+  fill: rgba(0, 0, 0, 0.2);
+}
+
+.product-page .product .product-favorite.active path {
+  fill: #fd0;
+}
+
+.product-page .product .product-buy {
+  display: flex;
+  align-items: center;
+  gap: 0 35px;
+}
+
+.product-page .product .product-price,
+.product-page .product .product-price .text {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.product-page .product .product-price .price,
+.product-page .product .product-price .discounted {
+  font-size: 18px;
+}
+
+.product-page .product .product-price .discounted {
+  display: none;
+}
+
+.product-page .product .product-price {
+  display: grid;
+  gap: 3px 0;
+}
+
+.product-page .product .product-price.active .price {
+  color: rgba(0, 0, 0, 0.2);
+  text-decoration-line: line-through;
+}
+
+.product-page .product .product-price.active .discounted {
+  font-weight: 500;
+  margin-left: 5px;
+  color: red;
+  display: unset;
+}
+
+.product-page .product .product-info {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 30px;
+  margin-top: 30px;
+  display: grid;
+  gap: 0 50px;
+  grid-template-columns: 1.5fr max-content;
+}
+
+.product-page .product .product-list {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  border-radius: 5px;
+  position: sticky;
+  top: 20px;
+  height: max-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px 0;
+}
+
+.product-page .product .product-list li span {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.product-page .product .product-description h1,
+.product-page .product .product-description h2,
+.product-page .product .product-description h3,
+.product-page .product .product-description h4,
+.product-page .product .product-description h5,
+.product-page .product .product-description h6 {
+  font-weight: 400;
+}
+
+.product-page .product .product-description p {
+  font-size: 15px;
+}
+
+.product-page .watched-products {
+  margin-top: 50px;
+  display: none;
+}
+
+.product-page .watched-products .title {
+  margin-bottom: 20px;
+}
+
+.product-page .watched-products.active {
+  display: block;
+}

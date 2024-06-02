@@ -13,6 +13,7 @@
 
 @import url('./pages/home.css');
 @import url('./pages/personal-account.css');
+@import url('./pages/product.css');
 
 html {
   scroll-behavior: smooth;
@@ -20,10 +21,15 @@ html {
 
 main {
   margin-top: 20px;
+  overflow: hidden;
 }
 
 .container {
   max-width: 1300px;
   width: 95%;
   margin: 0 auto;
+}
+
+.swiper {
+  overflow: visible !important;
 }

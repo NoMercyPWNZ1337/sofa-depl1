@@ -6,6 +6,10 @@
   margin-bottom: 70px;
 }
 
+.home .home-swiper .container {
+  overflow: hidden;
+}
+
 .home .home-swiper .swiper-slide img {
   width: 100%;
   height: 600px;
@@ -31,10 +35,6 @@
 .home .home-swiper .swiper-button-next:after,
 .home .home-swiper .swiper-button-prev:after {
   font-size: 20px;
-}
-
-.home .discounted-products .swiper {
-  overflow: visible !important;
 }
 
 .home .discounted-products .title {

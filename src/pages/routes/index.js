@@ -89,4 +89,8 @@ router.get('/personal-account/orders-tracking', (req, res) => {
   res.sendFile(fullPathForPages + '/personal-account/orders-tracking.html')
 })
 
+router.get('/product', (req, res) => {
+  res.sendFile(fullPathForPages + '/product.html')
+})
+
 export default router

@@ -8,7 +8,7 @@ export const productCard = ({ product }) => {
     <article class="product-card">
       <img class="card-image" src="${product.image}" alt="product image" />
       <h3 class="card-title">
-        <a href="/products/${product._id}">${product.name}</a>
+        <a href="/product?productId=${product._id}">${product.name}</a>
         <button 
             class="card-favorite ${hasInFavorites && 'active'}"
             data-to-favorite="${product._id}"

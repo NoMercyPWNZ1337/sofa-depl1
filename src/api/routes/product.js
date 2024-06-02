@@ -27,14 +27,16 @@ router.get('/products/search', ProductController.search)
 router.get(
   '/products/shopping-cart/:productIds',
   [authMiddleware],
-  ProductController.getAllForShoppingCart
+  ProductController.getAllByIds
 )
 
 router.get(
   '/products/favorites/:productIds',
   [authMiddleware],
-  ProductController.getAllForShoppingCart
+  ProductController.getAllByIds
 )
+
+router.get('/products/watched/:productIds', ProductController.getAllByIds)
 
 router.get(
   '/products',
