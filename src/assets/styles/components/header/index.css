@@ -110,7 +110,7 @@
 
 .header .search .search-form {
   position: fixed;
-  top: 100px;
+  top: 50px;
   left: 0;
   right: 0;
   display: none;
@@ -204,46 +204,50 @@
   gap: 5px;
 }
 
-.header .search .search-form .search-link .manufacturer {
+.header .search .search-form .search-link .link-manufacturer {
   font-size: 13px;
   grid-area: manufacturer;
 }
 
-.header .search .search-form .search-link .title {
+.header .search .search-form .search-link .link-title {
   font-size: 20px;
   grid-area: title;
   transition: color 0.2s;
 }
 
-.header .search .search-form .search-link .price {
+.header .search .search-form .search-link .link-price {
   font-size: 16px;
   grid-area: price;
   justify-self: end;
 }
 
-.header .search .search-form .search-link:hover .title {
+.header .search .search-form .search-link:hover .link-title {
   color: #07d325;
   transition: color 0.2s;
 }
 
-.header .search .search-form .search-link .price-discounted {
+.header .search .search-form .search-link .link-price-discounted {
   grid-area: price-discounted;
   justify-self: end;
 }
 
-.header .search .search-form .search-link .price span,
-.header .search .search-form .search-link .price-discounted span {
+.header .search .search-form .search-link .link-price span,
+.header .search .search-form .search-link .link-price-discounted span {
   font-size: 18px;
   color: red;
 }
 
-.header .search .search-form .search-link.discounted .price {
+.header .search .search-form .search-link.discounted .link-price {
   text-decoration-line: line-through;
   opacity: 0.3;
 }
 
 .header .search .search-form .search-list.active {
   display: grid;
+}
+
+.header .search .search-form .search-list#analog-list {
+  margin-bottom: 30px;
 }
 
 .header .search.active .search-form {

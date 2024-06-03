@@ -17,23 +17,23 @@ const productTemplate = ({ product }) => {
     <li>
       <a 
         class="
-          search-link 
+          search-link
           ${!!product.discountedPrice && 'discounted'}
-        " 
-        href="/products?productId=${product._id}"
+        "
+        href="/product?productId=${product._id}"
       >
-        <span class="title">${product.name}</span>
-        <span class="manufacturer">
+        <span class="link-title">${product.name}</span>
+        <span class="link-manufacturer">
           Виробник: ${product.manufacturer}
         </span>
-        <span class="price">
+        <span class="link-price">
           Ціна: 
           <span>${product.price} грн</span>
         </span>
         ${
           product.discountedPrice
             ? `
-              <span class="price-discounted">
+              <span class="link-price-discounted">
                 Ціна зі знижкою: 
                 <span>${product.discountedPrice} грн</span>
               </span>
@@ -50,12 +50,14 @@ export const searchProduct = async () => {
   const searchInput = DOM.searchForm.search
 
   DOM.showSearchFormBtn.addEventListener('click', () => {
+    document.body.style.overflow = 'hidden'
     DOM.wraperSearchForm.classList.add('active')
     searchInput.focus()
   })
 
   DOM.searchBgForHideForm.addEventListener('click', () => {
     DOM.wraperSearchForm.classList.remove('active')
+    document.body.style.overflow = ''
   })
 
   DOM.searchForm.addEventListener('submit', e => {
