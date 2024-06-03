@@ -60,7 +60,7 @@
   display: block;
 }
 
-.catalog-page .catalog-filters .filters-manufacturers {
+.catalog-page .catalog-filters .filters-manufactures {
   display: grid;
   gap: 15px 0;
   font-size: 14px;
@@ -69,13 +69,13 @@
   overflow-y: scroll;
 }
 
-.catalog-page .catalog-filters .filters-manufacturers label {
+.catalog-page .catalog-filters .filters-manufactures label {
   display: flex;
   align-items: center;
   gap: 0 10px;
 }
 
-.catalog-page .catalog-filters .form-field.manufacturers-list {
+.catalog-page .catalog-filters .form-field.manufactures-list {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-right: none;
   border-left: none;

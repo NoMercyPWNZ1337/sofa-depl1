@@ -4,7 +4,7 @@ const actualDOM = () => {
     products: document.querySelector('#products'),
     watchedProductsSection: document.querySelector('#watched-products'),
     watchedProducts: document.querySelector('#watched-products-swiper'),
-    manufacturers: document.querySelector('#manufacturers'),
+    manufactures: document.querySelector('#manufactures'),
   }
 }
 
@@ -53,8 +53,8 @@ const searchProducts = async ({ searchQuery }) => {
 
     if (!responseManufactures.success) return
 
-    if (responseManufactures.manufacturers.length) {
-      const manufacturersListHtml = responseManufactures.manufacturers.map(
+    if (responseManufactures.manufactures.length) {
+      const manufacturesListHtml = responseManufactures.manufactures.map(
         manufacturer => {
           return `
             <label for="${manufacturer}">
@@ -65,7 +65,7 @@ const searchProducts = async ({ searchQuery }) => {
         }
       )
 
-      DOM.manufacturers.innerHTML = manufacturersListHtml.join('')
+      DOM.manufactures.innerHTML = manufacturesListHtml.join('')
     }
   } catch (error) {
     console.log(error)

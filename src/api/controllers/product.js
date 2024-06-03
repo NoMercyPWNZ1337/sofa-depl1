@@ -258,11 +258,15 @@ const getAllManufactures = async (req, res) => {
     if (underCategoryId) findConfig.underCategoryId = underCategoryId
     if (categoryId) findConfig.categoryId = categoryId
 
-    const manufacturers = (await Product.find(findConfig)).map(product => {
-      return product.manufacturer
-    })
+    const manufactures = [
+      ...new Set(
+        (await Product.find(findConfig)).map(product => {
+          return product.manufacturer
+        })
+      ),
+    ]
 
-    return res.json({ success: true, manufacturers })
+    return res.json({ success: true, manufactures })
   } catch (error) {
     console.log(error)
 
