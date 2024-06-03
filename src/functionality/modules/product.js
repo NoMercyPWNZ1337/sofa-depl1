@@ -1,8 +1,6 @@
 const actualDOM = () => {
   return {
     product: document.querySelector('#product'),
-    watchedProductsSection: document.querySelector('#watched-products'),
-    watchedProducts: document.querySelector('#watched-products-swiper'),
   }
 }
 
@@ -87,39 +85,16 @@ const productTemplate = ({ product }) => {
   const { addToCart } = await import('./components/add-to-cart.js')
   const { addToFavorite } = await import('./components/add-to-favorite.js')
   const { addToWatched } = await import('./components/add-to-watched.js')
-  const { productCard } = await import('./components/product-card.js')
 
   const DOM = actualDOM()
 
   try {
-    let watchedProducts =
-      JSON.parse(localStorage.getItem('watchedProducts')) || []
     const productId = new URLSearchParams(window.location.search).get(
       'productId'
     )
     const responseProduct = await ProductService.getOne({ productId })
 
     if (!responseProduct.success) return
-
-    if (watchedProducts.length) {
-      const responseWatched = await ProductService.getAllWatched({
-        productIds: JSON.stringify(watchedProducts),
-      })
-
-      if (!responseWatched.success) return
-
-      DOM.watchedProductsSection.classList.add('active')
-
-      const productListHtml = responseWatched.products.map(product => {
-        return `
-          <div class="swiper-slide">
-            ${productCard({ product })}
-          </div>
-        `
-      })
-
-      DOM.watchedProducts.innerHTML = productListHtml.join('')
-    }
 
     if (Object.keys(responseProduct.product).length) {
       const product = responseProduct.product
@@ -134,8 +109,3 @@ const productTemplate = ({ product }) => {
     console.log(error)
   }
 })()
-
-new Swiper('#watched-swiper', {
-  slidesPerView: 4,
-  spaceBetween: 20,
-})

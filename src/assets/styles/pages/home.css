@@ -1,7 +1,3 @@
-.home {
-  overflow: hidden;
-}
-
 .home .home-swiper {
   margin-bottom: 70px;
 }
@@ -42,8 +38,7 @@
 }
 
 .home .discounted-products {
-  display: none;
-  overflow: hidden;
+  /* display: none; */
 }
 
 .home .discounted-products.active {

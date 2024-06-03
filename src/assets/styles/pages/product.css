@@ -113,17 +113,3 @@
 .product-page .product .product-description p {
   font-size: 15px;
 }
-
-.product-page .watched-products {
-  margin-top: 50px;
-  display: none;
-  overflow: hidden;
-}
-
-.product-page .watched-products .title {
-  margin-bottom: 20px;
-}
-
-.product-page .watched-products.active {
-  display: block;
-}

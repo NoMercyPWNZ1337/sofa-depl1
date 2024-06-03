@@ -1,5 +1,5 @@
 .catalog-page {
-  margin: 50px 0;
+  padding: 50px 0;
 }
 
 .catalog-page .catalog-section .container {
@@ -41,4 +41,17 @@
 
 .catalog-page .catalog-products .product-card .card-image {
   width: unset;
+}
+
+.catalog-page .watched-products {
+  margin-top: 50px;
+  display: none;
+}
+
+.catalog-page .watched-products .title {
+  margin-bottom: 20px;
+}
+
+.catalog-page .watched-products.active {
+  display: block;
 }

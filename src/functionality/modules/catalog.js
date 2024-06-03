@@ -2,6 +2,8 @@ const actualDOM = () => {
   return {
     catalogFilters: document.querySelector('#catalog-filters'),
     products: document.querySelector('#products'),
+    watchedProductsSection: document.querySelector('#watched-products'),
+    watchedProducts: document.querySelector('#watched-products-swiper'),
   }
 }
 
@@ -10,6 +12,7 @@ const searchProducts = async ({ searchQuery }) => {
   const { productCard } = await import('./components/product-card.js')
   const { addToCart } = await import('./components/add-to-cart.js')
   const { addToFavorite } = await import('./components/add-to-favorite.js')
+  const { watchedProducts } = await import('./components/watched-products.js')
 
   const DOM = actualDOM()
 
@@ -28,6 +31,7 @@ const searchProducts = async ({ searchQuery }) => {
 
     addToCart()
     addToFavorite()
+    watchedProducts({ DOM })
   } else {
     DOM.products.innerHTML = '<h3>Товарів не знайдено</h3>'
   }
