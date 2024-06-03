@@ -1,5 +1,7 @@
 import { ProductService } from '../../services/product.js'
 import { productCard } from '../components/product-card.js'
+import { addToCart } from '../components/add-to-cart.js'
+import { addToFavorite } from '../components/add-to-favorite.js'
 
 export const watchedProducts = async ({ DOM }) => {
   let watchedProducts =
@@ -23,6 +25,9 @@ export const watchedProducts = async ({ DOM }) => {
     })
 
     DOM.watchedProducts.innerHTML = productListHtml.join('')
+
+    addToCart()
+    addToFavorite()
   }
 
   new Swiper('#watched-swiper', {
