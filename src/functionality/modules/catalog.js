@@ -85,20 +85,19 @@ const searchProducts = async ({ searchQuery }) => {
     const maxPrice = e.target.max.value
     const withDiscounted = e.target.withDiscounted.checked
     const withRecipe = e.target.withRecipe.checked
-    let generateSearchQuery = searchQuery
+    const params = Object.fromEntries(new URLSearchParams(searchQuery))
 
-    if (minPrice) generateSearchQuery += `&minPrice=${minPrice}`
-    if (maxPrice) generateSearchQuery += `&maxPrice=${maxPrice}`
-    if (withDiscounted) {
-      generateSearchQuery += `&withDiscounted=${withDiscounted}`
-    }
+    if (minPrice) params.minPrice = minPrice
+    if (maxPrice) params.maxPrice = maxPrice
+    if (withRecipe) params.withRecipe = withRecipe
+    if (withDiscounted) params.withDiscounted = withDiscounted
     if (checkedManufacturer.length) {
-      generateSearchQuery += `&manufactures=${JSON.stringify(
-        checkedManufacturer
-      )}`
+      params.manufactures = JSON.stringify(checkedManufacturer)
     }
-    generateSearchQuery += `&withRecipe=${withRecipe}`
 
-    searchProducts({ searchQuery: generateSearchQuery })
+    const generateSearchQuery = new URLSearchParams(params)
+    const queryString = '?' + generateSearchQuery.toString()
+
+    searchProducts({ searchQuery: queryString })
   })
 })()
