@@ -31,6 +31,11 @@ router.get('/products/discounted', ProductController.getDiscountedProducts)
 router.get('/products/query', ProductController.getAllByQuery)
 
 router.get(
+  '/products/query/manufacturers',
+  ProductController.getAllManufactures
+)
+
+router.get(
   '/products/shopping-cart/:productIds',
   [authMiddleware],
   ProductController.getAllByIds

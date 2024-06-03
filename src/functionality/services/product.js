@@ -73,6 +73,13 @@ const getAllByQuery = async ({ searchQuery }) => {
   })
 }
 
+const getAllManufactures = async ({ searchQuery }) => {
+  return await Fetch({
+    url: `/api/products/query/manufacturers/${searchQuery}`,
+    method: 'get',
+  })
+}
+
 export const ProductService = {
   create,
   update,
@@ -85,4 +92,5 @@ export const ProductService = {
   getAllForFavorites,
   getAllWatched,
   getAllByQuery,
+  getAllManufactures,
 }

@@ -26,6 +26,10 @@
   justify-content: space-between;
 }
 
+.catalog-page .catalog-filters .btn {
+  margin: 10px auto 0;
+}
+
 .catalog-page .catalog-products {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -54,4 +58,26 @@
 
 .catalog-page .watched-products.active {
   display: block;
+}
+
+.catalog-page .catalog-filters .filters-manufacturers {
+  display: grid;
+  gap: 15px 0;
+  font-size: 14px;
+  margin-top: 5px;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.catalog-page .catalog-filters .filters-manufacturers label {
+  display: flex;
+  align-items: center;
+  gap: 0 10px;
+}
+
+.catalog-page .catalog-filters .form-field.manufacturers-list {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: none;
+  border-left: none;
+  padding: 20px 0;
 }

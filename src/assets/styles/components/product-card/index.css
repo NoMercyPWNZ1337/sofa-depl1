@@ -8,6 +8,7 @@
   grid-template-areas: 'image image' 'title title' 'manufacturer manufacturer' 'stock stock' 'quantity quantity' 'price btn';
   align-items: center;
   transition: transform 0.15s;
+  height: max-content;
 }
 
 .product-card:hover {

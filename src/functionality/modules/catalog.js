@@ -4,6 +4,7 @@ const actualDOM = () => {
     products: document.querySelector('#products'),
     watchedProductsSection: document.querySelector('#watched-products'),
     watchedProducts: document.querySelector('#watched-products-swiper'),
+    manufacturers: document.querySelector('#manufacturers'),
   }
 }
 
@@ -36,6 +37,7 @@ const searchProducts = async ({ searchQuery }) => {
 }
 
 ;(async () => {
+  const { ProductService } = await import('../services/product.js')
   const { watchedProducts } = await import('./components/watched-products.js')
 
   const searchQuery = window.location.search
@@ -44,6 +46,27 @@ const searchProducts = async ({ searchQuery }) => {
   try {
     await searchProducts({ searchQuery })
     watchedProducts({ DOM })
+
+    const responseManufactures = await ProductService.getAllManufactures({
+      searchQuery,
+    })
+
+    if (!responseManufactures.success) return
+
+    if (responseManufactures.manufacturers.length) {
+      const manufacturersListHtml = responseManufactures.manufacturers.map(
+        manufacturer => {
+          return `
+            <label for="${manufacturer}">
+              <input id="${manufacturer}" type="checkbox" data-manufacturer name="${manufacturer}" />
+              ${manufacturer}
+            </label>
+          `
+        }
+      )
+
+      DOM.manufacturers.innerHTML = manufacturersListHtml.join('')
+    }
   } catch (error) {
     console.log(error)
   }
@@ -51,18 +74,28 @@ const searchProducts = async ({ searchQuery }) => {
   DOM.catalogFilters.addEventListener('submit', async e => {
     e.preventDefault()
 
+    const manufacturerCheckboxes = e.target.querySelectorAll(
+      'input[data-manufacturer]'
+    )
+    const checkedManufacturer = [...manufacturerCheckboxes]
+      .map(checkbox => checkbox.checked && checkbox.name)
+      .filter(value => Boolean(value))
+
     const minPrice = e.target.min.value
     const maxPrice = e.target.max.value
     const withDiscounted = e.target.withDiscounted.checked
     const withRecipe = e.target.withRecipe.checked
     let generateSearchQuery = searchQuery
 
-    console.log(withDiscounted)
-
     if (minPrice) generateSearchQuery += `&minPrice=${minPrice}`
     if (maxPrice) generateSearchQuery += `&maxPrice=${maxPrice}`
     if (withDiscounted) {
       generateSearchQuery += `&withDiscounted=${withDiscounted}`
+    }
+    if (checkedManufacturer.length) {
+      generateSearchQuery += `&manufactures=${JSON.stringify(
+        checkedManufacturer
+      )}`
     }
     generateSearchQuery += `&withRecipe=${withRecipe}`
 

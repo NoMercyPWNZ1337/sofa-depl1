@@ -203,6 +203,7 @@ const uploadImage = async (req, res) => {
 
 const getAllByQuery = async (req, res) => {
   try {
+    const manufactures = JSON.parse(req.query.manufactures || '[]')
     const underCategoryId = req.query.underCategoryId
     const categoryId = req.query.categoryId
     const withRecipe = req.query.withRecipe
@@ -216,6 +217,7 @@ const getAllByQuery = async (req, res) => {
     if (categoryId) findConfig.categoryId = categoryId
     if (withRecipe) findConfig.withRecipe = withRecipe
     if (withDiscounted) findConfig.discountedPrice = { $ne: null }
+    if (manufactures.length) findConfig.manufacturer = { $in: manufactures }
 
     let products = await Product.find(findConfig)
 
@@ -246,6 +248,31 @@ const getAllByQuery = async (req, res) => {
   }
 }
 
+const getAllManufactures = async (req, res) => {
+  try {
+    const underCategoryId = req.query.underCategoryId
+    const categoryId = req.query.categoryId
+
+    const findConfig = {}
+
+    if (underCategoryId) findConfig.underCategoryId = underCategoryId
+    if (categoryId) findConfig.categoryId = categoryId
+
+    const manufacturers = (await Product.find(findConfig)).map(product => {
+      return product.manufacturer
+    })
+
+    return res.json({ success: true, manufacturers })
+  } catch (error) {
+    console.log(error)
+
+    return res.status(400).json({
+      message: 'Помилка при полученні виробників товару',
+      success: false,
+    })
+  }
+}
+
 export const ProductController = {
   getOne,
   getAll,
@@ -257,4 +284,5 @@ export const ProductController = {
   getDiscountedProducts,
   getAllByIds,
   getAllByQuery,
+  getAllManufactures,
 }
