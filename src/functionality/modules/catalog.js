@@ -53,11 +53,17 @@ const searchProducts = async ({ searchQuery }) => {
 
     const minPrice = e.target.min.value
     const maxPrice = e.target.max.value
+    const withDiscounted = e.target.withDiscounted.checked
     const withRecipe = e.target.withRecipe.checked
     let generateSearchQuery = searchQuery
 
+    console.log(withDiscounted)
+
     if (minPrice) generateSearchQuery += `&minPrice=${minPrice}`
     if (maxPrice) generateSearchQuery += `&maxPrice=${maxPrice}`
+    if (withDiscounted) {
+      generateSearchQuery += `&withDiscounted=${withDiscounted}`
+    }
     generateSearchQuery += `&withRecipe=${withRecipe}`
 
     searchProducts({ searchQuery: generateSearchQuery })

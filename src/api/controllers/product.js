@@ -206,6 +206,7 @@ const getAllByQuery = async (req, res) => {
     const underCategoryId = req.query.underCategoryId
     const categoryId = req.query.categoryId
     const withRecipe = req.query.withRecipe
+    const withDiscounted = req.query.withDiscounted
     const minPrice = req.query.minPrice || 0
     const maxPrice = req.query.maxPrice
 
@@ -214,6 +215,7 @@ const getAllByQuery = async (req, res) => {
     if (underCategoryId) findConfig.underCategoryId = underCategoryId
     if (categoryId) findConfig.categoryId = categoryId
     if (withRecipe) findConfig.withRecipe = withRecipe
+    if (withDiscounted) findConfig.discountedPrice = { $ne: null }
 
     let products = await Product.find(findConfig)
 

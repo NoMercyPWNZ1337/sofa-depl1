@@ -52,10 +52,11 @@ export const productCard = ({ product }) => {
         <span>
           <span class="price">${product.price}</span>
           ${
-            product.discountedPrice &&
-            `<span class="discounted">
+            product.discountedPrice
+              ? `<span class="discounted">
               ${product.discountedPrice}
             </span>`
+              : ''
           }
           грн
         </span>
