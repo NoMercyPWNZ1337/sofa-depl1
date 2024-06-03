@@ -67,10 +67,14 @@ const productTemplate = ({ product }) => {
   const { OrderService } = await import('../../services/order.js')
   const { Redirect } = await import('../../utils/redirect.utillity.js')
 
+  let userId = null
+
   try {
     const responseAuth = await AuthService.checkAuth()
 
     if (!responseAuth?.success) return
+
+    userId = responseAuth.user._id
   } catch (error) {
     console.log(error)
   }
@@ -174,9 +178,17 @@ const productTemplate = ({ product }) => {
   }
 
   DOM.submitOrderBtn.addEventListener('click', async () => {
+    const isRecipe = productsData.find(product => product.withRecipe)
+    const recipeNumber = isRecipe && prompt('Введіть номер рецепту')
+
+    if (isRecipe && (recipeNumber.length !== 4 || !Number(recipeNumber))) {
+      alert('Введіть корректний номер рецепту')
+      return
+    }
+
     const address = prompt('Введіть адресу куди доставити замовлення')
 
-    if (!address.length) {
+    if (!address?.length) {
       alert('Ви не ввели адресу')
 
       return
@@ -194,7 +206,7 @@ const productTemplate = ({ product }) => {
 
       const responseOrder = await OrderService.create({
         orderData: {
-          userId: responseAuth.user._id,
+          userId,
           amount: amountOrder(),
           products: productsInOrder,
           date: `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`,
