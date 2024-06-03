@@ -100,6 +100,7 @@ const productTemplate = ({ product }) => {
       const product = responseProduct.product
 
       DOM.product.innerHTML = productTemplate({ product })
+      document.title = `${responseProduct.product.name} | FixHealth`
 
       addToCart()
       addToFavorite()

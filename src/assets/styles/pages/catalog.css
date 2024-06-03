@@ -10,7 +10,7 @@
 
 .catalog-page .catalog-filters {
   position: sticky;
-  top: 20px;
+  top: 0;
   display: flex;
   flex-direction: column;
   gap: 20px 0;
@@ -44,7 +44,7 @@
 }
 
 .catalog-page .watched-products {
-  margin-top: 50px;
+  margin-top: 70px;
   display: none;
 }
 

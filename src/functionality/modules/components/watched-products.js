@@ -2,7 +2,8 @@ import { ProductService } from '../../services/product.js'
 import { productCard } from '../components/product-card.js'
 
 export const watchedProducts = async ({ DOM }) => {
-  let watchedProducts = JSON.parse(localStorage.getItem('watchedProducts')) || []
+  let watchedProducts =
+    JSON.parse(localStorage.getItem('watchedProducts')) || []
 
   if (watchedProducts.length) {
     const responseWatched = await ProductService.getAllWatched({
@@ -23,9 +24,9 @@ export const watchedProducts = async ({ DOM }) => {
 
     DOM.watchedProducts.innerHTML = productListHtml.join('')
   }
-}
 
-new Swiper('#watched-swiper', {
-  slidesPerView: 4,
-  spaceBetween: 20,
-})
+  new Swiper('#watched-swiper', {
+    slidesPerView: 4,
+    spaceBetween: 20,
+  })
+}
