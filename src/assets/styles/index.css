@@ -15,6 +15,7 @@
 @import url('./pages/personal-account.css');
 @import url('./pages/product.css');
 @import url('./pages/catalog.css');
+@import url('./pages/method-nakatani.css');
 
 html {
   scroll-behavior: smooth;

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Метод Накатані | FixHealth</title>
+    <link rel="stylesheet" href="/src/assets/styles/index.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <a class="logo" href="/">
+          <img src="/src/assets/images/logo.svg" alt="heart icon" />
+          <span>FixHealth</span>
+        </a>
+
+        <nav class="links">
+          <div id="dropdown" class="dropdown">
+            <a href="/method-nakatani" class="link dropdown-trigger">Каталог</a>
+            <ul id="dropdown-list" class="dropdown-list"></ul>
+          </div>
+          <a class="link" href="#awards">Наші ногороди</a>
+          <a class="link" href="#about">Про нас</a>
+        </nav>
+
+        <div class="row">
+          <div id="search" class="search">
+            <div id="search-bg" class="search-bg"></div>
+            <button type="submit" id="search-trigger" class="search-trigger">
+              <img src="/src/assets/images/search.svg" alt="search icon" />
+            </button>
+            <form id="search-form" class="search-form">
+              <input name="search" type="text" class="search-input" />
+              <button type="submit" class="search-btn">
+                <img src="/src/assets/images/search.svg" alt="search icon" />
+              </button>
+
+              <ul id="product-list" class="search-list"></ul>
+              <ul id="analog-list" class="search-list"></ul>
+            </form>
+          </div>
+
+          <div class="service">
+            <a href="/method-nakatani">
+              <img
+                src="/src/assets/images/health-monitor.svg"
+                alt="health monitor icon"
+              />
+              <span>Послуга "Метод Накатані"</span>
+            </a>
+          </div>
+
+          <a href="/personal-account/favorites" id="favorite" class="favorite">
+            <img src="/src/assets/images/favorite.svg" alt="favorite icon" />
+            <span id="favorite-quantity"></span>
+          </a>
+
+          <a href="/personal-account/shopping-cart" id="basket" class="basket">
+            <img src="/src/assets/images/basket.svg" alt="basket icon" />
+            <span id="basket-quantity"></span>
+          </a>
+
+          <a href="/personal-account" class="user">
+            <img src="/src/assets/images/user.svg" alt="user icon" />
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="nakatani">
+      <div class="container">
+        <div class="nakatani-info">
+          <img
+            class="nakatani-image"
+            src="/src/assets/images/nakatani.png"
+            alt="nakatani image"
+          />
+          <p class="nakatani-description">
+            Діагностика по методу Накатані - найсучасніший, технічно досконалий
+            метод повного функціонального електрофізіологічного тестування усіх
+            систем життєдіяльності, що дозволяє виявити зміни на ранніх етапах,
+            визначити причину порушень у конкретної людини, виявити наслідки і
+            ускладнення та підібрати індивідуальне лікування.
+          </p>
+        </div>
+        <form id="form" class="form">
+          <label for="H1_L_input" class="form-field">
+            H1 (Ліва рука):
+            <input
+              class="form-input"
+              type="number"
+              id="H1_L_input"
+              value="80"
+            />
+          </label>
+          <label for="H1_R_input" class="form-field">
+            H1 (Права рука):
+            <input
+              class="form-input"
+              type="number"
+              id="H1_R_input"
+              value="80"
+            />
+          </label>
+
+          <label for="H2_L_input" class="form-field">
+            H2 (Ліва рука):
+            <input
+              class="form-input"
+              type="number"
+              id="H2_L_input"
+              value="70"
+            />
+          </label>
+          <label for="H2_R_input" class="form-field">
+            H2 (Права рука):
+            <input
+              class="form-input"
+              type="number"
+              id="H2_R_input"
+              value="70"
+            />
+          </label>
+
+          <label for="H3_L_input" class="form-field">
+            H3 (Ліва рука):
+            <input
+              class="form-input"
+              type="number"
+              id="H3_L_input"
+              value="60"
+            />
+          </label>
+          <label for="H3_R_input" class="form-field">
+            H3 (Права рука):
+            <input
+              class="form-input"
+              type="number"
+              id="H3_R_input"
+              value="55"
+            />
+          </label>
+
+          <label for="H4_L_input" class="form-field">
+            H4 (Ліва рука):
+            <input
+              class="form-input"
+              type="number"
+              id="H4_L_input"
+              value="60"
+            />
+          </label>
+          <label for="H4_R_input" class="form-field">
+            H4 (Права рука):
+            <input
+              class="form-input"
+              type="number"
+              id="H4_R_input"
+              value="60"
+            />
+          </label>
+
+          <label for="H5_L_input" class="form-field">
+            H5 (Ліва рука):
+            <input
+              class="form-input"
+              type="number"
+              id="H5_L_input"
+              value="60"
+            />
+          </label>
+          <label for="H5_R_input" class="form-field">
+            H5 (Права рука):
+            <input
+              class="form-input"
+              type="number"
+              id="H5_R_input"
+              value="60"
+            />
+          </label>
+
+          <label for="H6_L_input" class="form-field">
+            H6 (Ліва рука):
+            <input
+              class="form-input"
+              type="number"
+              id="H6_L_input"
+              value="70"
+            />
+          </label>
+          <label for="H6_R_input" class="form-field">
+            H6 (Права рука):
+            <input
+              class="form-input"
+              type="number"
+              id="H6_R_input"
+              value="70"
+            />
+          </label>
+
+          <label for="F1_L_input" class="form-field">
+            F1 (Ліва нога):
+            <input
+              class="form-input"
+              type="number"
+              id="F1_L_input"
+              value="70"
+            />
+          </label>
+          <label for="F1_R_input" class="form-field">
+            F1 (Права нога):
+            <input
+              class="form-input"
+              type="number"
+              id="F1_R_input"
+              value="70"
+            />
+          </label>
+
+          <label for="F2_L_input" class="form-field">
+            F2 (Ліва нога):
+            <input
+              class="form-input"
+              type="number"
+              id="F2_L_input"
+              value="70"
+            />
+          </label>
+          <label for="F2_R_input" class="form-field">
+            F2 (Права нога):
+            <input
+              class="form-input"
+              type="number"
+              id="F2_R_input"
+              value="70"
+            />
+          </label>
+
+          <label for="F3_L_input" class="form-field">
+            F3 (Ліва нога):
+            <input
+              class="form-input"
+              type="number"
+              id="F3_L_input"
+              value="85"
+            />
+          </label>
+          <label for="F3_R_input" class="form-field">
+            F3 (Права нога):
+            <input
+              class="form-input"
+              type="number"
+              id="F3_R_input"
+              value="85"
+            />
+          </label>
+
+          <label for="F4_L_input" class="form-field">
+            F4 (Ліва нога):
+            <input
+              class="form-input"
+              type="number"
+              id="F4_L_input"
+              value="70"
+            />
+          </label>
+          <label for="F4_R_input" class="form-field">
+            F4 (Права нога):
+            <input
+              class="form-input"
+              type="number"
+              id="F4_R_input"
+              value="65"
+            />
+          </label>
+
+          <label for="F5_L_input" class="form-field">
+            F5 (Ліва нога):
+            <input
+              class="form-input"
+              type="number"
+              id="F5_L_input"
+              value="35"
+            />
+          </label>
+          <label for="F5_R_input" class="form-field">
+            F5 (Права нога):
+            <input
+              class="form-input"
+              type="number"
+              id="F5_R_input"
+              value="35"
+            />
+          </label>
+
+          <label for="F6_L_input" class="form-field">
+            F6 (Ліва нога):
+            <input
+              class="form-input"
+              type="number"
+              id="F6_L_input"
+              value="60"
+            />
+          </label>
+          <label for="F6_R_input" class="form-field">
+            F6 (Права нога):
+            <input
+              class="form-input"
+              type="number"
+              id="F6_R_input"
+              value="60"
+            />
+          </label>
+
+          <div class="cont-b">
+            <button type="button" id="build-button" class="btn">
+              Побудувати графік
+            </button>
+          </div>
+        </form>
+
+        <div id="nakatani-wraper" class="nakatani-wraper">
+          <div class="nakatani-chart">
+            <canvas id="myChart"></canvas>
+          </div>
+          <div class="nakatani-result">
+            <h1 class="title">Результат:</h1>
+            <div class="nakatani-row">
+              <ul id="head-res"></ul>
+              <ul id="final-res"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <a class="logo" href="/">
+          <img src="/src/assets/images/logo.svg" alt="heart icon" />
+          <span>FixHealth</span>
+        </a>
+        <ul class="footer-list">
+          <li class="footer-title">Клієнтам</li>
+          <li>
+            <a href="/">Політика щодо класифікації наукових даних</a>
+          </li>
+          <li>
+            <a href="/">Політика конфіденційності</a>
+          </li>
+          <li>
+            <a href="/">Правила програми лояльності мережі аптек</a>
+          </li>
+          <li>
+            <a href="/">Політика публікації коментарів і відгуків</a>
+          </li>
+          <li>
+            <a href="/">Психологічна підтримка для клієнтів мережі</a>
+          </li>
+          <li>
+            <a href="/">Редакційна політика</a>
+          </li>
+          <li>
+            <a href="/">Умови повернення товарів</a>
+          </li>
+          <li>
+            <a href="/">Угода про використання</a>
+          </li>
+          <li>
+            <a href="/">Маркетингова політика</a>
+          </li>
+          <li>
+            <a href="/">Способи оплати</a>
+          </li>
+          <li>
+            <a href="">Доставка</a>
+          </li>
+          <li>
+            <a href="/">Гарантії якості</a>
+          </li>
+        </ul>
+        <ul class="footer-list">
+          <li class="footer-title">Компанія</li>
+          <li>
+            <a href="/">Про нас</a>
+          </li>
+          <li>
+            <a href="/">Контакти</a>
+          </li>
+          <li>
+            <a href="/">Команда</a>
+          </li>
+        </ul>
+        <ul class="footer-list">
+          <li class="footer-title">Контакти</li>
+          <li>
+            <a href="tel:+16282806518">Номер телефону: (+38) 068 280 6518</a>
+          </li>
+          <li>
+            <a href="mailto:oleksandr_alfredo@gmail.com">
+              Пошта: fixHealth@gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="/">Адресса: Україна, Вінниця, вул. Київська</a>
+          </li>
+        </ul>
+        <div class="footer-apps">
+          <p class="footer-title">Завантажуйте наш додаток</p>
+          <div class="row">
+            <a href="/">
+              <img
+                src="/src/assets/images/app-store.png"
+                alt="app store image"
+              />
+            </a>
+            <a href="/">
+              <img
+                src="/src/assets/images/google-play.png"
+                alt="google play image"
+              />
+            </a>
+            <a href="/">
+              <img src="/src/assets/images/telegram.png" alt="telegram image" />
+            </a>
+            <a href="/">
+              <img src="/src/assets/images/viber.png" alt="viber image" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@1.0.2"></script>
+
+    <script
+      type="text/javascript"
+      src="/src/functionality/modules/base.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/src/functionality/modules/method-nakatani.js"
+    ></script>
+  </body>
+</html>

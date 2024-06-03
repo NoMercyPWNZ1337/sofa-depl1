@@ -96,4 +96,9 @@ router.get('/product', (req, res) => {
 router.get('/catalog', (req, res) => {
   res.sendFile(fullPathForPages + '/catalog.html')
 })
+
+router.get('/method-nakatani', (req, res) => {
+  res.sendFile(fullPathForPages + '/method-nakatani.html')
+})
+
 export default router

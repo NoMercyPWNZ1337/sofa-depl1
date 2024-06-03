@@ -1,0 +1,59 @@
+.nakatani {
+  margin: 50px 0;
+}
+
+.nakatani .form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px 30px;
+}
+
+.nakatani .nakatani-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nakatani .nakatani-info {
+  display: grid;
+  grid-template-columns: 0.2fr 0.5fr;
+  gap: 0 40px;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.nakatani .nakatani-description {
+  line-height: 25px;
+}
+
+.nakatani .nakatani-chart {
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 30px 0;
+}
+
+.nakatani .nakatani-wraper {
+  display: none;
+}
+
+.nakatani .nakatani-wraper.active {
+  display: block;
+}
+
+.nakatani .nakatani-result .title {
+  margin-bottom: 25px;
+  grid-column: 1 / 3;
+}
+
+.nakatani .nakatani-row {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: 0 40px;
+}
+
+.nakatani .nakatani-row ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px 0;
+}
