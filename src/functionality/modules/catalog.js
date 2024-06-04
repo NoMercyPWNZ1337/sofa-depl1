@@ -23,7 +23,15 @@ const searchProducts = async ({ searchQuery }) => {
   if (!responseProducts.success) return responseProducts
 
   if (responseProducts.products.length) {
-    const productListHtml = responseProducts.products.map(product => {
+    const productListHtml = [
+      ...responseProducts.products,
+      ...responseProducts.products,
+      ...responseProducts.products,
+      ...responseProducts.products,
+      ...responseProducts.products,
+      ...responseProducts.products,
+      ...responseProducts.products,
+    ].map(product => {
       return productCard({ product })
     })
 
