@@ -22,7 +22,9 @@ const actualDOM = () => {
   }
 
   const DOM = actualDOM()
-  const underCategoryId = new URLSearchParams(window.location.search).get('id')
+  const underCategoryId = new URLSearchParams(window.location.search).get(
+    'underCategoryId'
+  )
 
   try {
     const responseUnderCategory = await UnderCategoryService.getOne({

@@ -7,11 +7,19 @@
     <link rel="stylesheet" href="/src/assets/styles/index.css" />
   </head>
   <body>
-    <h1>Панель адміністратора</h1>
+    <main class="admin-panel">
+      <div class="container">
+        <h1 class="title">Панель адміністратора</h1>
 
-    <a href="/admin-panel/product-list">Список товарів</a>
-    <a href="/admin-panel/category-list">Список категорій</a>
-    <a href="/admin-panel/under-category-list">Список підкатегорій</a>
+        <div class="panel-navigation">
+          <a class="btn" href="/admin-panel/category-list">Список категорій</a>
+          <a class="btn" href="/admin-panel/under-category-list">
+            Список підкатегорій
+          </a>
+          <a class="btn" href="/admin-panel/product-list">Список товарів</a>
+        </div>
+      </div>
+    </main>
 
     <script
       type="text/javascript"

@@ -7,12 +7,20 @@
     <link rel="stylesheet" href="/src/assets/styles/index.css" />
   </head>
   <body>
-    <h1>Панель адміністратора: список підкатегорій</h1>
+    <main class="admin-panel">
+      <div class="container">
+        <h1 class="title">Панель адміністратора: список підкатегорій</h1>
 
-    <a href="/admin-panel">Назад</a>
-    <a href="/admin-panel/add-under-category">Додати підкатегорію</a>
+        <div class="panel-navigation">
+          <a class="btn" href="/admin-panel">Назад</a>
+          <a class="btn" href="/admin-panel/add-under-category">
+            Додати підкатегорію
+          </a>
+        </div>
 
-    <div id="under-category-list"></div>
+        <div id="under-category-list" class="list"></div>
+      </div>
+    </main>
 
     <script
       type="text/javascript"

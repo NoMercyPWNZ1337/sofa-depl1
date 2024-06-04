@@ -35,6 +35,12 @@
   width: max-content;
 }
 
+.form-field.row {
+  align-items: center;
+  gap: 0 20px;
+  grid-template-columns: max-content max-content;
+}
+
 .form-field .form-title:before {
   content: '*';
   color: red;
@@ -42,6 +48,10 @@
   right: -15px;
   top: -5px;
   font-size: 18px;
+}
+
+.form-field .form-title.not-required:before {
+  display: none;
 }
 
 .form-checkbox {
@@ -60,4 +70,18 @@ input::-webkit-inner-spin-button {
 
 input[type='number'] {
   -moz-appearance: textfield;
+}
+
+textarea {
+  outline: none;
+  resize: none;
+}
+
+.form-field select[multiple] {
+  font-size: 17px;
+  outline: none;
+}
+
+.form-field input[type='file'] {
+  color: transparent;
 }

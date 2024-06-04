@@ -1,0 +1,46 @@
+.admin-panel {
+  padding-bottom: 20px;
+}
+
+.admin-panel .title {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.admin-panel .btn {
+  display: block;
+}
+
+.admin-panel .panel-navigation {
+  display: flex;
+  gap: 0 10px;
+  margin-bottom: 40px;
+}
+
+.admin-panel .list {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.admin-panel .list .list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 50px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.admin-panel .upload-file {
+  margin-bottom: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.admin-panel .upload-file .preview-image {
+  width: 500px;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}

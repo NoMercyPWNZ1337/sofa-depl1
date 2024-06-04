@@ -7,17 +7,22 @@
     <link rel="stylesheet" href="/src/assets/styles/index.css" />
   </head>
   <body>
-    <h1>Панель адміністратора: добавлення категорій</h1>
+    <main class="admin-panel">
+      <div class="container">
+        <h1 class="title">Панель адміністратора: добавлення категорій</h1>
+        <div class="panel-navigation">
+          <a class="btn" href="/admin-panel/category-list">Назад</a>
+        </div>
 
-    <a href="/admin-panel/category-list">Назад</a>
-
-    <form id="add-category">
-      <label for="name">
-        Назва категорії
-        <input id="name" type="text" name="name" />
-      </label>
-      <button type="submit">Добавити категорію</button>
-    </form>
+        <form id="add-category" class="form">
+          <label for="name" class="form-field">
+            <span class="form-title">Назва категорії</span>
+            <input class="form-input" id="name" type="text" name="name" />
+          </label>
+          <button type="submit" class="btn">Добавити категорію</button>
+        </form>
+      </div>
+    </main>
 
     <script
       type="text/javascript"

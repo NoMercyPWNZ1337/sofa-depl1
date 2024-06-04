@@ -12,14 +12,13 @@ const actualDOM = () => {
 
 const underCategoryTemplate = ({ underCategory }) => {
   return `
-    <div>
-      <div>
-        <h6>${underCategory.name}</h6>
-      </div>
-      <div>
-        <button data-edit-id="${underCategory._id}" >Редагувати</button>
-        <button data-remove-id="${underCategory._id}">Видалити</button>
-      </div>
+    <div class="list-item">
+      <a href="/admin-panel/edit-under-category?underCategoryId=${underCategory._id}">
+        ${underCategory.name}
+      </a>
+      <button class="btn" data-remove-id="${underCategory._id}">
+        Видалити
+      </button>
     </div>
   `
 }

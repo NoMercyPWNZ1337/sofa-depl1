@@ -7,89 +7,119 @@
     <link rel="stylesheet" href="/src/assets/styles/index.css" />
   </head>
   <body>
-    <h1>Панель адміністратора: редагування товару</h1>
-    <a href="/admin-panel/product-list">Назад</a>
+    <main class="admin-panel">
+      <div class="container">
+        <h1 class="title">Панель адміністратора: редагування товару</h1>
+        <div class="panel-navigation">
+          <a class="btn" href="/admin-panel/product-list">Назад</a>
+        </div>
 
-    <form id="upload-file">
-      <img id="preview-image" src="" alt="" />
-      <label for="image">
-        Зображення товару:
-        <input id="image" type="file" name="image" />
-      </label>
-    </form>
-    <form id="edit-product">
-      <label for="name">
-        Назва товару:
-        <input id="name" type="text" name="name" />
-      </label>
+        <form id="upload-file" class="upload-file">
+          <img id="preview-image" class="preview-image" src="" />
+          <label for="image" class="form-field row">
+            <span class="form-title">Зображення товару:</span>
+            <input id="image" type="file" name="image" />
+          </label>
+        </form>
+        <form id="edit-product" class="form">
+          <label for="name" class="form-field">
+            <span class="form-title">Назва товару:</span>
+            <input class="form-input" id="name" type="text" name="name" />
+          </label>
 
-      <label for="price">
-        Ціна товару(грн):
-        <input id="price" type="number" name="price" />
-      </label>
+          <label for="price" class="form-field">
+            <span class="form-title">Ціна товару(грн):</span>
+            <input class="form-input" id="price" type="number" name="price" />
+          </label>
 
-      <label for="discountedPrice">
-        Ціна товару зі знижкою(грн):
-        <input id="discountedPrice" type="number" name="discountedPrice" />
-      </label>
+          <label for="discountedPrice" class="form-field">
+            <span class="form-title not-required">
+              Ціна товару зі знижкою(грн):
+            </span>
+            <input
+              class="form-input"
+              id="discountedPrice"
+              type="number"
+              name="discountedPrice"
+            />
+          </label>
 
-      <label for="quantityInWarehouse">
-        Кількість товару на складі:
-        <input
-          id="quantityInWarehouse"
-          type="number"
-          name="quantityInWarehouse"
-        />
-      </label>
+          <label for="quantityInWarehouse" class="form-field">
+            <span class="form-title">Кількість товару на складі:</span>
+            <input
+              class="form-input"
+              id="quantityInWarehouse"
+              type="number"
+              name="quantityInWarehouse"
+            />
+          </label>
 
-      <label for="quantityInDrugstore">
-        Кількість товару в аптеці:
-        <input
-          id="quantityInDrugstore"
-          type="number"
-          name="quantityInDrugstore"
-        />
-      </label>
+          <label for="quantityInDrugstore" class="form-field">
+            <span class="form-title">Кількість товару в аптеці:</span>
+            <input
+              class="form-input"
+              id="quantityInDrugstore"
+              type="number"
+              name="quantityInDrugstore"
+            />
+          </label>
 
-      <label for="manufacturer">
-        Виробник:
-        <input id="manufacturer" type="text" name="manufacturer" />
-      </label>
+          <label for="manufacturer" class="form-field">
+            <span class="form-title">Виробник:</span>
+            <input
+              class="form-input"
+              id="manufacturer"
+              type="text"
+              name="manufacturer"
+            />
+          </label>
 
-      <label for="manufacturerCountry">
-        Країна виробництва:
-        <input
-          id="manufacturerCountry"
-          type="text"
-          name="manufacturerCountry"
-        />
-      </label>
+          <label for="manufacturerCountry" class="form-field">
+            <span class="form-title">Країна виробництва:</span>
+            <input
+              class="form-input"
+              id="manufacturerCountry"
+              type="text"
+              name="manufacturerCountry"
+            />
+          </label>
 
-      <label for="withRecipe">
-        Продаж за рецептом:
-        <input id="withRecipe" type="checkbox" name="withRecipe" />
-      </label>
+          <label for="withRecipe" class="form-field row">
+            <span class="form-title not-required">Продаж за рецептом:</span>
+            <input
+              class="form-input"
+              id="withRecipe"
+              type="checkbox"
+              name="withRecipe"
+            />
+          </label>
 
-      <label for="underCategory">
-        Виберіть підкатегорію:
-        <select id="underCategory" name="underCategory"></select>
-      </label>
-      <label for="product">
-        Виберіть аналогічний товар(можна декілька):
-        <select id="product" name="product" multiple></select>
-      </label>
+          <label for="underCategory" class="form-field row">
+            <span class="form-title">Виберіть підкатегорію:</span>
+            <select id="underCategory" name="underCategory"></select>
+          </label>
+          <label for="product" class="form-field">
+            <span class="form-title">
+              Виберіть аналогічний товар (можна декілька):
+            </span>
+            <select id="product" name="product" multiple></select>
+          </label>
 
-      <label for="description">
-        <textarea
-          name="description"
-          id="description"
-          cols="200"
-          rows="20"
-        ></textarea>
-      </label>
+          <label for="description" class="form-field">
+            <span class="form-title">Опис товару (можна html)</span>
+            <textarea
+              class="form-input"
+              name="description"
+              id="description"
+              cols="100"
+              rows="10"
+            ></textarea>
+          </label>
 
-      <button type="submit">Оновити товар</button>
-    </form>
+          <button type="submit" class="btn">Оновити товар</button>
+        </form>
+      </div>
+    </main>
 
     <script
       type="text/javascript"

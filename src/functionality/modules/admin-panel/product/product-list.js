@@ -4,16 +4,12 @@ const actualDOM = () => {
     removeProductBtns: document.querySelectorAll(
       '#product-list button[data-remove-id]'
     ),
-    editProductBtns: document.querySelectorAll(
-      '#product-list button[data-edit-id]'
-    ),
   }
 }
 
 ;(async () => {
   const { AuthService } = await import('../../../services/auth.js')
   const { ProductService } = await import('../../../services/product.js')
-  const { Redirect } = await import('../../../utils/redirect.utillity.js')
   const { productTemplate } = await import('../components/product-template.js')
 
   try {
@@ -44,16 +40,6 @@ const actualDOM = () => {
     })
   }
 
-  const onEditProduct = () => {
-    const editBtns = actualDOM().editProductBtns
-
-    editBtns.forEach(button => {
-      button.addEventListener('click', async e => {
-        Redirect(`/admin-panel/edit-product?id=${e.target.dataset.editId}`)
-      })
-    })
-  }
-
   try {
     const responseProducts = await ProductService.getAll()
 
@@ -67,7 +53,6 @@ const actualDOM = () => {
       DOM.productList.innerHTML = productListHtml.join('')
 
       onRemoveProduct()
-      onEditProduct()
     } else {
       DOM.productList.innerHTML = '<h4>Немає товарів</h4>'
     }

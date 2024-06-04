@@ -19,7 +19,9 @@ const actualDOM = () => {
   }
 
   const DOM = actualDOM()
-  const categoryId = new URLSearchParams(window.location.search).get('id')
+  const categoryId = new URLSearchParams(window.location.search).get(
+    'categoryId'
+  )
 
   try {
     const responseCategory = await CategoryService.getOne({ categoryId })

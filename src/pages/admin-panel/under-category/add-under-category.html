@@ -7,22 +7,27 @@
     <link rel="stylesheet" href="/src/assets/styles/index.css" />
   </head>
   <body>
-    <h1>Панель адміністратора: добавлення підкатегорій</h1>
+    <main class="admin-panel">
+      <div class="container">
+        <h1 class="title">Панель адміністратора: добавлення підкатегорій</h1>
+        <div class="panel-navigation">
+          <a class="btn" href="/admin-panel/under-category-list">Назад</a>
+        </div>
 
-    <a href="/admin-panel/under-category-list">Назад</a>
+        <form id="add-under-category" class="form">
+          <label for="category" class="form-field row">
+            <span class="form-title">Виберіть категорію:</span>
+            <select id="category" name="category"></select>
+          </label>
 
-    <form id="add-under-category">
-      <label for="category">
-        Виберіть категорію:
-        <select id="category" name="category"></select>
-      </label>
-
-      <label for="name">
-        Назва підкатегорії
-        <input id="name" type="text" name="name" />
-      </label>
-      <button type="submit">Добавити підкатегорію</button>
-    </form>
+          <label for="name" class="form-field">
+            <span class="form-title">Назва підкатегорії</span>
+            <input class="form-input" id="name" type="text" name="name" />
+          </label>
+          <button class="btn" type="submit">Добавити підкатегорію</button>
+        </form>
+      </div>
+    </main>
 
     <script
       type="text/javascript"

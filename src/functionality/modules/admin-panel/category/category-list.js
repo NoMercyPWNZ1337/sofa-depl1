@@ -12,14 +12,11 @@ const actualDOM = () => {
 
 const categoryTemplate = ({ category }) => {
   return `
-    <div>
-      <div>
-        <h6>${category.name}</h6>
-      </div>
-      <div>
-        <button data-edit-id="${category._id}" >Редагувати</button>
-        <button data-remove-id="${category._id}">Видалити</button>
-      </div>
+    <div class="list-item">
+      <a href="/admin-panel/edit-category?categoryId=${category._id}">
+        ${category.name}
+      </a>
+      <button class="btn" data-remove-id="${category._id}">Видалити</button>
     </div>
   `
 }
@@ -27,7 +24,6 @@ const categoryTemplate = ({ category }) => {
 ;(async () => {
   const { AuthService } = await import('../../../services/auth.js')
   const { CategoryService } = await import('../../../services/category.js')
-  const { Redirect } = await import('../../../utils/redirect.utillity.js')
 
   try {
     const responseAuth = await AuthService.checkAuth()
@@ -57,16 +53,6 @@ const categoryTemplate = ({ category }) => {
     })
   }
 
-  const onEditCategory = () => {
-    const editBtns = actualDOM().editCategoryBtns
-
-    editBtns.forEach(button => {
-      button.addEventListener('click', async e => {
-        Redirect(`/admin-panel/edit-category?id=${e.target.dataset.editId}`)
-      })
-    })
-  }
-
   try {
     const responseCategories = await CategoryService.getAll()
 
@@ -80,7 +66,6 @@ const categoryTemplate = ({ category }) => {
       DOM.categoryList.innerHTML = categoryListHtml.join('')
 
       onRemoveCategory()
-      onEditCategory()
     } else {
       DOM.categoryList.innerHTML = '<h4>Немає категорій</h4>'
     }

@@ -106,11 +106,17 @@ const getOne = async (req, res) => {
 const getAllWithCategories = async (req, res) => {
   try {
     const underCategories = await UnderCategory.find().populate('categoryId')
-    const sortCategories = underCategories.map(underCategory => ({
-      name: underCategory.categoryId.name,
-      _id: underCategory.categoryId._id,
-      underCategory: { name: underCategory.name, _id: underCategory._id },
-    }))
+    const sortCategories = underCategories
+      .map(underCategory => {
+        if (underCategory.categoryId) {
+          return {
+            name: underCategory.categoryId.name,
+            _id: underCategory.categoryId._id,
+            underCategory: { name: underCategory.name, _id: underCategory._id },
+          }
+        }
+      })
+      .filter(category => category)
 
     const categories = sortCategories.reduce((acc, category, _, array) => {
       const categories = array.filter(item => item._id === category._id)

@@ -26,7 +26,7 @@ const actualDOM = () => {
 
   const DOM = actualDOM()
   const previewImage = uploadImage()
-  const productId = new URLSearchParams(window.location.search).get('id')
+  const productId = new URLSearchParams(window.location.search).get('productId')
 
   try {
     const responseProduct = await ProductService.getOne({ productId })
