@@ -156,3 +156,13 @@
   margin-bottom: 30px;
   margin-right: 20px;
 }
+
+@media (max-width: 768px) {
+  .product-card .card-image {
+    height: auto;
+  }
+
+  .product-card:hover {
+    transform: scale(1);
+  }
+}

@@ -30,3 +30,19 @@
   width: 20px;
   height: 20px;
 }
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    font-size: 18px;
+  }
+
+  .title a {
+    font-size: 13px;
+  }
+}
