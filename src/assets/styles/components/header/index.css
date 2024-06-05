@@ -346,7 +346,7 @@
 
 @media (max-width: 670px) {
   .header .dropdown .dropdown-list {
-    transform: translateX(-90%);
+    transform: translateX(-80%);
   }
 }
 
