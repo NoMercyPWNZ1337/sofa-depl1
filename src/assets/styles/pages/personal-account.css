@@ -200,6 +200,11 @@
   gap: 20px 0;
 }
 
+.personal .personal-content .orders-history .order .order-address {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
 .personal .personal-content .orders-history .order .order-price span {
   font-size: 17px;
   font-weight: 500;

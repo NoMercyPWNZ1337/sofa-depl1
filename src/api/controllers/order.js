@@ -4,7 +4,7 @@ import Order from '../models/order.js'
 import Product from '../models/product.js'
 
 const changeStatus = ({ status }) => {
-  if (Math.random() < 0.3) return 'Скасовано'
+  if (Math.random() > 0.3) return 'Скасовано'
   if (status === 'Комплектується') return 'Відправлено'
   if (status === 'Відправлено') return 'Доставлено'
 
@@ -109,6 +109,7 @@ const create = async (req, res) => {
       amount: req.body.amount,
       products: req.body.products,
       date: req.body.date,
+      address: req.body.address,
       creationTime: new Date().getTime(),
       updateHour: Math.floor(Math.random() * (6 - 1 + 1) + 1),
     })

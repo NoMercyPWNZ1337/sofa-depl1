@@ -37,7 +37,6 @@ const actualDOM = () => {
 
     DOM.editProductForm.name.value = product.name
     DOM.editProductForm.price.value = product.price
-    DOM.editProductForm.quantityInWarehouse.value = product.quantityInWarehouse
     DOM.editProductForm.quantityInDrugstore.value = product.quantityInDrugstore
     DOM.editProductForm.description.value = product.description
     DOM.editProductForm.discountedPrice.value = product.discountedPrice

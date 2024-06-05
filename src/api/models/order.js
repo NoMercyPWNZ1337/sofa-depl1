@@ -15,6 +15,7 @@ const Order = new Schema({
   ],
   date: { type: String },
   status: { type: String, default: 'Комплектується' },
+  address: { type: String },
 })
 
 export default model('Order', Order)

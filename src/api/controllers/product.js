@@ -3,13 +3,11 @@ import mongoose from 'mongoose'
 
 import Product from '../models/product.js'
 import UnderCategory from '../models/under-category.js'
-import Category from '../models/category.js'
 
 const productData = ({ req, categoryId }) => ({
   name: req.body.name,
   price: req.body.price,
   discountedPrice: req.body.discountedPrice,
-  quantityInWarehouse: req.body.quantityInWarehouse,
   quantityInDrugstore: req.body.quantityInDrugstore,
   image: req.body.image,
   underCategoryId: req.body.underCategoryId,

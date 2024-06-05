@@ -69,9 +69,6 @@ const productTemplate = ({ product }) => {
         <li><span>Країна виробницва:</span> ${product.manufacturerCountry}</li>
         <li><span>Кількість в аптеці:</span> ${product.quantityInDrugstore}</li>
         <li>
-          <span>Кількість на складі:</span> ${product.quantityInWarehouse}
-        </li>
-        <li>
           <span>Умови відпуску:</span> 
           ${product.withRecipe ? 'За рецептом' : 'Без рецепта'}
         </li>

@@ -70,22 +70,12 @@
 .product-card .card-stock {
   grid-area: stock;
   font-size: 15px;
-  margin-bottom: 10px;
   color: #07d325;
+  margin-bottom: 20px;
 }
 
 .product-card .card-stock.active {
   color: red;
-}
-
-.product-card .card-quantity {
-  grid-area: quantity;
-  font-size: 15px;
-  margin-bottom: 25px;
-}
-
-.product-card .card-quantity span {
-  color: #07d325;
 }
 
 .product-card .card-quantity.active,

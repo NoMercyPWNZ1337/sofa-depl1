@@ -2,7 +2,7 @@ export const orderTemplate = ({ order }) => {
   const products = order.products.map(product => {
     return `
       <li>
-        <a href="">${product.name}</a>
+        <a href="/product?productId=${product._id}">${product.name}</a>
         ${product.quantity} упаков.
       </li>
     `
@@ -13,6 +13,7 @@ export const orderTemplate = ({ order }) => {
       <ul class="order-products">
         <li class="order-date">${order.date}</li>
         ${products.join('')}
+        <li class="order-address">Адреса: ${order.address}</li>
       </ul>
       <ul class="order-info">
         <li 

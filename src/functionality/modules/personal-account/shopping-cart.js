@@ -88,7 +88,9 @@ const productTemplate = ({ product }) => {
     const productPrices = productsData.map(product => {
       return (product.discountedPrice || product.price) * +product.quantity
     })
-    const totalPrice = productPrices.reduce((acc, price) => acc + price, 0)
+    const totalPrice = Math.round(
+      productPrices.reduce((acc, price) => acc + price, 0)
+    )
 
     DOM.amountOrder.innerHTML = `До оплати без доставки: <span>${totalPrice}</span> грн`
 
@@ -210,6 +212,7 @@ const productTemplate = ({ product }) => {
           amount: amountOrder(),
           products: productsInOrder,
           date: `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`,
+          address,
         },
       })
 

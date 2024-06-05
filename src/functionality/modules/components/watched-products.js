@@ -33,5 +33,28 @@ export const watchedProducts = async ({ DOM }) => {
   new Swiper('#watched-swiper', {
     slidesPerView: 4,
     spaceBetween: 20,
+    breakpoints: {
+      320: {
+        slidesPerView: 1.2,
+        spaceBetween: 10,
+      },
+      350: {
+        slidesPerView: 1.3,
+        spaceBetween: 10,
+      },
+      600: {
+        slidesPerView: 1.7,
+        spaceBetween: 10,
+      },
+      768: {
+        slidesPerView: 2,
+      },
+      930: {
+        slidesPerView: 3,
+      },
+      1240: {
+        slidesPerView: 4,
+      },
+    },
   })
 }

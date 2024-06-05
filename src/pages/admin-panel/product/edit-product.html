@@ -29,7 +29,13 @@
 
           <label for="price" class="form-field">
             <span class="form-title">Ціна товару(грн):</span>
-            <input class="form-input" id="price" type="number" name="price" />
+            <input
+              class="form-input"
+              id="price"
+              type="number"
+              step="0.01"
+              name="price"
+            />
           </label>
 
           <label for="discountedPrice" class="form-field">
@@ -39,18 +45,9 @@
             <input
               class="form-input"
               id="discountedPrice"
+              step="0.01"
               type="number"
               name="discountedPrice"
-            />
-          </label>
-
-          <label for="quantityInWarehouse" class="form-field">
-            <span class="form-title">Кількість товару на складі:</span>
-            <input
-              class="form-input"
-              id="quantityInWarehouse"
-              type="number"
-              name="quantityInWarehouse"
             />
           </label>
 

@@ -40,14 +40,6 @@ export const productCard = ({ product }) => {
             : 'Немає в наявності'
         }
       </p>
-      <p class="card-quantity ${product.quantityInWarehouse <= 0 && 'active'}">
-        Кількість товару на складі:
-        <span>${
-          product.quantityInWarehouse > 0
-            ? product.quantityInWarehouse
-            : 'Немає'
-        }</span>
-      </p>
       <p class="card-price ${product.discountedPrice ? 'active' : ''}">
         <span>
           <span class="price">${product.price}</span>
