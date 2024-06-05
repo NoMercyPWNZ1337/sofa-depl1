@@ -80,6 +80,11 @@
   border-right: none;
   border-left: none;
   padding: 20px 0;
+  display: none;
+}
+
+.catalog-page .catalog-filters .form-field.manufactures-list.active {
+  display: grid;
 }
 
 @media (max-width: 1280px) {

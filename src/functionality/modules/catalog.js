@@ -5,6 +5,7 @@ const actualDOM = () => {
     watchedProductsSection: document.querySelector('#watched-products'),
     watchedProducts: document.querySelector('#watched-products-swiper'),
     manufactures: document.querySelector('#manufactures'),
+    manufacturesWraper: document.querySelector('#manufactures-wraper'),
   }
 }
 
@@ -54,6 +55,7 @@ const searchProducts = async ({ searchQuery }) => {
     if (!responseManufactures.success) return
 
     if (responseManufactures.manufactures.length) {
+      DOM.manufacturesWraper.classList.add('active')
       const manufacturesListHtml = responseManufactures.manufactures.map(
         manufacturer => {
           return `
