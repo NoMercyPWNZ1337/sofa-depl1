@@ -7,15 +7,31 @@
     <link rel="stylesheet" href="/src/assets/styles/index.css" />
   </head>
   <body>
-    <h1>Вхід</h1>
+    <main class="auth">
+      <div class="container">
+        <h1 class="title">Вхід</h1>
 
-    <form id="login-form" class="auth-form">
-      <input type="text" name="login" placeholder="E-mail або телефон" />
-      <input type="password" name="password" placeholder="Пароль" />
-      <button type="submit">Увійти</button>
-    </form>
-
-    <a href="/registration">Реєстрація</a>
+        <form id="login-form" class="form">
+          <label for="login" class="form-field">
+            <span class="form-title">E-mail або телефон</span>
+            <input class="form-input" id="login" type="text" name="login" />
+          </label>
+          <label for="password" class="form-field">
+            <span class="form-title">Пароль</span>
+            <input
+              class="form-input"
+              id="password"
+              type="password"
+              name="password"
+            />
+          </label>
+          <div class="form-row">
+            <button class="btn" type="submit">Увійти</button>
+            <a class="btn" href="/registration">Реєстрація</a>
+          </div>
+        </form>
+      </div>
+    </main>
 
     <script
       type="text/javascript"

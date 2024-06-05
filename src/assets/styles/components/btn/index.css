@@ -30,3 +30,7 @@
   color: red;
   transition: border-color 0.2s, color 0.2s;
 }
+
+a.btn {
+  display: block;
+}

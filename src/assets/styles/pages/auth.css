@@ -1,0 +1,27 @@
+.auth .form .btn {
+  margin-top: 0;
+}
+
+.auth .form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth .title {
+  margin-bottom: 40px;
+}
+
+.auth {
+  margin: 60px auto;
+  max-width: 700px;
+}
+
+.auth .form-field.row {
+  grid-template-columns: max-content 1fr;
+  align-items: start;
+}
+
+.auth .form-field.row input[type='checkbox'] {
+  margin-top: 4px;
+}
