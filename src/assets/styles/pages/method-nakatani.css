@@ -9,7 +9,7 @@
 }
 
 .nakatani .nakatani-image {
-  width: 100%;
+  width: 250px;
   height: auto;
   border-radius: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -18,7 +18,7 @@
 .nakatani .nakatani-info {
   display: grid;
   grid-template-columns: 0.2fr 0.5fr;
-  gap: 0 40px;
+  gap: 0 30px;
   justify-content: center;
   margin-bottom: 50px;
 }
@@ -56,4 +56,25 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 10px 0;
+}
+
+@media (max-width: 1000px) {
+  .nakatani .nakatani-info {
+    grid-template-columns: max-content 1fr;
+  }
+}
+
+@media (max-width: 730px) {
+  .nakatani .nakatani-info {
+    grid-template-columns: 1fr;
+    gap: 20px 0;
+  }
+
+  .nakatani .nakatani-image {
+    justify-self: center;
+  }
+
+  .nakatani .nakatani-row ul {
+    font-size: 14px;
+  }
 }

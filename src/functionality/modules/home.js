@@ -23,18 +23,7 @@ const actualDOM = () => {
     if (responseProducts.products.length) {
       DOM.discountedSection.classList.add('active')
 
-      const productListHtml = [
-        ...responseProducts.products,
-        ...responseProducts.products,
-        ...responseProducts.products,
-        ...responseProducts.products,
-        ...responseProducts.products,
-        ...responseProducts.products,
-        ...responseProducts.products,
-        ...responseProducts.products,
-        ...responseProducts.products,
-        ...responseProducts.products,
-      ].map(product => {
+      const productListHtml = responseProducts.products.map(product => {
         return `
           <div class="swiper-slide">
             ${productCard({ product })}
