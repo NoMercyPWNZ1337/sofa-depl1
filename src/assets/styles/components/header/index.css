@@ -257,3 +257,119 @@
 .header .search.active .search-bg {
   display: block;
 }
+
+.header .menu {
+  display: none;
+}
+
+.header .menu img {
+  width: 30px;
+  height: 30px;
+}
+
+.header .menu img[data-close-menu] {
+  display: none;
+}
+
+@media (max-width: 1112px) {
+  .header .links,
+  .header .row {
+    display: none;
+  }
+
+  .header.active .menu img[data-open-menu] {
+    display: none;
+  }
+
+  .header.active .menu img[data-close-menu] {
+    display: block;
+  }
+
+  .header .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'logo menu' 'links links' 'row row';
+  }
+
+  .header.active .container {
+    gap: 30px 0;
+    padding-bottom: 30px;
+  }
+
+  .header .links {
+    grid-area: links;
+    justify-self: center;
+  }
+
+  .header .row {
+    grid-area: row;
+    justify-self: center;
+  }
+
+  .header .menu {
+    display: block;
+    grid-area: menu;
+    justify-self: end;
+  }
+
+  .header .logo {
+    grid-area: logo;
+  }
+
+  .header.active .links,
+  .header.active .row {
+    display: flex;
+  }
+
+  .header .search .search-form {
+    width: 95%;
+  }
+
+  .header .search .search-form .search-link {
+    grid-template-areas: 'title title' 'manufacturer manufacturer' 'price price-discounted';
+    gap: 10px 0;
+  }
+
+  .header .search .search-form .search-link .link-price {
+    justify-self: start;
+  }
+
+  .header .search .search-form .search-link .link-title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .header .dropdown .dropdown-list {
+    transform: translateX(-80%);
+  }
+}
+
+@media (max-width: 670px) {
+  .header .dropdown .dropdown-list {
+    transform: translateX(-90%);
+  }
+}
+
+@media (max-width: 550px) {
+  .header .row {
+    flex-direction: column;
+    gap: 20px 0;
+  }
+
+  .header .search .search-form .search-link {
+    grid-template-areas: 'title title' 'manufacturer manufacturer' 'price price' 'price-discounted price-discounted';
+  }
+
+  .header .search .search-form .search-link .link-price-discounted {
+    justify-self: start;
+  }
+
+  .header .search .search-form .search-input {
+    font-size: 20px;
+  }
+
+  .header .search .search-form .search-btn,
+  .header .search .search-form .search-input {
+    padding: 15px;
+  }
+}
