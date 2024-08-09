@@ -10,12 +10,14 @@ const actualDOM = () => {
 const productTemplate = ({ product }) => {
   return `
     <div class="product">
+      <a href="/product?productId=${product._id}">
       <img 
         class="product-image"
         src="${product.image}" 
         alt="product image" 
       />
-      <a class="product-title" href="">${product.name}</a>
+      </a>
+      <a class="product-title" href="/product?productId=${product._id}">${product.name}</a>
       <p class="product-stock">
         В наявності: ${product.quantityInDrugstore}
       </p>
@@ -23,10 +25,12 @@ const productTemplate = ({ product }) => {
         <span>
           <span class="price">${product.price}</span>
           ${
-            product.discountedPrice &&
+            product.discountedPrice ?
             `<span class="discounted">
               ${product.discountedPrice}
             </span>`
+            :
+            ''
           }
           грн
         </span>

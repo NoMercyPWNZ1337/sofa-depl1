@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Метод Накатані | FixHealth</title>
     <link rel="stylesheet" href="/src/assets/styles/index.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <header id="header" class="header">
@@ -19,7 +20,7 @@
             <a href="/catalog" class="link dropdown-trigger">Каталог</a>
             <ul id="dropdown-list" class="dropdown-list"></ul>
           </div>
-          <a class="link" href="/#awards">Наші ногороди</a>
+          <a class="link" href="/#awards">Наші нагороди</a>
           <a class="link" href="/#about">Про нас</a>
         </nav>
 
@@ -36,7 +37,7 @@
               </button>
 
               <ul id="product-list" class="search-list"></ul>
-              <ul id="analog-list" class="search-list"></ul>
+              <ul id="analog-list" class="search-list search-list-analog"></ul>
             </form>
           </div>
 
@@ -83,19 +84,26 @@
     <main class="nakatani">
       <div class="container">
         <div class="nakatani-info">
+          <h1>Метод Накатані</h1>
+          <p class="nakatani-description">
+           <span class="bold-diagnos-nakat">Діагностика за методом Накатані</span> – найсучасніший, технічно досконалий метод повного функціонального електрофізіологічного тестування усіх систем життєдіяльності, що дозволяє виявити зміни на ранніх етапах, визначити причину порушень у конкретної людини, виявити наслідки і ускладнення та підібрати індивідуальне лікування. Дозволяє сучасному лікарю лікувати не хворобу чи орган, а усю людину з її індивідуальними особливостями та спрямованістю на результат у кожного пацієнта, а не на медичну статистику.
+          </p>
           <img
             class="nakatani-image"
             src="/src/assets/images/nakatani.png"
             alt="nakatani image"
           />
+          <p class="name-nakatani">Йошіо Накатані</p>
           <p class="nakatani-description">
-            Діагностика по методу Накатані - найсучасніший, технічно досконалий
-            метод повного функціонального електрофізіологічного тестування усіх
-            систем життєдіяльності, що дозволяє виявити зміни на ранніх етапах,
-            визначити причину порушень у конкретної людини, виявити наслідки і
-            ускладнення та підібрати індивідуальне лікування.
+            <span class="bold-diagnos-nakat">У 1956 році</span> японський вчений Й. Накатані запропонував свій спосіб інструментальної діагностики меридіанів. Він розробив досить зручну та наочну діагностичну карту, оптимальну для лікарів. У результаті багаторічного дослідження шкірного електроопіру біологічно активних точок він дійшов висновку про залежність цього показника від функціонального стану пов'язаних	із ним органів. Накатані визначив точки, що мають нижчий, ніж оточуюча шкіра, опір. Дані точки лежали на лініях із підвищеною електропровідністю,  розташування яких збігалося з ходом акупунктурних меридіанів. Тому метод отримав назву <span class="bold-diagnos-nakat bold-diagnos-nakat-no-margin">«Ріодораку»</span> (від японської: ryo – добре, do – (електро) провідність, raku – лінія), тобто <span class="bold-diagnos-nakat bold-diagnos-nakat-no-margin">лінія з доброю електропровідністю</span> .
+          
           </p>
+          <!-- <p class="nakatani-description">
+            У результаті багаторічного дослідження шкірного електроопіру біологічно активних точок він дійшов висновку про залежність цього показника від функціонального стану пов'язаних	із ним органів. Накатані визначив точки, що мають нижчий, ніж оточуюча шкіра, опір. Дані точки лежали на лініях із підвищеною електропровідністю,  розташування яких збігалося з ходом акупунктурних меридіанів. Тому метод отримав назву «Ріодораку» (від японської: ryo – добре, do – (електро) провідність, raku – лінія), тобто лінія з хорошою електропровідністю. 
+          </p> -->
+          
         </div>
+        <h1>Розрахунок</h1>
         <form id="form" class="form">
           <label for="H1_L_input" class="form-field">
             H1 (Ліва рука):
@@ -333,11 +341,13 @@
         </form>
 
         <div id="nakatani-wraper" class="nakatani-wraper">
-          <div class="nakatani-chart">
-            <canvas id="myChart"></canvas>
-          </div>
+          <h1 >Побудова графіку</h1>
+          <canvas id="myChart"></canvas>
+          <!-- <div class="nakatani-chart">
+            
+          </div> -->
           <div class="nakatani-result">
-            <h1 class="title">Результат:</h1>
+            <h1 >Результат</h1>
             <div class="nakatani-row">
               <ul id="head-res"></ul>
               <ul id="final-res"></ul>

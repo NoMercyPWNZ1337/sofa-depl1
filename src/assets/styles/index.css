@@ -19,6 +19,10 @@
 @import url('./pages/admin-panel.css');
 @import url('./pages/auth.css');
 
+* {
+  font-family: 'Nunito', sans-serif;
+  /* font-family: 'Comfortaa', cursive; */
+}
 html {
   scroll-behavior: smooth;
 }
@@ -37,3 +41,8 @@ main {
 .swiper {
   overflow: visible !important;
 }
+
+body{
+  background-color: #fffbf2;
+}
+

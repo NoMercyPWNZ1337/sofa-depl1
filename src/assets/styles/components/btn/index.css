@@ -11,8 +11,8 @@
 
 .btn.active,
 .btn:hover {
-  border-color: #07d325;
-  color: #07d325;
+  border-color: #fffbf2;
+  color: #fffbf2;
   transition: border-color 0.2s, color 0.2s;
 }
 

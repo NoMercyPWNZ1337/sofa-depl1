@@ -126,7 +126,287 @@
 
 .home .awards .awards-item {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  padding: 10px;
 }
+
+.home .awards .awards-item .awards-item-img{
+  width: 100%;
+  object-fit: contain;
+}
+
+.home .container-welcome{
+  display: flex;
+    flex-direction: column;
+    height: 340px;
+    /* justify-content: center; */
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    background: #02925408;
+    border-radius: 30px;
+    padding: 20px 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.home .container-welcome h1{
+    font-weight: 500;
+    font-size: 48px;
+}
+
+.home .container-welcome .logo-welcome{
+  display: flex;
+    flex-direction: row;
+    width: 500px;
+    align-items: center;
+    /* justify-items: center; */
+    /* justify-self: center; */
+    /* align-content: center; */
+    justify-content: space-between;
+}
+
+.home .container-welcome .logo-welcome img{
+  width: 130px;
+}
+
+.home .container-welcome .logo-welcome h1{
+  color: #07d325;
+  font-size: 80px;
+  font-weight: 600;
+  /* font-family: Bradley Hand, cursive;*/
+}
+
+.home .swiper .product-card img {
+  margin-left: 12px;
+}
+
+
+/*----------------------------- NEW STAGE------------------------------*/
+/*----------------------------- NEW STAGE------------------------------*/
+/*----------------------------- NEW STAGE------------------------------*/
+/*----------------------------- NEW STAGE------------------------------*/
+/*----------------------------- NEW STAGE------------------------------*/
+/*----------------------------- NEW STAGE------------------------------*/
+/*----------------------------- NEW STAGE------------------------------*/
+/*----------------------------- NEW STAGE------------------------------*/
+/*----------------------------- NEW STAGE------------------------------*/
+/*----------------------------- NEW STAGE------------------------------*/
+/*----------------------------- NEW STAGE------------------------------*/
+
+
+.section-title{
+  position: relative;
+    -js-display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+
+.section-title b{
+  display: block;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    height: 2px;
+    opacity: .3;
+    background-color: #3d2808;
+    
+}
+
+.section-title-main{
+  text-align: center;
+  margin: 0 15px;
+  text-transform: uppercase;
+  color: #3d2808;
+  font-size: 40px;
+}
+
+.section-h-main{
+  margin: 50px 0 30px;
+}
+
+.home{
+  /* box-shadow: 0px 2px 7.5px 6px #3d2808; */
+  padding: 20px;
+}
+
+.section-block-main{
+  padding: 20px;
+  background-color: #3d2808;
+  border-radius: 20px;
+  box-shadow: 0px 0px 4.5px 6px #3d2808;
+}
+
+.article-block-main{
+  display: flex;
+  padding: 20px;
+}
+
+.wrapper-block-main{
+  align-content: center;
+    margin-right: 80px;
+    padding: 20px;
+}
+
+.wrapper-block-main h3,
+.wrapper-block-main-reverse h3{
+  text-align: center;
+    font-size: 35px;
+}
+
+.wrapper-block-main p,
+.wrapper-block-main-reverse p{
+  margin-top: 20px;
+  font-size: 20px;
+  text-indent: 40px;
+  text-align: justify;
+}
+
+.article-block-main img,
+.article-block-main-reverse img{
+  width: 40%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 7.5px 0px #fffbf2;
+    height: 270px;
+    object-fit: cover;
+    align-self: center;
+}
+
+.article-block-main-reverse img{
+  margin-right: 80px;
+}
+.article-block-main-reverse{
+  display: flex;
+  padding: 20px;
+  flex-direction: row-reverse;
+}
+
+.wrapper-block-main-reverse{
+  align-content: center;
+    padding: 20px;
+}
+
+.section-category-sofa-main{
+  margin: 35px 0;
+}
+
+.article-category-sofa-main h1{
+  text-align: center;
+  color: #3d2808;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.sofa-categoryes{
+  display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.sofa-category{
+  width: 30%;
+  padding: 15px;
+  background: #fffbf2;
+ /*border: 5px solid #3d2808;*/
+  border-radius: 20px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.sofa-category>a{
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 20px;
+  height: 98%;
+  width: 98%;
+  margin: auto;
+  align-self: center;
+  background: #fffbf2;
+  z-index: 1;
+} 
+
+ .sofa-category>.border{
+  position: absolute;
+  display: block;
+  top: -50%;
+  left: -50%;
+  z-index: 1;
+  display: block;
+  height: 200%;
+  width: 200%;
+  transform: rotate(-45deg);
+  overflow: hidden;
+  background: linear-gradient(to right, #3d2808 20%, #3d2808 40%, #3d280821 50%, #3d280824 55%, #3d2808 70%, #3d2808 100%);
+  background-size: 200% auto;
+  
+  animation: shine 3s linear infinite;
+}
+
+
+
+.sofa-category:hover{
+  box-shadow: 0px 0px 4.5px 3px #3d2808, inset 0px 0px 4.5px 2px rgba(61, 40, 8, 1);
+  width: 32%;
+  transition: all 0.3s ease;
+  height: 245px;
+}
+
+.sofa-category:not(:hover){
+  transition: all 0.3s ease;
+  height: 225px;
+  align-self: center;
+}
+
+.sofa-category>a>h5{
+  text-align: center;
+    color: #3d2808;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.sofa-category>a>figure>img{
+  width: 100%;
+  object-fit: cover;
+  height: 120px;
+}
+
+.sofa-category:first-of-type>a>figure>img{
+
+  width: 95%;
+  margin: auto;
+}
+
+.puf{
+  justify-content: center;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}fff
+
+.margin-puf{  
+  margin-right: 35px;
+}
+
 
 @media (max-width: 1320px) {
   .footer .container {
@@ -137,6 +417,7 @@
   .footer .footer-apps {
     grid-column: 1 / 5;
   }
+  
 }
 
 @media (max-width: 1300px) {
@@ -158,7 +439,51 @@
   .home .home-swiper .swiper-slide {
     grid-template-columns: 1fr;
   }
+
+  
 }
+
+@media (max-width: 1112px) {
+.article-block-main,
+.article-block-main-reverse{
+    flex-direction: column-reverse;
+  }
+
+  .wrapper-block-main,
+  .article-block-main-reverse img{
+    margin-right: 0px;
+  }
+
+  .article-block-main img, .article-block-main-reverse img{
+    width: 100%;
+    height: auto;
+  }
+
+  .sofa-categoryes{
+    flex-direction: column;
+    height: 1600px;
+  }
+
+  .sofa-category>a>figure>img{
+    height: auto;
+  }
+
+  .sofa-category:not(:hover){
+    height: 470px;
+    width: 80%;
+  }
+
+  .sofa-category>a>h5{
+    font-size: 34px;
+  }
+
+  .sofa-category:hover{
+    height: 500px;
+    width: 85%;
+  }
+
+}
+
 
 @media (max-width: 930px) {
   .footer .container {
@@ -177,6 +502,27 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
+  .home .container-welcome .logo-welcome{    
+      width: 350px;
+  }
+  .home .container-welcome{
+    height: 250px;
+  }
+  
+  .home .container-welcome h1{
+    font-weight: 400;
+    font-size: 26px;
+}
+  .home .container-welcome .logo-welcome img{
+    width: 100px;
+  }
+  
+  .home .container-welcome .logo-welcome h1{
+    color: #07d325;
+    font-size: 55px;
+    font-weight: 600;
+    /* font-family: Bradley Hand, cursive;*/
+  }
 }
 
 @media (max-width: 768px) {
@@ -194,6 +540,21 @@
   .home .home-swiper .swiper-button-prev:after {
     font-size: 15px;
   }
+
+  .sofa-categoryes{
+    flex-direction: column;
+    height: 1200px;
+  }
+
+  .sofa-category:not(:hover){
+    height: 350px;
+    width: 80%;
+  }
+
+  .sofa-category:hover{
+    height: 370px;
+    width: 85%;
+  }
 }
 
 @media (max-width: 600px) {
@@ -208,10 +569,31 @@
   .home .awards {
     margin-bottom: 50px;
   }
+  
+  .home .container-welcome h1{
+    font-size: 22px;
+  }
 }
 
 @media (max-width: 488px) {
   .home .awards .row {
     grid-template-columns: 1fr;
   }
+
+  .sofa-categoryes{
+    flex-direction: column;
+    height: 950px;
+  }
+
+  .sofa-category:not(:hover){
+    height: 280px;
+    width: 80%;
+  }
+
+  .sofa-category:hover{
+    height: 300px;
+    width: 85%;
+  }
+
 }
+

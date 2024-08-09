@@ -16,8 +16,11 @@
   gap: 20px 0;
   padding: 20px;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  border-radius: 10px;
   height: max-content;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  background: #3d2808;
+  box-shadow: 0px 2px 7.5px 6px #3d2808;
 }
 
 .catalog-page .catalog-filters .filters-row {
@@ -28,6 +31,9 @@
 
 .catalog-page .catalog-filters .btn {
   margin: 10px auto 0;
+  width: 100%;
+  /* background: white; */
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0);
 }
 
 .catalog-page .catalog-products {
@@ -36,14 +42,17 @@
   gap: 20px;
 }
 
-.catalog-page .catalog-products h3 {
+.catalog-page .catalog-products h3,
+.home .swiper-slide h3 {
   font-weight: 400;
   font-size: 20px;
   text-align: center;
   grid-column: 1 / 4;
+  height: 60px;
 }
 
-.catalog-page .catalog-products .product-card .card-image {
+.catalog-page .catalog-products .product-card .card-image,
+.home .discounted-swipe .swiper-slide .product-card .card-image{
   grid-column: 1 / 4;
 }
 
@@ -85,6 +94,22 @@
 
 .catalog-page .catalog-filters .form-field.manufactures-list.active {
   display: grid;
+}
+
+.catalog-page #watched-products #watched-swiper .product-card button{
+  margin-right: 15px;
+}
+
+.catalog-page .form-input{
+  /* box-shadow: inset 0px 2px 7.5px 6px #3d2808; */
+  box-shadow: inset 0 2px 6px rgb(61 40 8);
+  border: none;
+  color: #3d2808;
+  background: #fffbf2;
+}
+
+.catalog-page .catalog-filters .filters-row{
+  display: none;
 }
 
 @media (max-width: 1280px) {

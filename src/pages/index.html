@@ -1,416 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Головна | FixHealth</title>
-    <link rel="stylesheet" href="/src/assets/styles/index.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-  </head>
-  <body>
-    <header id="header" class="header">
-      <div class="container">
-        <a class="logo" href="/">
-          <img src="/src/assets/images/logo.svg" alt="heart icon" />
-          <span>FixHealth</span>
-        </a>
 
-        <nav class="links">
-          <div id="dropdown" class="dropdown">
-            <a href="/catalog" class="link dropdown-trigger">Каталог</a>
-            <ul id="dropdown-list" class="dropdown-list"></ul>
-          </div>
-          <a class="link" href="#awards">Наші ногороди</a>
-          <a class="link" href="#about">Про нас</a>
-        </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Головна | МійДиванчик</title>
+  <link rel="stylesheet" href="/src/assets/styles/index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
 
-        <div class="row">
-          <div id="search" class="search">
-            <div id="search-bg" class="search-bg"></div>
-            <button type="submit" id="search-trigger" class="search-trigger">
+<body>
+  <header id="header" class="header">
+    <div class="container">
+      <a class="logo" href="/">
+        <img src="/src/assets/images/logo-sofa-gg.png" alt="heart icon" />
+        <span>МійДиванчик</span>
+      </a>
+
+      <nav class="links">
+        <div id="dropdown" class="dropdown">
+          <a href="/catalog" class="link dropdown-trigger">Каталог</a>
+          <ul id="dropdown-list" class="dropdown-list"></ul>
+        </div>
+        <!-- <a class="link" href="#awards">Наші нагороди</a> -->
+        <a class="link" href="#about">Про нас</a>
+      </nav>
+
+      <div class="row">
+        <div id="search" class="search">
+          <div id="search-bg" class="search-bg"></div>
+          <button type="none" id="search-trigger" class="search-trigger">
+            <img src="/src/assets/images/search.svg" alt="search icon" />
+            <span>Пошук</span>
+          </button>
+          <form id="search-form" class="search-form">
+            <button type="submit" class="search-btn">
               <img src="/src/assets/images/search.svg" alt="search icon" />
             </button>
-            <form id="search-form" class="search-form">
-              <input name="search" type="text" class="search-input" />
-              <button type="submit" class="search-btn">
-                <img src="/src/assets/images/search.svg" alt="search icon" />
-              </button>
+            <input name="search" type="text" class="search-input" />
 
-              <ul id="product-list" class="search-list"></ul>
-              <ul id="analog-list" class="search-list"></ul>
-            </form>
-          </div>
-
-          <div class="service">
-            <a href="/method-nakatani">
-              <img
-                src="/src/assets/images/health-monitor.svg"
-                alt="health monitor icon"
-              />
-              <span>Послуга "Метод Накатані"</span>
-            </a>
-          </div>
-
-          <a href="/personal-account/favorites" id="favorite" class="favorite">
-            <img src="/src/assets/images/favorite.svg" alt="favorite icon" />
-            <span id="favorite-quantity"></span>
-          </a>
-
-          <a href="/personal-account/shopping-cart" id="basket" class="basket">
-            <img src="/src/assets/images/basket.svg" alt="basket icon" />
-            <span id="basket-quantity"></span>
-          </a>
-
-          <a href="/personal-account" class="user">
-            <img src="/src/assets/images/user.svg" alt="user icon" />
-          </a>
+            <ul id="product-list" class="search-list"></ul>
+            <ul id="analog-list" class="search-list search-list-analog"></ul>
+          </form>
         </div>
 
-        <div id="menu" class="menu">
-          <img
-            data-open-menu="true"
-            src="/src/assets/images/menu.svg"
-            alt="menu icon"
-          />
-          <img
-            data-close-menu="true"
-            src="/src/assets/images/close-menu.svg"
-            alt="close menu icon"
-          />
-        </div>
+        <!-- <a href="/personal-account" class="user">
+          <img src="/src/assets/images/user.svg" alt="user icon" />
+        </a> -->
       </div>
-    </header>
 
-    <main class="home">
-      <section class="home-swiper">
-        <div class="container">
-          <div id="home-swiper" class="swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <a href="/">
-                  <img
-                    src="/src/assets/images/solaray.jpg"
-                    alt="solaray image"
-                  />
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="/">
-                  <img
-                    src="/src/assets/images/levocetirizine.jpg"
-                    alt="levocetirizine image"
-                  />
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="/">
-                  <img
-                    src="/src/assets/images/natures-way.jpg"
-                    alt="natures way image"
-                  />
-                </a>
-              </div>
-            </div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-          </div>
-        </div>
-      </section>
-      <section id="discounted-products" class="discounted-products">
-        <div class="container">
-          <h1 class="title">
-            Товари зі знижкою
-            <a href="/catalog?withDiscounted=true">
-              Дивитись
-              <img src="/src/assets/images/arrow-right.svg" alt="arrow right" />
-            </a>
-          </h1>
+      <button class="burger-menu" id="burger-menu">
+        <img src="/src/assets/images/bars-solid (1).svg" alt="burger menu icon" />
+      </button>
+      <nav class="mobile-nav" id="mobile-nav">
 
-          <div id="discounted-swiper" class="swiper">
-            <div class="swiper-wrapper"></div>
-          </div>
-        </div>
-      </section>
-      <section id="about" class="about">
-        <div class="container">
-          <h1 class="about-title">
-            Медична інформаційна система «FixHealth» — переваги онлайн-аптеки та
-            маркетплейсу товарів для здоров'я в одному місці
-          </h1>
-          <p class="about-description">
-            Ми, як небайдужа команда медичної інформаційної системи «Аптека
-            9-1-1», надаємо вам медичну та фармацевтичну інформацію, а також
-            виступаємо посередником між вами та безліччю аптек-партнерів і
-            постачальників послуг, щоб ви могли отримувати сервіс онлайн-аптек з
-            доставкою по Україні, мали змогу знайти будь-які товари для здоров'я
-            на великому маркетплейсі, а також могли скористатися послугами
-            лікарів і лабораторій одночасно.
-          </p>
-          <p class="about-description">
-            Ми, як небайдужа команда медичної інформаційної системи «FixHealth»,
-            надаємо вам медичну та фармацевтичну інформацію, а також виступаємо
-            посередником між вами та безліччю аптек-партнерів і постачальників
-            послуг, щоб ви могли отримувати сервіс онлайн-аптек з доставкою по
-            Україні, мали змогу знайти будь-які товари для здоров'я на великому
-            маркетплейсі, а також могли скористатися послугами лікарів і
-            лабораторій одночасно.
-          </p>
-          <p class="about-description">Давайте поговоримо про це докладніше.</p>
-          <h2 class="about-title small">
-            Чому ми кращі, ніж інші аналогічні фармацевтичні сервіси та
-            інтернет-аптеки?
-          </h2>
-          <p class="about-description">
-            Ми досягли усіх можливих зусиль, щоб реалізувати весь перелік опцій,
-            які тільки можуть бути необхідні для пошуку і замовлення таблеток та
-            інших товарів медичного призначення онлайн:
-          </p>
-          <p class="about-description">
-            <b>Ви можете знайти і купити ліки онлайн в аптеках-партнерах</b> —
-            не виходячи з дому і не ризикуючи заразитися інфекційними
-            захворюваннями. У нас проста і зрозуміла навігація сайтом, є зручний
-            пошук медикаментів, оператори допоможуть вам оформити замовлення,
-            навіть якщо ваше лікарське призначення написано нерозбірливим
-            почерком, а також безкоштовно зателефонують і сформують замовлення
-            за вас. А ще ви можете скористатися чат-ботом, який працює на базі
-            штучного інтелекту.
-          </p>
-          <p class="about-description">
-            <b>Низькі ціни</b>, які дозволять вам заощадити гроші. Ми розуміємо,
-            що покупка лікарських засобів — це не та стаття витрат, яка дарує
-            радість. Але здоров'я безцінне. Тому ми оперативно повідомляємо про
-            зниження цін на медикаменти, а також про акції та знижки.
-          </p>
-          <p class="about-description">
-            <b>Безліч товарів для всіх</b>. Здоров'я — це не тільки про медичні
-            препарати для лікування хвороб, а й про всебічну турботу про
-            організм. Тому ми створили наш сайт у вигляді великого
-            онлайн-магазину ліків і різних продуктів для здоров'я. Крім
-            таблеток, тут ви знайдете категорії товарів:
-          </p>
-          <ul class="about-list">
-            <li>для мам і дітей;</li>
-            <li>для вагітних;</li>
-            <li>для людей у віці;</li>
-            <li>предмети гігієни;</li>
-            <li>косметику та аксесуари;</li>
-            <li>медтехніку та ортопедичні вироби;</li>
-            <li>харчування для спортсменів;</li>
-            <li>для планування сім'ї;</li>
-            <li>ароматерапію, ефірні олії та багато іншого.</li>
+        <a href="/catalog" class="link">Усі товари</a>
+        <div class="dropdown-chat">
+          <button class="dropdown-trigger-chat">Дивани</button>
+          <ul class="dropdown-content-chat">
+            <li class="underlist-item-mobile">
+              <a href="/catalog?underCategoryId=669e1cb66704fe349a912721" class="list-link">Прямі дивани</a>
+            </li>
+            <li class="underlist-item-mobile">
+              <a href="/catalog?underCategoryId=669e1cbe6704fe349a912725" class="list-link">Кутові дивани</a>
+            </li>
+            <li class="underlist-item-mobile">
+              <a href="/catalog?underCategoryId=669e1cc66704fe349a912729" class="list-link">Модульні дивани</a>
+            </li>
           </ul>
-          <p class="about-description">
-            <b>Гарантія якості</b>. Продукти, представлені на сайті, мають
-            сертифікати якості. Виробники і постачальники скрупульозно стежать
-            за правилами зберігання і транспортування, чітко дотримуються
-            холодового режиму, оскільки лікарські засоби не повинні бути
-            зіпсовані, адже фармацевтичні сервіси несуть відповідальність за
-            ваше здоров'я.
-          </p>
-          <p class="about-description">
-            <b>Всілякі способи доставки</b>. Пандемія COVID-19 і подальші
-            військові дії показали, як важливо, щоб люди не були змушені
-            виходити з дому без потреби. Тому наші партнери надають гідний
-            сервіс доставки ліків додому і в найближчу аптеку. Докладніше про це
-            ми поговоримо нижче.
-          </p>
-          <p class="about-description">
-            <b>Медичні сервіси</b>. У нас ви знайдете сервіс
-            <a href="/">Телемедицини</a>, де зможете отримати безкоштовну
-            онлайн-консультацію з лікарем та призначення ліків. За партнерською
-            програмою «Доступні ліки» отримаєте препарати швидко та зручно. А
-            також можете скористатися послугами медцентру
-            <a href="/">Doctor FixHealth</a> і зробити аналізи у німецькій
-            лабораторії «Лабораторія Др. Рьодгера» та в українському
-            лабораторно-діагностичному центрі «CSD».
-          </p>
-          <h2 class="about-title small">
-            Доставка ліків додому або в найближчу аптеку: як це працює?
-          </h2>
-          <p class="about-description">
-            Існує кілька способів для вашої зручності:
-          </p>
-          <p class="about-description">
-            <b>Самовивіз</b>. Ви робите замовлення через наш сайт, а потім
-            забираєте в найближчій до вас аптеці. У нас понад 1500 аптечних
-            точок-партнерів по всій Україні, тож якась із них обов'язково буде
-            недалеко від вашого дому.
-          </p>
-          <p class="about-description">
-            <b>Новою поштою або Укрпоштою</b>. Якщо вже так вийшло, що нашої
-            точки-партнера немає біля вас, то ви можете отримати своє замовлення
-            в найближчому відділенні, поштоматі поштового оператора або кур'єром
-            додому.
-          </p>
-          <p class="about-description">
-            <b>Кур'єрська експрес-доставка</b>. У Києві діє безкоштовна доставка
-            по місту з можливістю отримати замовлення в обраний слот часу
-            протягом дня. В інших містах і регіонах ви можете отримати товар за
-            2 години з оплатою вартості доставки від 70 грн залежно від регіону
-            та відстані. При сумі замовлення від 1000 грн у регіонах і від 1500
-            грн у Києві діє безкоштовна термінова доставка за 2 години.
-          </p>
-          <p class="about-description">
-            <b>Міжнародна доставка</b>. Від початку війни багато українців були
-            змушені виїхати за кордон. Але в новій країні може не бути потрібних
-            вам таблеток. Проте у вас є можливість доставити медикаменти за
-            кордон завдяки послугам поштових операторів.
-          </p>
-          <p class="about-description">
-            Детальніше з умовами ви можете ознайомитися на сторінці
-            <a href="/">Доставка</a>.
-          </p>
-          <h2 class="about-title small">
-            Тримаємося разом! Ми — сила, ми переможемо! Слава Україні!
-          </h2>
-          <p class="about-description">
-            Під час воєнного стану ми продовжуємо забезпечувати вас
-            найактуальнішою інформацією про режим роботи аптек і доступність
-            товарів, адже зараз це, як ніколи, важливо. Інформація доступна в
-            розділі Мапа аптек. Ви знайдете графік роботи кожної точки в режимі
-            реального часу. Будь ласка, перед походом в аптеку перевірте,
-            відкрита вона зараз чи ні.
-          </p>
-          <p class="about-description">
-            Наша команда працює в режимі 24/7. Ми тут для того, щоб забезпечити
-            вас усією необхідною інформацією та сервісами.
-          </p>
-          <p class="about-description">Бережіть себе та будьте здорові!</p>
-          <p class="about-description"></p>
         </div>
-      </section>
-      <section id="awards" class="awards">
-        <div class="container">
-          <h1 class="title">Наші нагороди</h1>
-          <div class="row">
-            <div class="awards-item">
-              <img src="/src/assets/images/awards-1.jpg" alt="award image" />
-            </div>
-            <div class="awards-item">
-              <img src="/src/assets/images/awards-2.jpg" alt="award image" />
-            </div>
-            <div class="awards-item">
-              <img src="/src/assets/images/awards-3.jpg" alt="award image" />
-            </div>
-            <div class="awards-item">
-              <img src="/src/assets/images/awards-4.jpg" alt="award image" />
-            </div>
-            <div class="awards-item">
-              <img src="/src/assets/images/awards-5.png" alt="award image" />
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
 
-    <footer class="footer">
-      <div class="container">
-        <a class="logo" href="/">
-          <img src="/src/assets/images/logo.svg" alt="heart icon" />
-          <span>FixHealth</span>
-        </a>
-        <ul class="footer-list">
-          <li class="footer-title">Клієнтам</li>
-          <li>
-            <a href="/">Політика щодо класифікації наукових даних</a>
-          </li>
-          <li>
-            <a href="/">Політика конфіденційності</a>
-          </li>
-          <li>
-            <a href="/">Правила програми лояльності мережі аптек</a>
-          </li>
-          <li>
-            <a href="/">Політика публікації коментарів і відгуків</a>
-          </li>
-          <li>
-            <a href="/">Психологічна підтримка для клієнтів мережі</a>
-          </li>
-          <li>
-            <a href="/">Редакційна політика</a>
-          </li>
-          <li>
-            <a href="/">Умови повернення товарів</a>
-          </li>
-          <li>
-            <a href="/">Угода про використання</a>
-          </li>
-          <li>
-            <a href="/">Маркетингова політика</a>
-          </li>
-          <li>
-            <a href="/">Способи оплати</a>
-          </li>
-          <li>
-            <a href="">Доставка</a>
-          </li>
-          <li>
-            <a href="/">Гарантії якості</a>
-          </li>
-        </ul>
-        <ul class="footer-list">
-          <li class="footer-title">Компанія</li>
-          <li>
-            <a href="/">Про нас</a>
-          </li>
-          <li>
-            <a href="/">Контакти</a>
-          </li>
-          <li>
-            <a href="/">Команда</a>
-          </li>
-        </ul>
-        <ul class="footer-list">
-          <li class="footer-title">Контакти</li>
-          <li>
-            <a href="tel:+16282806518">Номер телефону: (+38) 068 280 6518</a>
-          </li>
-          <li>
-            <a href="mailto:oleksandr_alfredo@gmail.com">
-              Пошта: fixHealth@gmail.com
+        <a href="/catalog?categoryId=669786ea6da4b7b85823a3b4" class="link">Пуфи</a>
+        <ul class="dropdown-underlist"></ul>
+        <a href="/catalog?categoryId=669786ea6da4b7b85823a3b4" class="link">Ліжка</a>
+        <ul class="dropdown-underlist"></ul>
+        <a class="link" href="#about">Про нас</a>
+
+      </nav>
+
+
+    </div>
+  </header>
+
+  <main class="home container">
+
+    <section class="section-h-main">
+      <article class="container">
+        <h3 class="section-title">
+          <b></b>
+          <span class="section-title-main">дивани</span>
+          <b></b>
+        </h3>
+      </article>
+    </section>
+
+    <section class="section-block-main">
+      <article class="article-block-main">
+        <div class="wrapper-block-main">
+          <h3>Дивани</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum possimus commodi iusto molestias
+            cupiditate quas consectetur nemo animi maxime eligendi quia id vitae laudantium quasi eveniet culpa,
+            assumenda et illo delectus magni explicabo, totam deserunt. Eaque beatae minus vero vitae! Aperiam corrupti
+            enim delectus dicta accusantium, quasi dolore optio mollitia.</p>
+        </div>
+        <img src="/src/assets/images/TIFFANY-F-1200x800.jpg">
+      </article>
+    </section>
+
+    <section class="section-category-sofa-main">
+      <article class="article-category-sofa-main">
+        <h1>КАТЕГОРІЇ ДИВАНІВ</h1>
+        <div class="sofa-categoryes">
+          <section class="sofa-category">
+            <div class="border"></div>
+            <a href="/catalog?underCategoryId=669e1cb66704fe349a912721">
+              <h5>Прямі дивани</h5>
+              <figure>
+                <!-- <img src="/src/assets/images/169a5ab20515ce0ee7d87c911eae0158.webp"> -->
+                <img src="/src/assets/images/straight sofas/p1_1.jpg">
+              </figure>
             </a>
-          </li>
-          <li>
-            <a href="/">Адресса: Україна, Вінниця, вул. Київська</a>
-          </li>
-        </ul>
-        <div class="footer-apps">
-          <p class="footer-title">Завантажуйте наш додаток</p>
-          <div class="row">
-            <a href="/">
-              <img
-                src="/src/assets/images/app-store.png"
-                alt="app store image"
-              />
+          </section>
+
+          <section class="sofa-category">
+            <div class="border"></div>
+            <a href="/catalog?underCategoryId=669e1cbe6704fe349a912725">
+              <h5>Кутові дивани</h5>
+              <figure>
+                <!-- <img src="/src/assets/images/01-720x400.webp"> -->
+                <img src="/src/assets/images/corner sofas/k1_1.png">
+              </figure>
             </a>
-            <a href="/">
-              <img
-                src="/src/assets/images/google-play.png"
-                alt="google play image"
-              />
+          </section>
+
+
+
+          <section class="sofa-category">
+            <div class="border"></div>
+            <a href="/catalog?underCategoryId=669e1cc66704fe349a912729">
+              <h5>Модульні дивани</h5>
+              <figure>
+                <!-- <img src="/src/assets/images/BALI-Comfort-700x450-02-291x187.png"> -->
+                <img src="/src/assets/images/modular sofas/m1_1.png">
+              </figure>
             </a>
-            <a href="/">
-              <img src="/src/assets/images/telegram.png" alt="telegram image" />
+          </section>
+        </div>
+      </article>
+    </section>
+
+    <section class="section-h-main">
+      <article class="container">
+        <h3 class="section-title">
+          <b></b>
+          <span class="section-title-main">пуфи</span>
+          <b></b>
+        </h3>
+      </article>
+    </section>
+
+    <section class="section-block-main">
+      <article class="article-block-main-reverse ">
+        <div class="wrapper-block-main-reverse">
+          <h3>Пуфи</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum possimus commodi iusto molestias
+            cupiditate quas consectetur nemo animi maxime eligendi quia id vitae laudantium quasi eveniet culpa,
+            assumenda et illo delectus magni explicabo, totam deserunt. Eaque beatae minus vero vitae! Aperiam corrupti
+            enim delectus dicta accusantium, quasi dolore optio mollitia.</p>
+        </div>
+        <img src="/src/assets/images/sofabuyingguide-2048px-benchmademoderncream.jpg">
+      </article>
+    </section>
+
+    <section class="section-category-sofa-main">
+      <article class="article-category-sofa-main">
+        <h1>КАТЕГОРІЇ ПУФІВ</h1>
+        <div class="sofa-categoryes puf">
+          <section class="sofa-category margin-puf">
+            <div class="border"></div>
+            <a href="#">
+              <h5>Прямі дивани</h5>
+              <figure>
+                <img src="/src/assets/images/169a5ab20515ce0ee7d87c911eae0158.webp">
+              </figure>
             </a>
-            <a href="/">
-              <img src="/src/assets/images/viber.png" alt="viber image" />
+          </section>
+
+          <section class="sofa-category">
+            <div class="border"></div>
+            <a href="#">
+              <h5>Кутові дивани</h5>
+              <figure>
+                <img src="/src/assets/images/01-720x400.webp">
+              </figure>
             </a>
-          </div>
+          </section>
+
+
+
+        </div>
+      </article>
+    </section>
+
+    <section class="section-h-main">
+      <article class="container">
+        <h3 class="section-title">
+          <b></b>
+          <span class="section-title-main">ліжка</span>
+          <b></b>
+        </h3>
+      </article>
+    </section>
+
+    <section class="section-block-main">
+      <article class="article-block-main">
+        <div class="wrapper-block-main">
+          <h3>Ліжка</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum possimus commodi iusto molestias
+            cupiditate quas consectetur nemo animi maxime eligendi quia id vitae laudantium quasi eveniet culpa,
+            assumenda et illo delectus magni explicabo, totam deserunt. Eaque beatae minus vero vitae! Aperiam corrupti
+            enim delectus dicta accusantium, quasi dolore optio mollitia.</p>
+        </div>
+        <img src="/src/assets/images/sofabuyingguide-2048px-benchmademoderncream.jpg">
+      </article>
+    </section>
+
+    <section class="section-category-sofa-main">
+      <article class="article-category-sofa-main">
+        <h1>КАТЕГОРІЇ ЛІЖОК</h1>
+        <div class="sofa-categoryes">
+          <section class="sofa-category">
+            <div class="border"></div>
+            <a href="#">
+              <h5>Прямі дивани</h5>
+              <figure>
+                <img src="/src/assets/images/169a5ab20515ce0ee7d87c911eae0158.webp">
+              </figure>
+            </a>
+          </section>
+
+          <section class="sofa-category">
+            <div class="border"></div>
+            <a href="#">
+              <h5>Кутові дивани</h5>
+              <figure>
+                <img src="/src/assets/images/01-720x400.webp">
+              </figure>
+            </a>
+          </section>
+
+          <section class="sofa-category">
+            <div class="border"></div>
+            <a href="#">
+              <h5>Підлокітники-тумбочки</h5>
+              <figure>
+                <img src="/src/assets/images/BALI-Comfort-700x450-02-291x187.png">
+              </figure>
+            </a>
+          </section>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <a class="logo" href="/">
+        <img src="/src/assets/images/logo-sofa-gg.png" alt="heart icon" />
+        <span>МійДиванчик</span>
+      </a>
+      <ul class="footer-list">
+        <li class="footer-title">Клієнтам</li>       
+        <li>
+          <a href="/">Способи оплати</a>
+        </li>
+        <li>
+          <a href="">Доставка</a>
+        </li>
+        <li>
+          <a href="/">Гарантії якості</a>
+        </li>
+      </ul>
+      <ul class="footer-list">
+        <li class="footer-title">Компанія</li>
+        <li>
+          <a href="/">Про нас</a>
+        </li>
+        <li>
+          <a href="/">Контакти</a>
+        </li>
+        <li>
+          <a href="/">Команда</a>
+        </li>
+      </ul>
+      <ul class="footer-list">
+        <li class="footer-title">Контакти</li>
+        <li>
+          <a href="tel:+16282806518">Номер телефону: (+38) 068 280 6518</a>
+        </li>
+        <li>
+          <a href="mailto:oleksandr_alfredo@gmail.com">
+            Пошта: fixHealth@gmail.com
+          </a>
+        </li>
+        <li>
+          <a href="/">Адреса: Україна, Харків, вул. Київська</a>
+        </li>
+      </ul>
+      <div class="footer-apps">
+        <p class="footer-title">Завантажуйте наш додаток</p>
+        <div class="row">
+          <a href="/">
+            <img src="/src/assets/images/app-store.png" alt="app store image" />
+          </a>
+          <a href="/">
+            <img src="/src/assets/images/google-play.png" alt="google play image" />
+          </a>
+          <a href="/">
+            <img src="/src/assets/images/telegram.png" alt="telegram image" />
+          </a>
+          <a href="/">
+            <img src="/src/assets/images/viber.png" alt="viber image" />
+          </a>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script
-      type="text/javascript"
-      src="/src/functionality/modules/base.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="/src/functionality/modules/home.js"
-    ></script>
-  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const burgerMenu = document.getElementById('burger-menu');
+      const mobileNav = document.getElementById('mobile-nav');
+
+      burgerMenu.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropdownTrigger = document.querySelector('.dropdown-trigger-chat');
+      const dropdown = document.querySelector('.dropdown-chat');
+
+      dropdownTrigger.addEventListener('click', () => {
+        dropdown.classList.toggle('active-chat');
+      });
+
+      // Закрити дропдаун, якщо натиснути за межами його області
+      window.addEventListener('click', (event) => {
+        if (!event.target.matches('.dropdown-trigger-chat')) {
+          if (dropdown.classList.contains('active-chat')) {
+            dropdown.classList.remove('active-chat');
+          }
+        }
+      });
+    });
+
+    document.getElementById('burger-menu').addEventListener('click', function () {
+      const searchTrigger = document.getElementById('search-trigger');
+
+      // Додаємо або прибираємо клас для зміни стилів
+      searchTrigger.classList.toggle('active');
+    });
+  </script>
+  <script src="https://kit.fontawesome.com/5a988ad254.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="text/javascript" src="/src/functionality/modules/base.js"></script>
+  <script type="text/javascript" src="/src/functionality/modules/home.js"></script>
+</body>
+
 </html>

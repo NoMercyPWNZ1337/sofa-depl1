@@ -1,6 +1,7 @@
 .footer {
   padding: 40px 0;
-  box-shadow: -1px 6px 22.5px -8px #dddddd;
+  box-shadow: 0px 2px 7.5px 6px #3d2808;
+    background: #3d2808;
 }
 
 .footer .container {
@@ -13,7 +14,7 @@
 .footer .footer-title {
   font-size: 17px;
   margin-bottom: 6px;
-  color: #07d325;
+  /* color: #07d325; */
 }
 
 .footer .footer-list {

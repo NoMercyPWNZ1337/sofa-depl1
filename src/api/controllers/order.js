@@ -4,7 +4,7 @@ import Order from '../models/order.js'
 import Product from '../models/product.js'
 
 const changeStatus = ({ status }) => {
-  if (Math.random() > 0.3) return 'Скасовано'
+  if (Math.random() < 0.3) return 'Скасовано'
   if (status === 'Комплектується') return 'Відправлено'
   if (status === 'Відправлено') return 'Доставлено'
 
@@ -22,7 +22,8 @@ const changeStatusOrder = async ({ userId }) => {
         continue
       }
 
-      const updateDate = order.creationTime + order.updateHour * 3.6e6
+      // const updateDate = order.creationTime + order.updateHour * 3.6e6
+      const updateDate = order.creationTime + order.updateHour 
       const currentDate = new Date().getTime()
 
       if (currentDate >= updateDate) {
@@ -111,7 +112,8 @@ const create = async (req, res) => {
       date: req.body.date,
       address: req.body.address,
       creationTime: new Date().getTime(),
-      updateHour: Math.floor(Math.random() * (6 - 1 + 1) + 1),
+      // updateHour: Math.floor(Math.random() * (6 - 1 + 1) + 1),
+      updateHour: 10000,
     })
 
     await order.save()

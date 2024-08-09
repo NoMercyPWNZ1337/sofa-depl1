@@ -5,7 +5,7 @@
   list-style: none;
   font-family: Roboto;
   box-sizing: border-box;
-  color: #4d4d4d;
+  color: #fffbf2;
 }
 
 input,
@@ -28,6 +28,10 @@ a {
 }
 
 a:hover {
-  color: #07d325;
-  transition: color 0.2s;
+  text-shadow: 2px 3px 3px #fffbf2;
+  transition: all 0.2s ease;
+}
+
+a:not(:hover) {
+  transition: all 0.5s ease;
 }

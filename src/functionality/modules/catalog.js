@@ -56,7 +56,9 @@ const searchProducts = async ({ searchQuery }) => {
 
     if (responseManufactures.manufactures.length) {
       DOM.manufacturesWraper.classList.add('active')
-      const manufacturesListHtml = responseManufactures.manufactures.map(
+      const sortedManufactures = responseManufactures.manufactures.sort((a, b) => a.localeCompare(b))
+      // const manufacturesListHtml = responseManufactures.manufactures.map(
+      const manufacturesListHtml = sortedManufactures.map(
         manufacturer => {
           return `
             <label for="${manufacturer}">
@@ -86,17 +88,20 @@ const searchProducts = async ({ searchQuery }) => {
     const minPrice = e.target.min.value
     const maxPrice = e.target.max.value
     const withDiscounted = e.target.withDiscounted.checked
-    const withRecipe = e.target.withRecipe.checked
+    // const withRecipe = e.target.withRecipe.checked
     const params = Object.fromEntries(new URLSearchParams(searchQuery))
 
     if (minPrice) params.minPrice = minPrice
     if (maxPrice) params.maxPrice = maxPrice
-    if (withRecipe) params.withRecipe = withRecipe
+    // if (withRecipe) params.withRecipe = withRecipe
     if (withDiscounted) params.withDiscounted = withDiscounted
     if (checkedManufacturer.length) {
       params.manufactures = JSON.stringify(checkedManufacturer)
     }
 
+    // products.sort((a, b) => a.name.localeCompare(b.name));
+
+    
     const generateSearchQuery = new URLSearchParams(params)
     const queryString = '?' + generateSearchQuery.toString()
 

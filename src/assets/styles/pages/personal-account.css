@@ -1,14 +1,30 @@
+/* *{
+  background: white;
+  color: black;
+} */
+
 .personal {
   margin: 70px 0 70px;
 }
 
 .personal .links {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr;
   align-self: start;
   gap: 15px 0;
   position: sticky;
+  top: 0; */
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  align-self: start;
+  gap: 15px 0;
+  position: sticky;
   top: 0;
+  background: #02925408;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .personal .links .link.active {
@@ -19,14 +35,21 @@
   display: grid;
   grid-template-columns: max-content 1fr;
   gap: 0 70px;
+  padding: 10px 0;
 }
 
 .personal .personal-content {
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 40px;
   border-radius: 5px;
+  background-color: #fff; */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  border-radius: 20px;
   background-color: #fff;
+  background: #02925408;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .personal .personal-content .product .product-title {
@@ -88,6 +111,8 @@
 
 .personal .personal-content .product .product-quantity .btn {
   font-size: 18px;
+  background: white;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .personal .personal-content .product .product-quantity .btn[name='minus'] {
@@ -96,15 +121,29 @@
 }
 
 .personal .personal-content .product .btn[data-remove-id] {
-  grid-area: product-remove;
-  align-self: end;
+  /* grid-area: product-remove; */
+  grid-area: 2 / 2;
+  align-self: unset;
+  background: white;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.personal .personal-content #submit-order{
+  background: white;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.personal .personal-content .product .product-quantity+.btn[data-remove-id] {
+  grid-area: 1 / 3;
+  height: 50px;
+  align-self: center;
 }
 
 .personal .personal-content .product .product-image {
   grid-area: product-image;
-  width: 100%;
+  width: 180px;
   height: auto;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
 .personal .personal-content .shopping-cart,
@@ -130,11 +169,15 @@
 .personal .personal-content .product {
   display: grid;
   gap: 0 20px;
-  grid-template-columns: 0.5fr 1fr max-content;
+  grid-template-columns: 0.5fr 2fr max-content;
   grid-template-areas:
     'product-image product-title product-remove'
     'product-image product-stock product-stock'
     'product-image product-price product-quantity';
+}
+
+.personal .personal-content .product a {
+  grid-area: 4 / 1 / 1;
 }
 
 .personal .personal-content .row {
@@ -188,7 +231,7 @@
 
 .personal .personal-content .orders-history .order .order-products li {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 0 20px;
 }
 
@@ -235,4 +278,168 @@
 
 .personal .personal-content .account-form .row-btns .btn#admin-panel.show {
   display: block;
+}
+
+
+
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #f7fcfa;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin: 10px 0;
+}
+
+#address-input {
+  margin: 20px 0;
+  align-self: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 17px;
+  transition: border-color 0.2s;
+  background: white;
+  width: 100%;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  align-self: end;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#map {
+  width: 100%;
+  height: 450px;
+  position: relative;
+  border-radius: 20px;
+}
+
+.autocomplete-suggestions {
+  border: 1px solid #ddd;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: white;
+  position: absolute;
+  z-index: 9999;
+  margin-top: 143px;
+}
+
+.autocomplete-suggestion {
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.autocomplete-suggestion:hover {
+  background-color: #ddd;
+}
+
+#submit-address {
+  grid-area: btn;
+  padding: 8px 70px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  width: max-content;
+  font-size: 15px;
+  justify-self: end;
+  transition: border-color 0.2s, color 0.2s;
+  margin-top: 20px;
+  align-self: center;
+  background: white;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+#submit-address:hover {
+  border-color: #07d325;
+  color: #07d325;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+@media (max-width: 1000px) {
+  .personal .container {
+    grid-template-columns: auto;
+  }
+
+  .personal .links {
+    margin-bottom: 25px;
+  }
+
+  .personal .personal-content .account-form .row-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .personal .personal-content .product {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 25px;
+    align-items: center;
+  }
+
+
+  .personal .personal-content .product .product-quantity {
+    display: flex;
+    align-self: center;
+  }
+
+  .personal .personal-content #submit-order-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 25px;
+  }
+
+  .personal .personal-content .orders-history .order {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .personal .personal-content .orders-history .order .order-info {
+    align-items: center;
+  }
+
+  .personal .personal-content .orders-history .order .order-products li {
+    grid-template-columns: auto;
+    gap: 10px;
+  }
+
+  .personal .personal-content .orders-history .order .order-products {
+    margin-bottom: 20px;
+  }
+
+  .personal .personal-content .product .product-image {
+    width: 250px;
+  }
 }

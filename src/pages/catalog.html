@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Каталог | FixHealth</title>
+    <title>Каталог | МійДиванчик</title>
     <link rel="stylesheet" href="/src/assets/styles/index.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -14,8 +15,8 @@
     <header id="header" class="header">
       <div class="container">
         <a class="logo" href="/">
-          <img src="/src/assets/images/logo.svg" alt="heart icon" />
-          <span>FixHealth</span>
+          <img src="/src/assets/images/logo-sofa-gg.png" alt="heart icon" />
+          <span>МійДиванчик</span>
         </a>
 
         <nav class="links">
@@ -23,28 +24,29 @@
             <a href="/catalog" class="link dropdown-trigger">Каталог</a>
             <ul id="dropdown-list" class="dropdown-list"></ul>
           </div>
-          <a class="link" href="/#awards">Наші ногороди</a>
+          <!-- <a class="link" href="/#awards">Наші нагороди</a> -->
           <a class="link" href="/#about">Про нас</a>
         </nav>
 
         <div class="row">
           <div id="search" class="search">
             <div id="search-bg" class="search-bg"></div>
-            <button type="submit" id="search-trigger" class="search-trigger">
+            <button type="none" id="search-trigger" class="search-trigger">
               <img src="/src/assets/images/search.svg" alt="search icon" />
+              <span>Пошук</span>
             </button>
             <form id="search-form" class="search-form">
-              <input name="search" type="text" class="search-input" />
+              
               <button type="submit" class="search-btn">
                 <img src="/src/assets/images/search.svg" alt="search icon" />
               </button>
-
+              <input name="search" type="text" class="search-input" />
               <ul id="product-list" class="search-list"></ul>
-              <ul id="analog-list" class="search-list"></ul>
+              <ul id="analog-list" class="search-list search-list-analog"></ul>
             </form>
           </div>
 
-          <div class="service">
+          <!-- <div class="service">
             <a href="/method-nakatani">
               <img
                 src="/src/assets/images/health-monitor.svg"
@@ -62,14 +64,14 @@
           <a href="/personal-account/shopping-cart" id="basket" class="basket">
             <img src="/src/assets/images/basket.svg" alt="basket icon" />
             <span id="basket-quantity"></span>
-          </a>
+          </a> -->
 
-          <a href="/personal-account" class="user">
+          <!-- <a href="/personal-account" class="user">
             <img src="/src/assets/images/user.svg" alt="user icon" />
-          </a>
+          </a> -->
         </div>
 
-        <div id="menu" class="menu">
+        <!-- <div id="menu" class="menu">
           <img
             data-open-menu="true"
             src="/src/assets/images/menu.svg"
@@ -80,7 +82,42 @@
             src="/src/assets/images/close-menu.svg"
             alt="close menu icon"
           />
-        </div>
+        </div> -->
+        <button class="burger-menu" id="burger-menu">
+          <img src="/src/assets/images/bars-solid (1).svg" alt="burger menu icon" />
+        </button>
+        <nav class="mobile-nav" id="mobile-nav">
+          <!-- <div id="search" class="search">
+            <button type="none" id="search-trigger-mobile" class="search-trigger">
+              <img src="/src/assets/images/search.svg" alt="search icon" />
+              <span>Пошук</span>
+            </button>
+          </div> -->
+          <a href="/catalog" class="link">Усі товари</a>
+          <!-- <a href="/catalog?categoryId=669786ea6da4b7b85823a3b4" class="link">Дивани</a> -->
+          <div class="dropdown-chat">
+            <button class="dropdown-trigger-chat">Дивани</button>
+            <ul class="dropdown-content-chat">
+              <li class="underlist-item-mobile">
+                <a href="/catalog?underCategoryId=669e1cb66704fe349a912721" class="list-link">Прямі дивани</a>
+              </li>
+              <li class="underlist-item-mobile">
+                <a href="/catalog?underCategoryId=669e1cbe6704fe349a912725" class="list-link">Кутові дивани</a>
+              </li>
+              <li class="underlist-item-mobile">
+                <a href="/catalog?underCategoryId=669e1cc66704fe349a912729" class="list-link">Модульні дивани</a>
+              </li>
+            </ul>
+          </div>
+  
+          <a href="/catalog?categoryId=669786ea6da4b7b85823a3b4" class="link">Пуфи</a>
+          <ul class="dropdown-underlist"></ul>
+          <a href="/catalog?categoryId=669786ea6da4b7b85823a3b4" class="link">Ліжка</a>
+          <ul class="dropdown-underlist"></ul>
+          <a class="link" href="#about">Про нас</a>
+  
+        </nav>
+
       </div>
     </header>
 
@@ -103,10 +140,10 @@
             </div>
 
             <div class="filters-row">
-              <label class="form-checkbox" for="withRecipe">
+              <!-- <label class="form-checkbox" for="withRecipe">
                 <input id="withRecipe" type="checkbox" name="withRecipe" />
                 З рецептом
-              </label>
+              </label> -->
               <label class="form-checkbox" for="withDiscounted">
                 <input
                   id="withDiscounted"
@@ -135,38 +172,11 @@
     <footer class="footer">
       <div class="container">
         <a class="logo" href="/">
-          <img src="/src/assets/images/logo.svg" alt="heart icon" />
-          <span>FixHealth</span>
+          <img src="/src/assets/images/logo-sofa-gg.png" alt="heart icon" />
+        <span>МійДиванчик</span>
         </a>
         <ul class="footer-list">
-          <li class="footer-title">Клієнтам</li>
-          <li>
-            <a href="/">Політика щодо класифікації наукових даних</a>
-          </li>
-          <li>
-            <a href="/">Політика конфіденційності</a>
-          </li>
-          <li>
-            <a href="/">Правила програми лояльності мережі аптек</a>
-          </li>
-          <li>
-            <a href="/">Політика публікації коментарів і відгуків</a>
-          </li>
-          <li>
-            <a href="/">Психологічна підтримка для клієнтів мережі</a>
-          </li>
-          <li>
-            <a href="/">Редакційна політика</a>
-          </li>
-          <li>
-            <a href="/">Умови повернення товарів</a>
-          </li>
-          <li>
-            <a href="/">Угода про використання</a>
-          </li>
-          <li>
-            <a href="/">Маркетингова політика</a>
-          </li>
+          <li class="footer-title">Клієнтам</li>          
           <li>
             <a href="/">Способи оплати</a>
           </li>
@@ -229,6 +239,40 @@
       </div>
     </footer>
 
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+      const burgerMenu = document.getElementById('burger-menu');
+      const mobileNav = document.getElementById('mobile-nav');
+
+      burgerMenu.addEventListener('click', () => {
+        mobileNav.classList.toggle('active');
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropdownTrigger = document.querySelector('.dropdown-trigger-chat');
+      const dropdown = document.querySelector('.dropdown-chat');
+
+      dropdownTrigger.addEventListener('click', () => {
+        dropdown.classList.toggle('active-chat');
+      });
+
+      // Закрити дропдаун, якщо натиснути за межами його області
+      window.addEventListener('click', (event) => {
+        if (!event.target.matches('.dropdown-trigger-chat')) {
+          if (dropdown.classList.contains('active-chat')) {
+            dropdown.classList.remove('active-chat');
+          }
+        }
+      });
+    });
+    document.getElementById('burger-menu').addEventListener('click', function () {
+      const searchTrigger = document.getElementById('search-trigger');
+
+      // Додаємо або прибираємо клас для зміни стилів
+      searchTrigger.classList.toggle('active');
+    });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script
       type="text/javascript"

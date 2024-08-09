@@ -12,9 +12,14 @@ const actualDOM = () => {
   }
 }
 
+
+{/* <span class="link-manufacturer">
+Виробник: ${product.manufacturer}
+</span> */}
 const productTemplate = ({ product }) => {
   return `
     <li>
+    
       <a 
         class="
           search-link
@@ -22,10 +27,9 @@ const productTemplate = ({ product }) => {
         "
         href="/product?productId=${product._id}"
       >
+      <img src="${product.image}">
         <span class="link-title">${product.name}</span>
-        <span class="link-manufacturer">
-          Виробник: ${product.manufacturer}
-        </span>
+       
         <span class="link-price">
           Ціна: 
           <span>${product.price} грн</span>
@@ -54,6 +58,12 @@ export const searchProduct = async () => {
     DOM.wraperSearchForm.classList.add('active')
     searchInput.focus()
   })
+
+    // DOM.showSearchFormBtnMobile.addEventListener('click', () => {
+  //   document.body.style.overflow = 'hidden'
+  //   DOM.wraperSearchForm.classList.add('active')
+  //   searchInput.focus()
+  // })
 
   DOM.searchBgForHideForm.addEventListener('click', () => {
     DOM.wraperSearchForm.classList.remove('active')
@@ -105,7 +115,7 @@ export const searchProduct = async () => {
 
         if (responseProducts.analogProducts.length) {
           DOM.searchAnalogList.innerHTML = `
-            <h4>Аналогічні товари: </h4>
+            <h4>Товари аналогічні дії: </h4>
             ${analogListHtml}
           `
 
